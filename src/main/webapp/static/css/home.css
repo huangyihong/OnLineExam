@@ -1,0 +1,33 @@
+.head {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 120px;
+	border: 1px solid #000
+}
+
+.left {
+	position: absolute;
+	top: 120px;
+	left: 0px;
+	width: 20%;
+	height: 100%;
+	border: 1px solid #000
+}
+
+.right {
+	position: absolute;
+	top: 120px;
+	left: 20%;
+	width: 100%;
+	height: 100%;
+	border: 1px solid #000
+}
+
+.logout_button {
+	position: absolute;
+	right: 2%;
+	bottom: 2px;
+	border: 1px solid #000
+}

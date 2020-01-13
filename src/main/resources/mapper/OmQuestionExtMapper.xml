@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.plg.shiro.dao.OmQuestionExtMapper">
+  <resultMap id="BaseResultMap" type="com.plg.shiro.entity.OmQuestion">
+    <id column="question_id" jdbcType="VARCHAR" property="questionId" />
+    <result column="question_name" jdbcType="VARCHAR" property="questionName" />
+    <result column="option_a" jdbcType="VARCHAR" property="optionA" />
+    <result column="option_b" jdbcType="VARCHAR" property="optionB" />
+    <result column="option_c" jdbcType="VARCHAR" property="optionC" />
+    <result column="option_d" jdbcType="VARCHAR" property="optionD" />
+    <result column="right_result" jdbcType="VARCHAR" property="rightResult" />
+    <result column="question_score" jdbcType="INTEGER" property="questionScore" />
+    <result column="question_type" jdbcType="VARCHAR" property="questionType" />
+    <result column="course_id" jdbcType="VARCHAR" property="courseId" />
+    <result column="course_name" jdbcType="VARCHAR" property="courseName" />
+    <result column="answer_order" jdbcType="VARCHAR" property="answerOrder" />
+    <result column="is_artificial" jdbcType="VARCHAR" property="isArtificial" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="deleted" jdbcType="VARCHAR" property="deleted" />
+    <result column="option_e" jdbcType="VARCHAR" property="optionE" />
+    <result column="option_f" jdbcType="VARCHAR" property="optionF" />
+    <result column="option_g" jdbcType="VARCHAR" property="optionG" />
+    <result column="option_h" jdbcType="VARCHAR" property="optionH" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    question_id, question_name, option_a, option_b, option_c, option_d, right_result, 
+    question_score, question_type, course_id, course_name, answer_order, is_artificial, 
+    create_time, update_time, deleted, option_e, option_f, option_g, option_h
+  </sql>
+  <select id="selectByExample" parameterType="com.plg.shiro.entity.OmQuestionExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from om_question
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    order by rand() limit ${limitPageSize}
+  </select>
+  <select id="selectPaperQuestion" parameterType="java.lang.String"  resultMap="BaseResultMap">
+    select t.* from om_question t,om_paper_question t1 where t.question_id = t1.question_id and t.deleted='0' 
+    and t1.paper_id = #{paperId,jdbcType=VARCHAR}
+    order by t1.question_order 
+  </select>
+  <select id="selectUserPaperQuestion" parameterType="com.plg.shiro.entity.OmPaperQuestion"  resultMap="BaseResultMap">
+    select t.question_id, t.question_name, t.option_a, t.option_b, t.option_c, t.option_d, t.right_result, 
+     t.question_type, t.course_id, t.course_name, t.answer_order, t.is_artificial, 
+     t.create_time, t.update_time, t.deleted, t.option_e, t.option_f, t.option_g, t.option_h,
+     t1.question_score as question_score
+     from om_question t,om_paper_question t1 where t.question_id = t1.question_id and t.deleted='0' 
+      <if test="paperId != null">
+        and t1.paper_id = #{paperId,jdbcType=VARCHAR}
+      </if>
+      <if test="userId != null">
+        and t1.user_id = #{userId,jdbcType=VARCHAR}
+      </if>
+      <if test="questionId != null">
+        and t1.question_id = #{questionId,jdbcType=VARCHAR}
+      </if>
+    order by t1.question_order 
+  </select>
+</mapper>

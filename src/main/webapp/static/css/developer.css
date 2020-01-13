@@ -1,0 +1,99 @@
+/*研发人员新增样式*/
+.ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.layui-table-cell .layui-table-link {
+    color: #3291f2;
+}
+
+.layui-layer-iframe .layui-layer-btn {
+    text-align: center;
+}
+
+/*菜单收缩切换*/
+.dislpayArrow {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 100%;
+    z-index: 10
+}
+
+.dislpayArrow a {
+    position: absolute;
+    display: block;
+    width: 17px;
+    height: 61px;
+    transform: translateY(-80px);
+    top: 50%;
+    outline: none
+}
+
+.dislpayArrow a.open {
+    background-position: 0 -61px
+}
+
+.dislpayArrow a:hover {
+    text-decoration: none;
+    background-position: right 0
+}
+
+.dislpayArrow a.open:hover {
+    background-position: right -61px
+}
+
+.dislpayArrow a {
+    background: url(../images/icon_arrow.png) no-repeat 0 0;
+    outline: none
+}
+
+/* 侧边栏*/
+.menuLeftArea {
+    float: left;
+    width: 17%;
+    height: 100%;
+    position: relative;
+    transition: margin-left 0.2s;
+}
+
+.menuLeft {
+    overflow: auto;
+    height: 100%;
+}
+
+.rightArea {
+    float: right;
+    width: 83%;
+    transition: width 0.2s;
+}
+
+/* 去除滚动条 */
+/*webkit内核*/
+.noScrollBar::-webkit-scrollbar {
+    display: none;
+}
+
+/*IE10,IE11,IE12*/
+.noScrollBar {
+    -ms-scroll-chaining: chained;
+    -ms-overflow-style: none;
+    -ms-content-zooming: zoom;
+    -ms-scroll-rails: none;
+    -ms-content-zoom-limit-min: 100%;
+    -ms-content-zoom-limit-max: 500%;
+    -ms-scroll-snap-type: proximity;
+    -ms-scroll-snap-points-x: snapList(100%, 200%, 300%, 400%, 500%);
+    -ms-overflow-style: none;
+    overflow: auto;
+}
+
+/* 火狐 */
+html {
+    scrollbar-width: none;
+
+}

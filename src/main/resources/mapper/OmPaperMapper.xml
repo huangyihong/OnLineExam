@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.plg.shiro.dao.OmPaperMapper">
+  <resultMap id="BaseResultMap" type="com.plg.shiro.entity.OmPaper">
+    <id column="paper_id" jdbcType="VARCHAR" property="paperId" />
+    <result column="paper_name" jdbcType="VARCHAR" property="paperName" />
+    <result column="paper_score" jdbcType="INTEGER" property="paperScore" />
+    <result column="paper_time" jdbcType="INTEGER" property="paperTime" />
+    <result column="add_mode" jdbcType="VARCHAR" property="addMode" />
+    <result column="single_count" jdbcType="INTEGER" property="singleCount" />
+    <result column="multi_count" jdbcType="INTEGER" property="multiCount" />
+    <result column="judge_count" jdbcType="INTEGER" property="judgeCount" />
+    <result column="blank_count" jdbcType="INTEGER" property="blankCount" />
+    <result column="answer_count" jdbcType="INTEGER" property="answerCount" />
+    <result column="course_id" jdbcType="VARCHAR" property="courseId" />
+    <result column="course_name" jdbcType="VARCHAR" property="courseName" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="deleted" jdbcType="VARCHAR" property="deleted" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    paper_id, paper_name, paper_score, paper_time, add_mode, single_count, multi_count, 
+    judge_count, blank_count, answer_count, course_id, course_name, create_time, update_time, 
+    deleted
+  </sql>
+  <select id="selectByExample" parameterType="com.plg.shiro.entity.OmPaperExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from om_paper
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="limitStart != null and limitStart >=0" >
+	  limit ${limitStart}, ${limitPageSize}
+	</if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from om_paper
+    where paper_id = #{paperId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from om_paper
+    where paper_id = #{paperId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.plg.shiro.entity.OmPaperExample">
+    delete from om_paper
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.plg.shiro.entity.OmPaper">
+    insert into om_paper (paper_id, paper_name, paper_score, 
+      paper_time, add_mode, single_count, 
+      multi_count, judge_count, blank_count, 
+      answer_count, course_id, course_name, 
+      create_time, update_time, deleted
+      )
+    values (#{paperId,jdbcType=VARCHAR}, #{paperName,jdbcType=VARCHAR}, #{paperScore,jdbcType=INTEGER}, 
+      #{paperTime,jdbcType=INTEGER}, #{addMode,jdbcType=VARCHAR}, #{singleCount,jdbcType=INTEGER}, 
+      #{multiCount,jdbcType=INTEGER}, #{judgeCount,jdbcType=INTEGER}, #{blankCount,jdbcType=INTEGER}, 
+      #{answerCount,jdbcType=INTEGER}, #{courseId,jdbcType=VARCHAR}, #{courseName,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{deleted,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.plg.shiro.entity.OmPaper">
+    insert into om_paper
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="paperId != null">
+        paper_id,
+      </if>
+      <if test="paperName != null">
+        paper_name,
+      </if>
+      <if test="paperScore != null">
+        paper_score,
+      </if>
+      <if test="paperTime != null">
+        paper_time,
+      </if>
+      <if test="addMode != null">
+        add_mode,
+      </if>
+      <if test="singleCount != null">
+        single_count,
+      </if>
+      <if test="multiCount != null">
+        multi_count,
+      </if>
+      <if test="judgeCount != null">
+        judge_count,
+      </if>
+      <if test="blankCount != null">
+        blank_count,
+      </if>
+      <if test="answerCount != null">
+        answer_count,
+      </if>
+      <if test="courseId != null">
+        course_id,
+      </if>
+      <if test="courseName != null">
+        course_name,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="deleted != null">
+        deleted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="paperId != null">
+        #{paperId,jdbcType=VARCHAR},
+      </if>
+      <if test="paperName != null">
+        #{paperName,jdbcType=VARCHAR},
+      </if>
+      <if test="paperScore != null">
+        #{paperScore,jdbcType=INTEGER},
+      </if>
+      <if test="paperTime != null">
+        #{paperTime,jdbcType=INTEGER},
+      </if>
+      <if test="addMode != null">
+        #{addMode,jdbcType=VARCHAR},
+      </if>
+      <if test="singleCount != null">
+        #{singleCount,jdbcType=INTEGER},
+      </if>
+      <if test="multiCount != null">
+        #{multiCount,jdbcType=INTEGER},
+      </if>
+      <if test="judgeCount != null">
+        #{judgeCount,jdbcType=INTEGER},
+      </if>
+      <if test="blankCount != null">
+        #{blankCount,jdbcType=INTEGER},
+      </if>
+      <if test="answerCount != null">
+        #{answerCount,jdbcType=INTEGER},
+      </if>
+      <if test="courseId != null">
+        #{courseId,jdbcType=VARCHAR},
+      </if>
+      <if test="courseName != null">
+        #{courseName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.plg.shiro.entity.OmPaperExample" resultType="java.lang.Long">
+    select count(*) from om_paper
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update om_paper
+    <set>
+      <if test="record.paperId != null">
+        paper_id = #{record.paperId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paperName != null">
+        paper_name = #{record.paperName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paperScore != null">
+        paper_score = #{record.paperScore,jdbcType=INTEGER},
+      </if>
+      <if test="record.paperTime != null">
+        paper_time = #{record.paperTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.addMode != null">
+        add_mode = #{record.addMode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.singleCount != null">
+        single_count = #{record.singleCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.multiCount != null">
+        multi_count = #{record.multiCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.judgeCount != null">
+        judge_count = #{record.judgeCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.blankCount != null">
+        blank_count = #{record.blankCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.answerCount != null">
+        answer_count = #{record.answerCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.courseId != null">
+        course_id = #{record.courseId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.courseName != null">
+        course_name = #{record.courseName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null">
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.deleted != null">
+        deleted = #{record.deleted,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update om_paper
+    set paper_id = #{record.paperId,jdbcType=VARCHAR},
+      paper_name = #{record.paperName,jdbcType=VARCHAR},
+      paper_score = #{record.paperScore,jdbcType=INTEGER},
+      paper_time = #{record.paperTime,jdbcType=INTEGER},
+      add_mode = #{record.addMode,jdbcType=VARCHAR},
+      single_count = #{record.singleCount,jdbcType=INTEGER},
+      multi_count = #{record.multiCount,jdbcType=INTEGER},
+      judge_count = #{record.judgeCount,jdbcType=INTEGER},
+      blank_count = #{record.blankCount,jdbcType=INTEGER},
+      answer_count = #{record.answerCount,jdbcType=INTEGER},
+      course_id = #{record.courseId,jdbcType=VARCHAR},
+      course_name = #{record.courseName,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      deleted = #{record.deleted,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.plg.shiro.entity.OmPaper">
+    update om_paper
+    <set>
+      <if test="paperName != null">
+        paper_name = #{paperName,jdbcType=VARCHAR},
+      </if>
+      <if test="paperScore != null">
+        paper_score = #{paperScore,jdbcType=INTEGER},
+      </if>
+      <if test="paperTime != null">
+        paper_time = #{paperTime,jdbcType=INTEGER},
+      </if>
+      <if test="addMode != null">
+        add_mode = #{addMode,jdbcType=VARCHAR},
+      </if>
+      <if test="singleCount != null">
+        single_count = #{singleCount,jdbcType=INTEGER},
+      </if>
+      <if test="multiCount != null">
+        multi_count = #{multiCount,jdbcType=INTEGER},
+      </if>
+      <if test="judgeCount != null">
+        judge_count = #{judgeCount,jdbcType=INTEGER},
+      </if>
+      <if test="blankCount != null">
+        blank_count = #{blankCount,jdbcType=INTEGER},
+      </if>
+      <if test="answerCount != null">
+        answer_count = #{answerCount,jdbcType=INTEGER},
+      </if>
+      <if test="courseId != null">
+        course_id = #{courseId,jdbcType=VARCHAR},
+      </if>
+      <if test="courseName != null">
+        course_name = #{courseName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null">
+        deleted = #{deleted,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where paper_id = #{paperId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.plg.shiro.entity.OmPaper">
+    update om_paper
+    set paper_name = #{paperName,jdbcType=VARCHAR},
+      paper_score = #{paperScore,jdbcType=INTEGER},
+      paper_time = #{paperTime,jdbcType=INTEGER},
+      add_mode = #{addMode,jdbcType=VARCHAR},
+      single_count = #{singleCount,jdbcType=INTEGER},
+      multi_count = #{multiCount,jdbcType=INTEGER},
+      judge_count = #{judgeCount,jdbcType=INTEGER},
+      blank_count = #{blankCount,jdbcType=INTEGER},
+      answer_count = #{answerCount,jdbcType=INTEGER},
+      course_id = #{courseId,jdbcType=VARCHAR},
+      course_name = #{courseName,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      deleted = #{deleted,jdbcType=VARCHAR}
+    where paper_id = #{paperId,jdbcType=VARCHAR}
+  </update>
+</mapper>

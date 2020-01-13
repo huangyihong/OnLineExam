@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+ 
+  <!-- 开考1分钟执行一次 -->
+  <bean id="examPlanJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean"> 
+    <property name="targetObject"> 
+      <ref bean="examPlanJob"/> 
+    </property>  
+    <property name="targetMethod"> 
+      <value>startExam</value> 
+    </property> 
+  </bean>  
+  <bean id="cronTriggerBean_1" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean"> 
+    <property name="jobDetail" ref="examPlanJobDetail"/>  
+    <property name="cronExpression" value="0 0/1 * * * ?"/> 
+  </bean>  
+   <!-- 关闭考试1分钟执行一次 -->
+  <bean id="examPlanJob2Detail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean"> 
+    <property name="targetObject"> 
+      <ref bean="examPlanJob"/> 
+    </property>  
+    <property name="targetMethod"> 
+      <value>endExam</value> 
+    </property> 
+  </bean>  
+  <bean id="cronTriggerBean_2" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean"> 
+    <property name="jobDetail" ref="examPlanJob2Detail"/>  
+    <property name="cronExpression" value="0 0/1 * * * ?"/> 
+  </bean>  
+  <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean" lazy-init="false" autowire="no"> 
+    <property name="triggers"> 
+      <list> 
+        <ref bean="cronTriggerBean_1"/> 
+        <ref bean="cronTriggerBean_2"/> 
+      </list> 
+    </property> 
+  </bean> 
+</beans>

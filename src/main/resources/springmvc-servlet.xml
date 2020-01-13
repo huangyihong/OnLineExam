@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:task="http://www.springframework.org/schema/task" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd 
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context-4.0.xsd 
+	http://www.springframework.org/schema/task
+	http://www.springframework.org/schema/task/spring-task-4.0.xsd
+	http://www.springframework.org/schema/mvc 
+	http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
+
+	<!-- <mvc:annotation-driven /> 是一种简写形式，完全可以手动配置替代这种简写形式，简写形式可以让初学都快速应用默认配置方案。 
+		<mvc:annotation-driven /> 会自动注册DefaultAnnotationHandlerMapping与AnnotationMethodHandlerAdapter 
+		两个bean,是spring MVC为@Controllers分发请求所必须的。 并提供了：数据绑定支持，@NumberFormatannotation支持，@DateTimeFormat支持，@Valid支持，读写XML的支持（JAXB），读写JSON的支持（Jackson）。 
+		后面，我们处理响应ajax请求时，就使用到了对json的支持。 后面，对action写JUnit单元测试时，要从spring IOC容器中取DefaultAnnotationHandlerMapping与AnnotationMethodHandlerAdapter 
+		两个bean， 来完成测试，取的时候要知道是<mvc:annotation-driven />这一句注册的这两个bean。 当我们需要controller返回一个map的json对象时，可以设定<mvc:annotation-driven 
+		/>， 同时设定<mvc:message-converters> 标签，设定字符集和json处理类 http://kingliu.iteye.com/blog/1972973 -->
+	<mvc:annotation-driven>
+		<mvc:message-converters register-defaults="true">
+			<!-- 将StringHttpMessageConverter的默认编码设为UTF-8 -->
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+		    	<constructor-arg value="UTF-8" />
+			</bean>
+			<!-- 将Jackson2HttpMessageConverter的默认格式化输出设为true -->
+			<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                <property name="prettyPrint" value="true"/>
+                <property name="objectMapper">  
+                    <bean class="com.fasterxml.jackson.databind.ObjectMapper">  
+                        <property name="dateFormat">  
+                            <bean class="java.text.SimpleDateFormat">  
+                                <constructor-arg type="java.lang.String" value="yyyy-MM-dd HH:mm:ss" />  
+                            </bean>  
+                        </property>
+                        <property name="serializationInclusion">
+                            <value type="com.fasterxml.jackson.annotation.JsonInclude.Include">NON_NULL</value>
+                        </property>  
+                    </bean>  
+                </property> 
+            </bean>			
+  		</mvc:message-converters>
+	</mvc:annotation-driven>
+
+	<!-- 在springMVC-servlet.xml中配置<mvc:default-servlet-handler />后，会在Spring 
+		MVC上下文中定义一个 org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler， 
+		它会像一个检查员，对进入DispatcherServlet的URL进行筛查，如果发现是静态资源的请求， 就将该请求转由Web应用服务器默认的Servlet处理，如果不是静态资源的请求，才由DispatcherServlet继续处理。 -->
+	<!-- 容器默认的DefaultServletHandler处理 所有静态内容与无RequestMapping处理的URL-->	
+	<mvc:default-servlet-handler/>
+	
+	<!-- 定义无需Controller的url<->view直接映射 -->
+	<mvc:view-controller path="/" view-name="redirect:/admin/index" />
+
+	<!-- 扫描com.plg.springmvc及其子包下面自动扫描通过注解配置的组件，将自动发现带有@Controller注解的类， 并注册成Bean 
+		由于由于Spring MVC注脚方式service和controller的扫描顺序问题，而在springMVC配置文件中将Service注解给去掉 
+		注：http://www.myexception.cn/vc-mfc/418069.html -->
+	<context:component-scan base-package="com.plg.shiro.controller"
+		use-default-filters="false">
+		<context:include-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Service" />
+	</context:component-scan>
+
+	<!-- mapping="/static/**"的值表明路径必须以/static开始，而且也包括它的任意子路径 location="/static/*"表明要提供服务的文件路径 
+		以上配置表明，所有以/static路径开头的请求都会自动由应用程序根路径下的/static目录提供服务 -->
+	<mvc:resources location="/static/" mapping="/static/**"
+		cache-period="31556926" />
+
+	<!-- 将逻辑视图名称解析为view对象，而该对象将渲染的任务委托给web应用程序上下文用的一个模板 比如HomeController.java中的showHomePage方法，return 
+		"home",经过这个bean的解析后，会到/WEB-INF/views/(及其子目录下)查找home.jsp视图 -->
+	<bean id="jspviewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- 为了让页面能使用JSTL标签，需要通过设置viewClass属性来将InternalResourceView替换为JstlView -->
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<property name="order" value="0" />
+		<property name="prefix" value="/WEB-INF/views/" /><!-- 前缀 -->
+		<property name="suffix" value=".jsp" /><!-- 后缀 -->
+	</bean>
+
+
+	<!-- 全局异常配置 start -->
+	<mvc:view-controller path="/403" view-name="/403" />
+	<mvc:view-controller path="/500" view-name="/500" />
+	<!-- 全局异常配置 end -->
+
+	<!-- 自定义异常处理 -->
+	<bean id="exceptionResolver" class="com.plg.shiro.filter.shiro.MyExceptionResolver"></bean>
+	
+	
+	<!-- 保证实现了Shiro内部lifecycle函数的bean执行，一定要放在spring-mvc的配置文件中，某则放在Controller层的shiro注解（如@RequiresPermissions等）就不起作用 -->
+	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
+	<!-- BEGIN SHIRO对Controller方法级安全控制的AOP支持 -->
+	<bean
+		class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+		depends-on="lifecycleBeanPostProcessor">
+		<property name="proxyTargetClass" value="true" />
+	</bean>
+	
+	<bean id="multipartResolver"  
+	    class="org.springframework.web.multipart.commons.CommonsMultipartResolver">  
+	    <property name="defaultEncoding">  
+	        <value>UTF-8</value>  
+	    </property>  
+	    <property name="maxUploadSize">  
+	        <value>104857600</value><!-- 上传文件大小限制为1M，1*1024*1024 --> 
+	    </property>  
+	    <property name="maxInMemorySize">  
+	        <value>4096</value>  
+	    </property>  
+	</bean>	
+	
+</beans>

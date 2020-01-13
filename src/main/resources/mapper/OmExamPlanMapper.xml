@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.plg.shiro.dao.OmExamPlanMapper">
+  <resultMap id="BaseResultMap" type="com.plg.shiro.entity.OmExamPlan">
+    <id column="plan_id" jdbcType="VARCHAR" property="planId" />
+    <result column="plan_name" jdbcType="VARCHAR" property="planName" />
+    <result column="paper_id" jdbcType="VARCHAR" property="paperId" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="passing_score" jdbcType="INTEGER" property="passingScore" />
+    <result column="passing_type" jdbcType="VARCHAR" property="passingType" />
+    <result column="begin_time" jdbcType="VARCHAR" property="beginTime" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="deleted" jdbcType="VARCHAR" property="deleted" />
+    <result column="auto_mark_flag" jdbcType="VARCHAR" property="autoMarkFlag" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    plan_id, plan_name, paper_id, status, passing_score, passing_type, begin_time, create_time, 
+    update_time, deleted, auto_mark_flag
+  </sql>
+  <select id="selectByExample" parameterType="com.plg.shiro.entity.OmExamPlanExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from om_exam_plan
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="limitStart != null and limitStart >=0" >
+	  limit ${limitStart}, ${limitPageSize}
+	</if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from om_exam_plan
+    where plan_id = #{planId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from om_exam_plan
+    where plan_id = #{planId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.plg.shiro.entity.OmExamPlanExample">
+    delete from om_exam_plan
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.plg.shiro.entity.OmExamPlan">
+    insert into om_exam_plan (plan_id, plan_name, paper_id, 
+      status, passing_score, passing_type, 
+      begin_time, create_time, update_time, 
+      deleted, auto_mark_flag)
+    values (#{planId,jdbcType=VARCHAR}, #{planName,jdbcType=VARCHAR}, #{paperId,jdbcType=VARCHAR}, 
+      #{status,jdbcType=VARCHAR}, #{passingScore,jdbcType=INTEGER}, #{passingType,jdbcType=VARCHAR}, 
+      #{beginTime,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{deleted,jdbcType=VARCHAR}, #{autoMarkFlag,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.plg.shiro.entity.OmExamPlan">
+    insert into om_exam_plan
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="planId != null">
+        plan_id,
+      </if>
+      <if test="planName != null">
+        plan_name,
+      </if>
+      <if test="paperId != null">
+        paper_id,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="passingScore != null">
+        passing_score,
+      </if>
+      <if test="passingType != null">
+        passing_type,
+      </if>
+      <if test="beginTime != null">
+        begin_time,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="deleted != null">
+        deleted,
+      </if>
+      <if test="autoMarkFlag != null">
+        auto_mark_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="planId != null">
+        #{planId,jdbcType=VARCHAR},
+      </if>
+      <if test="planName != null">
+        #{planName,jdbcType=VARCHAR},
+      </if>
+      <if test="paperId != null">
+        #{paperId,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="passingScore != null">
+        #{passingScore,jdbcType=INTEGER},
+      </if>
+      <if test="passingType != null">
+        #{passingType,jdbcType=VARCHAR},
+      </if>
+      <if test="beginTime != null">
+        #{beginTime,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=VARCHAR},
+      </if>
+      <if test="autoMarkFlag != null">
+        #{autoMarkFlag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.plg.shiro.entity.OmExamPlanExample" resultType="java.lang.Long">
+    select count(*) from om_exam_plan
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update om_exam_plan
+    <set>
+      <if test="record.planId != null">
+        plan_id = #{record.planId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.planName != null">
+        plan_name = #{record.planName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paperId != null">
+        paper_id = #{record.paperId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=VARCHAR},
+      </if>
+      <if test="record.passingScore != null">
+        passing_score = #{record.passingScore,jdbcType=INTEGER},
+      </if>
+      <if test="record.passingType != null">
+        passing_type = #{record.passingType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.beginTime != null">
+        begin_time = #{record.beginTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null">
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.deleted != null">
+        deleted = #{record.deleted,jdbcType=VARCHAR},
+      </if>
+      <if test="record.autoMarkFlag != null">
+        auto_mark_flag = #{record.autoMarkFlag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update om_exam_plan
+    set plan_id = #{record.planId,jdbcType=VARCHAR},
+      plan_name = #{record.planName,jdbcType=VARCHAR},
+      paper_id = #{record.paperId,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=VARCHAR},
+      passing_score = #{record.passingScore,jdbcType=INTEGER},
+      passing_type = #{record.passingType,jdbcType=VARCHAR},
+      begin_time = #{record.beginTime,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      deleted = #{record.deleted,jdbcType=VARCHAR},
+      auto_mark_flag = #{record.autoMarkFlag,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.plg.shiro.entity.OmExamPlan">
+    update om_exam_plan
+    <set>
+      <if test="planName != null">
+        plan_name = #{planName,jdbcType=VARCHAR},
+      </if>
+      <if test="paperId != null">
+        paper_id = #{paperId,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="passingScore != null">
+        passing_score = #{passingScore,jdbcType=INTEGER},
+      </if>
+      <if test="passingType != null">
+        passing_type = #{passingType,jdbcType=VARCHAR},
+      </if>
+      <if test="beginTime != null">
+        begin_time = #{beginTime,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null">
+        deleted = #{deleted,jdbcType=VARCHAR},
+      </if>
+      <if test="autoMarkFlag != null">
+        auto_mark_flag = #{autoMarkFlag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where plan_id = #{planId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.plg.shiro.entity.OmExamPlan">
+    update om_exam_plan
+    set plan_name = #{planName,jdbcType=VARCHAR},
+      paper_id = #{paperId,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      passing_score = #{passingScore,jdbcType=INTEGER},
+      passing_type = #{passingType,jdbcType=VARCHAR},
+      begin_time = #{beginTime,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      deleted = #{deleted,jdbcType=VARCHAR},
+      auto_mark_flag = #{autoMarkFlag,jdbcType=VARCHAR}
+    where plan_id = #{planId,jdbcType=VARCHAR}
+  </update>
+</mapper>

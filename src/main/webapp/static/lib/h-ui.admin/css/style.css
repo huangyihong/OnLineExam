@@ -1,0 +1,295 @@
+@charset "utf-8";
+/* 你自己的样式 */
+.clear {
+    clear: both;
+    height: 0px;
+    content: '.';
+    font-size: 1px;
+    line-height: 0px;
+    visibility: hidden;
+    overflow: hidden;
+}
+
+.cl:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.cl {
+    zoom: 1;
+}
+
+.panelBar {
+    padding: 10px;
+}
+
+.otherInput {
+    display: inline-block;
+    margin-top: -13px;
+    margin-left: 10px;
+}
+
+.panelBar .pages {
+    float: left;
+    overflow: hidden;
+    height: 21px;
+    padding: 2px 5px;
+}
+
+.pagination {
+    float: right;
+    padding-left: 7px;
+    background-position: 0 -199px;
+}
+
+.i-w-50 {
+    width: 50px;
+}
+
+.i-w-100 {
+    width: 100px;
+}
+
+.i-w-150 {
+    width: 150px;
+}
+
+.s-w-145 {
+    width: 145px;
+}
+
+.i-w-200 {
+    width: 200px;
+}
+
+.i-w-300 {
+    width: 300px;
+}
+
+.btn-b-5 .btn {
+    margin-bottom: 5px;
+}
+
+.search-style {
+    margin-top: 20px;
+    max-width: 900px
+}
+
+.search-style ul {
+
+}
+
+.search-style ul li {
+    float: left;
+    margin-right: 30px;
+    width: 270px;
+    margin-bottom: 7px;
+    height: 30px;
+}
+
+.search-style ul li label {
+    width: 115px;
+    display: inline-block;
+}
+
+.search-style ul li.w-100 {
+    width: 100px;
+}
+
+.search-style-1 {
+    margin-top: 10px;
+}
+
+.search-style-1 ul {
+
+}
+
+.search-style-1 ul li {
+    float: left;
+    margin-right: 30px;
+    margin-bottom: 7px;
+    height: 30px;
+}
+
+.search-style-1 ul li label {
+    display: inline-block;
+}
+
+.search-style-1 ul li.w-100 {
+    width: 100px;
+}
+
+search-style-1 table {
+    padding: 5px 0;
+}
+
+.search-style-1 td.text_r {
+    text-align: right;
+}
+
+td.active {
+    text-align: right;
+}
+
+label.alignR {
+    text-align: right;
+}
+
+.chk-span,.rdo-span {
+    display: inline-block;
+    box-sizing: border-box;
+    cursor: pointer;
+    position: relative;
+    padding: 5px 40px 5px 26px;
+}
+
+.icheckbox_square-blue {
+    position: absolute;
+    left: 0px;
+}
+
+.iradio_square-blue {
+    position: absolute;
+    left: 0px;
+}
+
+.senior-search {
+    background: url("../../../images/admin/x.png") repeat-x left center;
+    text-align: center;
+    height: 30px;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.select-box .select {
+    margin: 0;
+}
+
+/* .layui-layer-title {
+    border-top: 2px solid #219e7b;
+    background-color: #edf7f4;
+} */
+
+.table-striped-2 tbody>tr:nth-child(even)>td,.table-striped-2 tbody>tr:nth-child(even)>th
+    {
+    background-color: #fcfffe;
+}
+
+.searchTable td {
+    padding-bottom: 4px;
+    padding-top: 4px;
+    padding-right: 4px;
+}
+
+.table-striped-2 tbody>tr:nth-child(odd)>td,.table-striped-2 tbody>tr:nth-child(odd)>th
+    {
+    background-color: #ffffff;
+}
+
+.searchBtn {
+    position: relative;
+    /**height: 100%;**/
+}
+
+.searchBtn  button {
+
+}
+
+/* 设置滚动条的样式 
+::-webkit-scrollbar {
+    width: 12px;
+}  
+	滚动槽 
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.05);
+}
+	滚动条滑块 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba(237, 247, 244, 1);
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(0, 0, 0, 0.1);
+}
+*/
+
+/*
+标题 */
+.titleBg-green {
+    background: #edf7f4;
+    padding: 2px 0;
+    border-radius: 3px 3px 0 0;
+    border: 1px solid #eee;
+    border-bottom: none;
+    font-size: 16px;
+    padding-left: 1em;
+}
+
+/**覆盖hui 父类的tab样式**/
+.clearfix:after {
+    content: "\20";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+.clearfix {
+    zoom: 1
+}
+
+/* .tabBar {
+    border-bottom: 2px solid #008d7c
+} */
+
+.tabBar span {
+    background-color: #e8e8e8;
+    cursor: pointer;
+    display: inline-block;
+    float: left;
+    font-weight: bold;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 15px
+}
+
+/* .tabBar span.current {
+    background-color: #008d7c;
+    color: #fff
+} */
+
+.tabCon {
+    display: none
+}
+
+.dataTables_scrollBody td.dataTables_empty {
+    padding-left: 80px;
+}
+
+body,th,td,button,input,select,textarea {
+    font-size: 14px;
+}
+
+.par-checkbox { 
+    display: none; 
+} 
+.par-checkbox + label{
+    background-color: #eee;
+    border-radius: 3px;
+    border:1px solid #d3d3d3;
+    width:15px;
+    height:15px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 15px;
+}
+.par-checkbox:checked + label:after{
+    content:"\2714";
+}
