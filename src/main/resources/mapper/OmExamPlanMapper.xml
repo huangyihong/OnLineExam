@@ -5,10 +5,8 @@
     <id column="plan_id" jdbcType="VARCHAR" property="planId" />
     <result column="plan_name" jdbcType="VARCHAR" property="planName" />
     <result column="paper_id" jdbcType="VARCHAR" property="paperId" />
-    <result column="status" jdbcType="VARCHAR" property="status" />
     <result column="passing_score" jdbcType="INTEGER" property="passingScore" />
     <result column="passing_type" jdbcType="VARCHAR" property="passingType" />
-    <result column="begin_time" jdbcType="VARCHAR" property="beginTime" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="deleted" jdbcType="VARCHAR" property="deleted" />
@@ -73,8 +71,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    plan_id, plan_name, paper_id, status, passing_score, passing_type, begin_time, create_time, 
-    update_time, deleted, auto_mark_flag
+    plan_id, plan_name, paper_id, passing_score, passing_type, create_time, update_time, 
+    deleted, auto_mark_flag
   </sql>
   <select id="selectByExample" parameterType="com.plg.shiro.entity.OmExamPlanExample" resultMap="BaseResultMap">
     select
@@ -111,13 +109,13 @@
   </delete>
   <insert id="insert" parameterType="com.plg.shiro.entity.OmExamPlan">
     insert into om_exam_plan (plan_id, plan_name, paper_id, 
-      status, passing_score, passing_type, 
-      begin_time, create_time, update_time, 
-      deleted, auto_mark_flag)
+      passing_score, passing_type, create_time, 
+      update_time, deleted, auto_mark_flag
+      )
     values (#{planId,jdbcType=VARCHAR}, #{planName,jdbcType=VARCHAR}, #{paperId,jdbcType=VARCHAR}, 
-      #{status,jdbcType=VARCHAR}, #{passingScore,jdbcType=INTEGER}, #{passingType,jdbcType=VARCHAR}, 
-      #{beginTime,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
-      #{deleted,jdbcType=VARCHAR}, #{autoMarkFlag,jdbcType=VARCHAR})
+      #{passingScore,jdbcType=INTEGER}, #{passingType,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{deleted,jdbcType=VARCHAR}, #{autoMarkFlag,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.plg.shiro.entity.OmExamPlan">
     insert into om_exam_plan
@@ -131,17 +129,11 @@
       <if test="paperId != null">
         paper_id,
       </if>
-      <if test="status != null">
-        status,
-      </if>
       <if test="passingScore != null">
         passing_score,
       </if>
       <if test="passingType != null">
         passing_type,
-      </if>
-      <if test="beginTime != null">
-        begin_time,
       </if>
       <if test="createTime != null">
         create_time,
@@ -166,17 +158,11 @@
       <if test="paperId != null">
         #{paperId,jdbcType=VARCHAR},
       </if>
-      <if test="status != null">
-        #{status,jdbcType=VARCHAR},
-      </if>
       <if test="passingScore != null">
         #{passingScore,jdbcType=INTEGER},
       </if>
       <if test="passingType != null">
         #{passingType,jdbcType=VARCHAR},
-      </if>
-      <if test="beginTime != null">
-        #{beginTime,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
@@ -210,17 +196,11 @@
       <if test="record.paperId != null">
         paper_id = #{record.paperId,jdbcType=VARCHAR},
       </if>
-      <if test="record.status != null">
-        status = #{record.status,jdbcType=VARCHAR},
-      </if>
       <if test="record.passingScore != null">
         passing_score = #{record.passingScore,jdbcType=INTEGER},
       </if>
       <if test="record.passingType != null">
         passing_type = #{record.passingType,jdbcType=VARCHAR},
-      </if>
-      <if test="record.beginTime != null">
-        begin_time = #{record.beginTime,jdbcType=VARCHAR},
       </if>
       <if test="record.createTime != null">
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
@@ -244,10 +224,8 @@
     set plan_id = #{record.planId,jdbcType=VARCHAR},
       plan_name = #{record.planName,jdbcType=VARCHAR},
       paper_id = #{record.paperId,jdbcType=VARCHAR},
-      status = #{record.status,jdbcType=VARCHAR},
       passing_score = #{record.passingScore,jdbcType=INTEGER},
       passing_type = #{record.passingType,jdbcType=VARCHAR},
-      begin_time = #{record.beginTime,jdbcType=VARCHAR},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       deleted = #{record.deleted,jdbcType=VARCHAR},
@@ -265,17 +243,11 @@
       <if test="paperId != null">
         paper_id = #{paperId,jdbcType=VARCHAR},
       </if>
-      <if test="status != null">
-        status = #{status,jdbcType=VARCHAR},
-      </if>
       <if test="passingScore != null">
         passing_score = #{passingScore,jdbcType=INTEGER},
       </if>
       <if test="passingType != null">
         passing_type = #{passingType,jdbcType=VARCHAR},
-      </if>
-      <if test="beginTime != null">
-        begin_time = #{beginTime,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null">
         create_time = #{createTime,jdbcType=TIMESTAMP},
@@ -296,10 +268,8 @@
     update om_exam_plan
     set plan_name = #{planName,jdbcType=VARCHAR},
       paper_id = #{paperId,jdbcType=VARCHAR},
-      status = #{status,jdbcType=VARCHAR},
       passing_score = #{passingScore,jdbcType=INTEGER},
       passing_type = #{passingType,jdbcType=VARCHAR},
-      begin_time = #{beginTime,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       deleted = #{deleted,jdbcType=VARCHAR},

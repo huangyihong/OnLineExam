@@ -12,25 +12,36 @@
     padding: 10px 0;
     border-bottom: 1px solid #f6f6f6;
 }
+.right_top{
+right: 20px;
+top: 50px;
+overflow: hidden;
+z-index: 9999;
+position: fixed;
+padding:5px;
+}
 </style>
-
-<div class="page-container">
-<form class="layui-form layui-form-pane" action="" id="form">
-<input type="hidden" id="beginTime" value="${plan.beginTime }"/>
-<input type="hidden" id="planId" value="${plan.planId }"/>
-<input type="hidden" id="paperId" value="${bean.paperId }"/>
-<input type="hidden" id="submitId" value="${examSubmit.submitId }"/>
-<div class="layui-card-header" style="text-align: center;">
-         <p style="font-size: 18px;">
-           <strong>${bean.paperName }</strong> 
-         </p>
-         <p class="layadmin-font-em">总分：${bean.paperScore }<span class="p-l-50"></span>考试时长：<span id="examTime">${bean.paperTime }</span></p>
-         <p>剩余时间：
+<div class="right_top">
+		<p><span style="color: red;">剩余时间：</span>
 			<span id="lastTime" style="color: #00A06B;font-size: 16px;font-weight: 900;">
 				<span id="time_min">${examTime }</span>"
 				<span id="time_sec">00</span>'
 			</span>
 		 </p>
+</div>
+<div class="page-container">
+<form class="layui-form layui-form-pane" action="" id="form">
+<input type="hidden" id="beginTime" value="<fmt:formatDate value="${beginTime}" pattern="yyyy-MM-dd HH:mm:ss"/>"/>
+<input type="hidden" id="planId" value="${plan.planId }"/>
+<input type="hidden" id="paperId" value="${bean.paperId }"/>
+<input type="hidden" id="submitId" value="${examSubmit.submitId }"/>
+<input type="hidden" id="passingScore" value="${passingScore }"/>
+<input type="hidden" id="realName" value="${realName }"/>
+<div class="layui-card-header" style="text-align: center;">
+         <p style="font-size: 18px;">
+           <strong>${bean.paperName }</strong> 
+         </p>
+         <p class="layadmin-font-em">总分：${bean.paperScore }<span class="p-l-50"></span>考试时长：<span id="examTime">${bean.paperTime }</span></p>
 </div>
 <br>
 <br>

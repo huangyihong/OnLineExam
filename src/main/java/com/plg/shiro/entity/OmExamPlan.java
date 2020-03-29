@@ -9,13 +9,9 @@ public class OmExamPlan {
 
     private String paperId;
 
-    private String status;
-
     private Integer passingScore;
 
     private String passingType;
-
-    private String beginTime;
 
     private Date createTime;
 
@@ -49,14 +45,6 @@ public class OmExamPlan {
         this.paperId = paperId;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
     public Integer getPassingScore() {
         return passingScore;
     }
@@ -71,14 +59,6 @@ public class OmExamPlan {
 
     public void setPassingType(String passingType) {
         this.passingType = passingType;
-    }
-
-    public String getBeginTime() {
-        return beginTime;
-    }
-
-    public void setBeginTime(String beginTime) {
-        this.beginTime = beginTime;
     }
 
     public Date getCreateTime() {

@@ -114,7 +114,7 @@ public class ExamPlanController {
 			}else{
 				bean.setPlanId(UUIDUtil.getUUID());
 				bean.setCreateTime(DateUtil.dateParse(new Date(),""));
-				bean.setStatus("1");
+				//bean.setStatus("1");
 				service.insert(bean);
 			}
 		} catch (Exception e) {
@@ -199,21 +199,21 @@ public class ExamPlanController {
 			String message = "";
 			OmExamPlan plan =  service.selectByPrimaryKey(planId);
 			OmPaper paper = paperService.selectByPrimaryKey(plan.getPaperId());
-			String begin_time = plan.getBeginTime();
-			Date beginDate = DateUtil.string2Date(begin_time, "yyyy-MM-dd HH:mm:ss");
+			//String begin_time = plan.getBeginTime();
+			//Date beginDate = DateUtil.string2Date(begin_time, "yyyy-MM-dd HH:mm:ss");
 			int paperTime = paper.getPaperTime();
 			Calendar nowTime = Calendar.getInstance();
 			nowTime.add(Calendar.MINUTE, -paperTime);
 			Date nowStartDate = nowTime.getTime();
-			if(beginDate.before(new Date())){//过了开卷时间
-				if(beginDate.before(nowStartDate)){//过了关闭时间
-					flag = false;
-					message = "考试时间已过，考试关闭，稍后移除";
-				}
-			}else{
-				flag = false;
-				message = "开考时间未到，请稍后";
-			}
+//			if(beginDate.before(new Date())){//过了开卷时间
+//				if(beginDate.before(nowStartDate)){//过了关闭时间
+//					flag = false;
+//					message = "考试时间已过，考试关闭，稍后移除";
+//				}
+//			}else{
+//				flag = false;
+//				message = "开考时间未到，请稍后";
+//			}
 			result.setData(flag);
 			result.setMessage(message);
 		} catch (Exception e) {

@@ -35,7 +35,7 @@
   <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean" lazy-init="false" autowire="no"> 
     <property name="triggers"> 
       <list> 
-        <ref bean="cronTriggerBean_1"/> 
+       <!--  <ref bean="cronTriggerBean_1"/>  -->
         <ref bean="cronTriggerBean_2"/> 
       </list> 
     </property> 

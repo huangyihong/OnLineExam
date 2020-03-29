@@ -67,7 +67,7 @@ public class ExamPlanService implements IExamPlanService {
 		OmExamPlanExample example = new OmExamPlanExample();
 		OmExamPlanExample.Criteria criteria = example.createCriteria();
 		criteria.andDeletedEqualTo("0");
-		example.setOrderByClause("BEGIN_TIME desc");
+		example.setOrderByClause("CREATE_TIME desc");
 		return omExamPlanMapper.selectByExample(example);
 	}
 	
@@ -89,7 +89,7 @@ public class ExamPlanService implements IExamPlanService {
 		example.setLimitPageSize(page.getLimit());
 		example.setLimitStart(page.limitStart());
 		page.setTotalCount(omExamPlanMapper.countByExample(example));
-		example.setOrderByClause("BEGIN_TIME desc");
+		example.setOrderByClause("CREATE_TIME desc");
 		return omExamPlanMapper.selectByExample(example);
 	}
 
@@ -114,15 +114,15 @@ public class ExamPlanService implements IExamPlanService {
 		if(StringUtils.isNoneBlank(planName)){
 			criteria.andPlanNameLike("%"+planName+"%");
 		}
-		String beginTime = request.getParameter("beginTime");
-		if(StringUtils.isNoneBlank(beginTime)){
-			criteria.andBeginTimeGreaterThanOrEqualTo(beginTime+" 00:00:00");
-			criteria.andBeginTimeLessThanOrEqualTo(beginTime+" 24:00:00");
-		}
+//		String beginTime = request.getParameter("beginTime");
+//		if(StringUtils.isNoneBlank(beginTime)){
+//			criteria.andBeginTimeGreaterThanOrEqualTo(beginTime+" 00:00:00");
+//			criteria.andBeginTimeLessThanOrEqualTo(beginTime+" 24:00:00");
+//		}
 		example.setLimitPageSize(page.getLimit());
 		example.setLimitStart(page.limitStart());
 		page.setTotalCount(omExamPlanVoMapper.countByExample(example));
-		example.setOrderByClause("BEGIN_TIME desc");
+		example.setOrderByClause("CREATE_TIME desc");
 		return omExamPlanVoMapper.selectByExample(example);
 	}
 	
@@ -131,7 +131,7 @@ public class ExamPlanService implements IExamPlanService {
 		logger.info("查询所有考试安排");
 		OmExamPlanVoExample example = new OmExamPlanVoExample();
 		OmExamPlanVoExample.Criteria criteria = example.createCriteria();
-		example.setOrderByClause("BEGIN_TIME desc");
+		example.setOrderByClause("CREATE_TIME desc");
 		return omExamPlanVoMapper.selectByExample(example);
 	}
 
@@ -149,7 +149,7 @@ public class ExamPlanService implements IExamPlanService {
 			criteria.andPlanIdIn(planIdList);
 			example.setLimitPageSize(page.getLimit());
 			example.setLimitStart(page.limitStart());
-			example.setOrderByClause("BEGIN_TIME desc");
+			example.setOrderByClause("CREATE_TIME desc");
 			page.setTotalCount(omExamPlanVoMapper.countByExample(example));
 			return omExamPlanVoMapper.selectByExample(example);
 		}else{
@@ -174,11 +174,11 @@ public class ExamPlanService implements IExamPlanService {
 			OmExamPlanVoExample example = new OmExamPlanVoExample();
 			OmExamPlanVoExample.Criteria criteria = example.createCriteria();
 			criteria.andPlanIdIn(planIdList);
-			String status = request.getParameter("status");
-			if(StringUtils.isNotBlank(status)){
-				criteria.andStatusIn(Arrays.asList(status.split(",")));
-			}
-			example.setOrderByClause("BEGIN_TIME desc");
+//			String status = request.getParameter("status");
+//			if(StringUtils.isNotBlank(status)){
+//				criteria.andStatusIn(Arrays.asList(status.split(",")));
+//			}
+			example.setOrderByClause("CREATE_TIME desc");
 			return omExamPlanVoMapper.selectByExample(example);
 		}else{
 			return null;
@@ -189,9 +189,9 @@ public class ExamPlanService implements IExamPlanService {
 	public List<OmExamPlan> selectByStatus(String status) {
 		OmExamPlanExample example = new OmExamPlanExample();
 		OmExamPlanExample.Criteria criteria = example.createCriteria();
-		criteria.andStatusEqualTo(status);
+//		criteria.andStatusEqualTo(status);
 		criteria.andDeletedEqualTo("0");
-		example.setOrderByClause("BEGIN_TIME desc");
+		example.setOrderByClause("CREATE_TIME desc");
 		return omExamPlanMapper.selectByExample(example);
 	}
 	
@@ -199,10 +199,10 @@ public class ExamPlanService implements IExamPlanService {
 	public List<OmExamPlanVo> selectVoByStatus(String status) {
 		OmExamPlanVoExample example = new OmExamPlanVoExample();
 		OmExamPlanVoExample.Criteria criteria = example.createCriteria();
-		if(StringUtils.isNotBlank(status)){
-			criteria.andStatusIn(Arrays.asList(status.split(",")));
-		}
-		example.setOrderByClause("BEGIN_TIME desc");
+//		if(StringUtils.isNotBlank(status)){
+//			criteria.andStatusIn(Arrays.asList(status.split(",")));
+//		}
+		example.setOrderByClause("CREATE_TIME desc");
 		return omExamPlanVoMapper.selectByExample(example);
 	}
 

@@ -5,7 +5,9 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.plg.shiro.entity.OmExamPlan;
 import com.plg.shiro.entity.OmExamSubmit;
+import com.plg.shiro.entity.OmPaper;
 import com.plg.shiro.entity.OmUser;
 import com.plg.shiro.entity.Vo.OmExamSubmitVo;
 import com.plg.shiro.util.dwz.LayuiPage;
@@ -39,5 +41,7 @@ public interface IExamSubmitService {
 	List<OmExamSubmitVo> findVoUserList(HttpServletRequest request, String status);
 	
 	Map<String, Object> sqlQueryScoreNumMaxMin(String planId,String status,String groupId);
+	
+	OmExamSubmit autoMarkTotalScore(OmExamPlan plan, OmPaper paper, OmExamSubmit bean);
 	
 }

@@ -21,13 +21,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.plg.shiro.entity.OmExamAnswer;
+import com.plg.shiro.entity.OmExamPlan;
 import com.plg.shiro.entity.OmExamPlanVo;
 import com.plg.shiro.entity.OmExamSubmit;
+import com.plg.shiro.entity.OmPaper;
 import com.plg.shiro.entity.OmUser;
 import com.plg.shiro.entity.Vo.OmExamSubmitVo;
 import com.plg.shiro.service.IExamAnswerService;
 import com.plg.shiro.service.IExamPlanService;
 import com.plg.shiro.service.IExamSubmitService;
+import com.plg.shiro.service.IPaperService;
 import com.plg.shiro.util.AjaxUtil;
 import com.plg.shiro.util.DateUtil;
 import com.plg.shiro.util.ExcelUtils;
@@ -59,6 +62,9 @@ public class ExamSubmitController {
 	
 	@Resource
 	private IExamPlanService planService;
+	
+	@Resource
+	private IPaperService paperService;
 	
 	private static final String EXAMSUBMIT_PATH = "admin/exam/omExamSubmit/";
 	
@@ -205,7 +211,15 @@ public class ExamSubmitController {
 			bean.setCreateTime(DateUtil.dateParse(new Date(),""));
 			service.insertExamSubmit(bean);
 		}else if("2".equals(bean.getStatus())){//提交答题
+			bean.setUserId(omUser.getUserId());
 			bean.setSubmitTime(DateUtil.dateParse(new Date(),""));
+			//判断是否为自动阅卷
+			OmExamPlan plan = planService.selectByPrimaryKey(bean.getPlanId());
+			OmPaper paper = paperService.selectByPrimaryKey(plan.getPaperId());
+			String autoMarkFlag = plan.getAutoMarkFlag();//是否自动阅卷
+			if("1".equals(autoMarkFlag)){//自动阅卷
+				bean = service.autoMarkTotalScore(plan, paper, bean);
+			}
 			service.updateByPrimaryKeySelective(bean);
 		}else if("3".equals(bean.getStatus())){//阅卷完成
 			bean.setMarkTime(DateUtil.dateParse(new Date(),""));

@@ -26,7 +26,7 @@ function initGrid() {
 	             ,{field:'paperName', width:200, title: '试卷名称',templet:function(d){
 	                 return "<div><a href='javascript:void(0)' class='layui-table-link'  onclick=showPaper('"+d.paperId+"') >"+d.paperName+"</a></div>"
 	              }}
-	             ,{field:'beginTime', width:200, title: '开考时间'}
+	             /*,{field:'beginTime', width:200, title: '开考时间'}
 	             ,{field:'status', width:200, title: '状态',templet:function(d){
 	            	 var html = '';
 	            	 if(d.status=='1'){
@@ -39,7 +39,7 @@ function initGrid() {
 	            		 html = '考试结束';
 	            	 }
 	                 return '<div>'+html+'</div>'
-	              }}
+	              }}*/
 	             ,{field:'paperTime', width:100, title: '考试时长'}
 	             ,{field:'paperScore', width:100, title: '总分'}
 	             ,{field:'passingScore', width:100, title: '及格分',templet:function(d){

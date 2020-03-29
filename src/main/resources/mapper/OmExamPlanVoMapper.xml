@@ -5,8 +5,6 @@
     <id column="plan_id" jdbcType="VARCHAR" property="planId" />
     <result column="plan_name" jdbcType="VARCHAR" property="planName" />
     <result column="paper_id" jdbcType="VARCHAR" property="paperId" />
-    <result column="status" jdbcType="VARCHAR" property="status" />
-    <result column="begin_time" jdbcType="VARCHAR" property="beginTime" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="paper_name" jdbcType="VARCHAR" property="paperName" />
@@ -83,9 +81,9 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    plan_id, plan_name, paper_id, status, begin_time, create_time, update_time, paper_name, 
-    paper_score, paper_time, add_mode, single_count, multi_count, judge_count, blank_count, 
-    answer_count, course_id, course_name, passing_score, passing_type, auto_mark_flag
+    plan_id, plan_name, paper_id, create_time, update_time, paper_name, paper_score, 
+    paper_time, add_mode, single_count, multi_count, judge_count, blank_count, answer_count, 
+    course_id, course_name, passing_score, passing_type, auto_mark_flag
   </sql>
   <select id="selectByExample" parameterType="com.plg.shiro.entity.OmExamPlanVoExample" resultMap="BaseResultMap">
     select
@@ -94,7 +92,7 @@
     </if>
     <include refid="Base_Column_List" />
     from  (
-	    select t.plan_id, t.plan_name, t.paper_id, t.status, t.begin_time, t.create_time, t.update_time,t.auto_mark_flag,
+	    select t.plan_id, t.plan_name, t.paper_id, t.create_time, t.update_time,t.auto_mark_flag,
      t1.paper_name, t1.paper_score, t1.paper_time, t1.add_mode, t1.single_count, t1.multi_count, 
     t1.judge_count, t1.blank_count, t1.answer_count, t1.course_id, t1.course_name, passing_score, passing_type
 		from om_exam_plan t, om_paper t1 where t.paper_id=t1.paper_id and t.deleted='0' and t1.deleted='0'
@@ -106,14 +104,14 @@
       order by ${orderByClause}
     </if>
     <if test="limitStart != null and limitStart >=0" >
-	 limit ${limitStart}, ${limitPageSize}
+	  limit ${limitStart}, ${limitPageSize}
 	</if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from  (
-	    select t.plan_id, t.plan_name, t.paper_id, t.status, t.begin_time, t.create_time, t.update_time,t.auto_mark_flag,
+	    select t.plan_id, t.plan_name, t.paper_id, t.create_time, t.update_time,t.auto_mark_flag,
      t1.paper_name, t1.paper_score, t1.paper_time, t1.add_mode, t1.single_count, t1.multi_count, 
     t1.judge_count, t1.blank_count, t1.answer_count, t1.course_id, t1.course_name, passing_score, passing_type
 		from om_exam_plan t, om_paper t1 where t.paper_id=t1.paper_id and t.deleted='0' and t1.deleted='0'
@@ -132,19 +130,19 @@
   </delete>
   <insert id="insert" parameterType="com.plg.shiro.entity.OmExamPlanVo">
     insert into om_exam_plan_vo (plan_id, plan_name, paper_id, 
-      status, begin_time, create_time, 
-      update_time, paper_name, paper_score, 
-      paper_time, add_mode, single_count, 
-      multi_count, judge_count, blank_count, 
-      answer_count, course_id, course_name, 
-      passing_score, passing_type,auto_mark_flag)
+      create_time, update_time, paper_name, 
+      paper_score, paper_time, add_mode, 
+      single_count, multi_count, judge_count, 
+      blank_count, answer_count, course_id, 
+      course_name, passing_score, passing_type, 
+      auto_mark_flag)
     values (#{planId,jdbcType=VARCHAR}, #{planName,jdbcType=VARCHAR}, #{paperId,jdbcType=VARCHAR}, 
-      #{status,jdbcType=VARCHAR}, #{beginTime,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateTime,jdbcType=TIMESTAMP}, #{paperName,jdbcType=VARCHAR}, #{paperScore,jdbcType=INTEGER}, 
-      #{paperTime,jdbcType=INTEGER}, #{addMode,jdbcType=VARCHAR}, #{singleCount,jdbcType=INTEGER}, 
-      #{multiCount,jdbcType=INTEGER}, #{judgeCount,jdbcType=INTEGER}, #{blankCount,jdbcType=INTEGER}, 
-      #{answerCount,jdbcType=INTEGER}, #{courseId,jdbcType=VARCHAR}, #{courseName,jdbcType=VARCHAR}, 
-      #{passingScore,jdbcType=INTEGER}, #{passingType,jdbcType=VARCHAR}, #{autoMarkFlag,jdbcType=VARCHAR})
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{paperName,jdbcType=VARCHAR}, 
+      #{paperScore,jdbcType=INTEGER}, #{paperTime,jdbcType=INTEGER}, #{addMode,jdbcType=VARCHAR}, 
+      #{singleCount,jdbcType=INTEGER}, #{multiCount,jdbcType=INTEGER}, #{judgeCount,jdbcType=INTEGER}, 
+      #{blankCount,jdbcType=INTEGER}, #{answerCount,jdbcType=INTEGER}, #{courseId,jdbcType=VARCHAR}, 
+      #{courseName,jdbcType=VARCHAR}, #{passingScore,jdbcType=INTEGER}, #{passingType,jdbcType=VARCHAR}, 
+      #{autoMarkFlag,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.plg.shiro.entity.OmExamPlanVo">
     insert into om_exam_plan_vo
@@ -157,12 +155,6 @@
       </if>
       <if test="paperId != null">
         paper_id,
-      </if>
-      <if test="status != null">
-        status,
-      </if>
-      <if test="beginTime != null">
-        begin_time,
       </if>
       <if test="createTime != null">
         create_time,
@@ -223,12 +215,6 @@
       <if test="paperId != null">
         #{paperId,jdbcType=VARCHAR},
       </if>
-      <if test="status != null">
-        #{status,jdbcType=VARCHAR},
-      </if>
-      <if test="beginTime != null">
-        #{beginTime,jdbcType=VARCHAR},
-      </if>
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
       </if>
@@ -281,7 +267,7 @@
   </insert>
   <select id="countByExample" parameterType="com.plg.shiro.entity.OmExamPlanVoExample" resultType="java.lang.Long">
     select count(*) from  (
-	    select t.plan_id, t.plan_name, t.paper_id, t.status, t.begin_time, t.create_time, t.update_time,t.auto_mark_flag,
+	    select t.plan_id, t.plan_name, t.paper_id, t.create_time, t.update_time,t.auto_mark_flag,
      t1.paper_name, t1.paper_score, t1.paper_time, t1.add_mode, t1.single_count, t1.multi_count, 
     t1.judge_count, t1.blank_count, t1.answer_count, t1.course_id, t1.course_name, passing_score, passing_type
 		from om_exam_plan t, om_paper t1 where t.paper_id=t1.paper_id and t.deleted='0' and t1.deleted='0'
@@ -301,12 +287,6 @@
       </if>
       <if test="record.paperId != null">
         paper_id = #{record.paperId,jdbcType=VARCHAR},
-      </if>
-      <if test="record.status != null">
-        status = #{record.status,jdbcType=VARCHAR},
-      </if>
-      <if test="record.beginTime != null">
-        begin_time = #{record.beginTime,jdbcType=VARCHAR},
       </if>
       <if test="record.createTime != null">
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
@@ -366,8 +346,6 @@
     set plan_id = #{record.planId,jdbcType=VARCHAR},
       plan_name = #{record.planName,jdbcType=VARCHAR},
       paper_id = #{record.paperId,jdbcType=VARCHAR},
-      status = #{record.status,jdbcType=VARCHAR},
-      begin_time = #{record.beginTime,jdbcType=VARCHAR},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       paper_name = #{record.paperName,jdbcType=VARCHAR},
@@ -396,12 +374,6 @@
       </if>
       <if test="paperId != null">
         paper_id = #{paperId,jdbcType=VARCHAR},
-      </if>
-      <if test="status != null">
-        status = #{status,jdbcType=VARCHAR},
-      </if>
-      <if test="beginTime != null">
-        begin_time = #{beginTime,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null">
         create_time = #{createTime,jdbcType=TIMESTAMP},
@@ -458,8 +430,6 @@
     update om_exam_plan_vo
     set plan_name = #{planName,jdbcType=VARCHAR},
       paper_id = #{paperId,jdbcType=VARCHAR},
-      status = #{status,jdbcType=VARCHAR},
-      begin_time = #{beginTime,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       paper_name = #{paperName,jdbcType=VARCHAR},

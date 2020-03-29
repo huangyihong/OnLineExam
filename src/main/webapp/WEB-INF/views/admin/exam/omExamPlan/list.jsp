@@ -27,14 +27,14 @@
                          </dd>
                      </ol>
                  </div>
-                 <div class="layui-col-xs6 layui-col-sm6 layui-col-md3">
+<!--                  <div class="layui-col-xs6 layui-col-sm6 layui-col-md3">
                      <ol class="layui-row">
                          <dt class="layui-col-md4 ellipsis">开考时间</dt>
                          <dd class="layui-col-md8">
                          	 <input type="text" name="beginTime" autocomplete="off" class="layui-input dateInput" data-format="yyyy-MM-dd">
                          </dd>
                      </ol>
-                 </div>
+                 </div> -->
                  <div class="layui-col-xs6 layui-col-sm6 layui-col-md3">
                      <ol class="layui-row">
                          <dd class="layui-col-md12 ">

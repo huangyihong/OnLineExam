@@ -3,6 +3,7 @@ package com.plg.shiro.service.impl;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -12,20 +13,27 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import com.plg.shiro.dao.OmExamSubmitMapper;
 import com.plg.shiro.dao.OmExamSubmitVoMapper;
-import com.plg.shiro.entity.OmCourseExample;
+import com.plg.shiro.entity.OmExamAnswer;
+import com.plg.shiro.entity.OmExamPlan;
 import com.plg.shiro.entity.OmExamSubmit;
 import com.plg.shiro.entity.OmExamSubmitExample;
 import com.plg.shiro.entity.OmExamUser;
+import com.plg.shiro.entity.OmPaper;
+import com.plg.shiro.entity.OmQuestion;
 import com.plg.shiro.entity.OmUser;
 import com.plg.shiro.entity.Vo.OmExamSubmitVo;
 import com.plg.shiro.entity.Vo.OmExamSubmitVoExample;
+import com.plg.shiro.entity.Vo.OmQuestionVo;
+import com.plg.shiro.service.IExamAnswerService;
 import com.plg.shiro.service.IExamSubmitService;
 import com.plg.shiro.service.IExamUserService;
+import com.plg.shiro.service.IQuestionService;
 import com.plg.shiro.util.DateUtil;
 import com.plg.shiro.util.dwz.LayuiPage;
 
@@ -41,6 +49,12 @@ public class ExamSubmitService implements IExamSubmitService {
 	
 	@Resource
 	private IExamUserService examUserService;
+	
+	@Resource
+	private IExamAnswerService answerService;
+	
+	@Resource
+	private IQuestionService questionService;
 
 	@Resource
 	private JdbcTemplate jdbcTemplate;
@@ -208,10 +222,10 @@ public class ExamSubmitService implements IExamSubmitService {
 		if(StringUtils.isNotBlank(realName)){
 			criteria.andRealNameLike("%"+realName+"%");
 		}
-		String planStatus = request.getParameter("plan_status");
-		if(StringUtils.isNotBlank(planStatus)){
-			criteria.andPlanStatusIn(Arrays.asList(planStatus.split(",")));
-		}
+//		String planStatus = request.getParameter("plan_status");
+//		if(StringUtils.isNotBlank(planStatus)){
+//			criteria.andPlanStatusIn(Arrays.asList(planStatus.split(",")));
+//		}
 		example.setLimitPageSize(page.getLimit());
 		example.setLimitStart(page.limitStart());
 		page.setTotalCount(omExamSubmitVoMapper.countByExample(example));
@@ -312,6 +326,48 @@ public class ExamSubmitService implements IExamSubmitService {
 		}
 		Map<String, Object> map = jdbcTemplate.queryForMap(sqlBuffer.toString());
 		return map;
+	}
+
+	@Override
+	public OmExamSubmit autoMarkTotalScore(OmExamPlan plan, OmPaper paper, OmExamSubmit bean) {
+		String answerUserId = bean.getUserId();
+		String planId = plan.getPlanId();
+		String paperId = plan.getPaperId();
+		//答案
+		List<OmExamAnswer> answerList = answerService.selectByUserPaperID(answerUserId, planId, paperId);
+		Map<String,OmExamAnswer> answerMap = new HashMap<String,OmExamAnswer>();
+		for(OmExamAnswer answer:answerList ){
+			answerMap.put(answer.getQuestionId(), answer);
+		}
+		List<OmQuestion> questionList = new ArrayList<OmQuestion>();
+		if("1".equals(paper.getAddMode())){//人工
+			questionList = questionService.selectPaperQuestion(paper.getPaperId());
+		}else{
+			//随机试卷
+			questionList = questionService.selectUserPaperQuestion(paper.getPaperId(),answerUserId);
+		}
+		int totalScore=0;
+		for(OmQuestion questionBean:questionList){
+			String questionType = questionBean.getQuestionType();
+		    OmQuestionVo questionVo = new OmQuestionVo();
+		    BeanUtils.copyProperties(questionBean,questionVo);
+		    if(answerMap.get(questionBean.getQuestionId())!=null){
+		    	questionVo.setAnswerResult(answerMap.get(questionBean.getQuestionId()).getAnswerResult());
+		    	questionVo.setAnswerId(answerMap.get(questionBean.getQuestionId()).getAnswerId());
+		    	questionVo.setMarkScore(answerMap.get(questionBean.getQuestionId()).getMarkScore());
+		    	questionVo.setMarkText(answerMap.get(questionBean.getQuestionId()).getMarkText());
+		    }
+		    if(StringUtils.isNotBlank(questionVo.getAnswerResult())&&questionVo.getAnswerResult().equals(questionVo.getRightResult())){
+		    	totalScore +=questionVo.getQuestionScore();
+		    }
+		}
+		//自动阅卷
+		bean.setTotalScore(totalScore);
+		bean.setMarkTime(DateUtil.dateParse(new Date(),""));
+		bean.setMarkUser("系统自动阅卷");
+		bean.setPublishTime(DateUtil.dateParse(new Date(),""));
+		bean.setStatus("4");
+		return bean;
 	}
 	
 	

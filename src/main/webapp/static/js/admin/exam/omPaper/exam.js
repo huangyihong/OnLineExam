@@ -156,8 +156,9 @@ function subTime() {
 		layer.alert('考试时间到，考试结束!', {
 			 	closeBtn: 0
 			}, function(){
-				parent.layer.closeAll()
+				//parent.layer.closeAll()
 		});
+		submitPaper();
 		return false;
 	}
 	
@@ -211,6 +212,7 @@ function startAnswer(status){
 
 //提交试卷
 function submitPaper(){
+	var index = layer.load(0, {shade: [0.3,'#fff']});
 	$.ajax({
 		type:"POST", 
 		async:true, 
@@ -229,11 +231,28 @@ function submitPaper(){
         },
 		success:function (data) {
 			if (data.code == "200") {
-				layer.msg('提交成功', {icon: 1});
-				parent.layer.closeAll()
+				var bean = data.data;
+				if(bean.status=='4'){//自动阅卷完成
+					var passingScore = $("#passingScore").val();
+					var html ="学员恭喜你通过本次考试";
+					var icon = 6;
+					if(bean.totalScore<passingScore){
+						html ="学员很遗憾你未通过本次考试";
+						icon = 5;
+					}
+					layer.alert('最终得分： '+bean.totalScore+'分 <br> '+$("#realName").val()+html, {time: 50000000, icon:icon, btn: ['确定']}, function(){
+						parent.layer.closeAll()
+					}); 
+				}else{
+					layer.alert('提交成功', {icon: 1}, function(){
+						parent.layer.closeAll()
+					}); 
+				}
+				
 			}else{
 				layer.msg('提交失败：'+data.message, {icon: 5});
 			}
+			layer.close(index);
 		}
 	});
 }

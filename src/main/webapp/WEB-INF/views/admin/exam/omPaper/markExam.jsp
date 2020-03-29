@@ -32,7 +32,6 @@
 
 <div class="page-container">
 <form class="layui-form layui-form-pane" action="" id="form">
-<input type="hidden" id="beginTime" value="${plan.beginTime }"/>
 <input type="hidden" name="planId" id="planId" value="${plan.planId }"/>
 <input type="hidden" name="paperId" id="paperId" value="${bean.paperId }"/>
 <input type="hidden" name="submitId" id="submitId" value="${examSubmit.submitId }"/>
@@ -188,8 +187,8 @@
 		            	<c:set var="questionScore" value="${question.questionScore}"/>
 		            </c:if>
 		            <p style="border-bottom: 1px solid #e6e6e6;padding:2px">
-		            	        标准答案:<b class="rightresult_span"> ${question.rightResult }</b>
-		                   &emsp; 作答: <b class="${color}"> <c:if test="${not empty question.answerResult }">${question.answerResult }</c:if><c:if test="${empty question.answerResult }">未做</c:if></b>
+		            	        标准答案:<b class="rightresult_span"> <c:if test="${question.rightResult=='1' }">正确</c:if><c:if test="${question.rightResult=='0' }">错误</c:if></b>
+		                   &emsp; 作答: <b class="${color}"> <c:if test="${not empty question.answerResult }"><c:if test="${question.rightResult=='1' }">正确</c:if><c:if test="${question.rightResult=='0' }">错误</c:if></c:if><c:if test="${empty question.answerResult }">未做</c:if></b>
 					       &emsp;自动阅卷得分:<b class="questionscore_span"> ${questionScore }</b>
 					       &emsp;人工评卷打分:&emsp;<input type="text" name="markScore" autocomplete="off" lay-verify="number" value="${questionScore }">
 					       &emsp;备注:&emsp;<input type="text" name="markText" autocomplete="off" value="">

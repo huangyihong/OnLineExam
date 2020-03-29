@@ -40,8 +40,6 @@ public class OmExamSubmitVo {
     private Integer userAnswerCount;
     
     private Integer paperCount;
-    
-    private String planStatus;
 
     public String getSubmitId() {
         return submitId;
@@ -195,12 +193,4 @@ public class OmExamSubmitVo {
 		this.paperCount = paperCount;
 	}
 
-	public String getPlanStatus() {
-		return planStatus;
-	}
-
-	public void setPlanStatus(String planStatus) {
-		this.planStatus = planStatus;
-	}
-    
 }

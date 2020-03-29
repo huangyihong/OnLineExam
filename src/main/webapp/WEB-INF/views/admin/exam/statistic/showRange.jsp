@@ -16,7 +16,7 @@
        <table>
        	<tr>
        		<td width="150px"><span class="span_lable">总分：&nbsp;</span>${bean.paperScore }</td>
-       		<td width="300px" colspan="2"><span class="span_lable">开考时间：&nbsp;</span>${bean.beginTime }</td>
+       		<td width="300px" colspan="2"><%-- <span class="span_lable">开考时间：&nbsp;</span>${bean.beginTime } --%></td>
        	</tr>
        	<tr>
        		<td width="150px"><span class="span_lable">考试人数：&nbsp;</span>${scoreNumMaxMinMap.USER_NUM }人</td>

@@ -50,12 +50,12 @@
                 <input type="text" name="planName" autocomplete="off" class="layui-input" lay-verify="required|maxlength" value="${bean.planName }">
             </div>
         </div>
-        <div class="layui-inline">
+        <%-- <div class="layui-inline">
             <label class="layui-form-label"><span class="c-red">*</span>开考时间：</label>
             <div class="layui-input-inline">
                 <input type="text" name="beginTime" autocomplete="off" class="layui-input dateInput" lay-verify="required" data-format="yyyy-MM-dd HH:mm:ss" data-datemin="0" value="${bean.beginTime }">
             </div>
-        </div> 
+        </div>  --%>
         <div class="layui-inline">
             <label class="layui-form-label"><span class="c-red">*</span>及格分数：</label>
             <div class="layui-input-inline">

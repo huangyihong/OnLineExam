@@ -45,7 +45,7 @@ p {
 					<h3>${bean.planName}</h3>
 					<p>试卷名称: ${bean.paperName }    </p>
 					<p>题目数量: ${bean.singleCount+bean.multiCount+bean.judgeCount+bean.blankCount+bean.answerCount }    总分: ${bean.paperScore }  考试时长: <span id="examPaperTime5">${bean.paperTime }</span> 分钟  </p>
-					<p class="beginTime">开始时间: ${bean.beginTime}</p>
+					<%-- <p class="beginTime">开始时间: ${bean.beginTime}</p> --%>
 					<p style="text-align: center;">
 						<a href="#" class="layui-btn" onclick="startExam('${bean.paperId}','${bean.planId}')">进入考试</a>
 					</p>

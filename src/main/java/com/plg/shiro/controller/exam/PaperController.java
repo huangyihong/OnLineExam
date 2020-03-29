@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.plg.shiro.entity.OmCourse;
 import com.plg.shiro.entity.OmExamAnswer;
 import com.plg.shiro.entity.OmExamPlan;
+import com.plg.shiro.entity.OmExamPlanVo;
 import com.plg.shiro.entity.OmPaper;
 import com.plg.shiro.entity.OmPaperDetail;
 import com.plg.shiro.entity.OmQuestion;
@@ -298,12 +299,22 @@ public class PaperController {
   	public String exam(HttpServletRequest request) {
   		Subject currentUser = SecurityUtils.getSubject();
 		OmUser omUser = (OmUser) SecurityUtils.getSubject().getSession().getAttribute("om_user");
+		request.setAttribute("realName", omUser.getRealName());
   		String paperId = request.getParameter("paperId");
   		OmPaper bean = service.selectByPrimaryKey(paperId);
   		String planId = request.getParameter("planId");
   		if(StringUtils.isNoneBlank(planId)){
   			OmExamPlan plan = planService.selectByPrimaryKey(planId);
   			request.setAttribute("plan", plan);
+  			//及格分
+  			OmExamPlanVo planVo= planService.selectVoByPrimaryKey(planId);
+  			int paperScore = planVo.getPaperScore();//总分数
+  			int passingScore = planVo.getPassingScore();//及格分数
+  			String passingType = planVo.getPassingType();
+  			if("2".equals(passingType)){//百分比
+  				 passingScore =Math.round((paperScore*passingScore)/100);
+  			}
+  			request.setAttribute("passingScore", passingScore);
   		}
   		String type = request.getParameter("type");
   		String answerUserId =  request.getParameter("answerUserId");//阅卷
@@ -313,6 +324,11 @@ public class PaperController {
   		//答卷结果记录
   		OmExamSubmitVo examSubmit = submitService.selectVoByUserId(planId, paperId, answerUserId);
   		request.setAttribute("examSubmit", examSubmit);
+  		if(examSubmit!=null) {
+  			request.setAttribute("beginTime", examSubmit.getStartTime());
+  		}else {
+  			request.setAttribute("beginTime", new Date());
+  		}
   		
   		//获取试卷的题目数据
   		getPaperQuestion(request, answerUserId, paperId, bean, planId);

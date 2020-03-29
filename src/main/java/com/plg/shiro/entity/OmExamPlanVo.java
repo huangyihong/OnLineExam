@@ -9,10 +9,6 @@ public class OmExamPlanVo {
 
     private String paperId;
 
-    private String status;
-
-    private String beginTime;
-
     private Date createTime;
 
     private Date updateTime;
@@ -42,7 +38,7 @@ public class OmExamPlanVo {
     private Integer passingScore;
 
     private String passingType;
-    
+
     private String autoMarkFlag;
 
     public String getPlanId() {
@@ -67,22 +63,6 @@ public class OmExamPlanVo {
 
     public void setPaperId(String paperId) {
         this.paperId = paperId;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getBeginTime() {
-        return beginTime;
-    }
-
-    public void setBeginTime(String beginTime) {
-        this.beginTime = beginTime;
     }
 
     public Date getCreateTime() {
@@ -205,12 +185,11 @@ public class OmExamPlanVo {
         this.passingType = passingType;
     }
 
-	public String getAutoMarkFlag() {
-		return autoMarkFlag;
-	}
+    public String getAutoMarkFlag() {
+        return autoMarkFlag;
+    }
 
-	public void setAutoMarkFlag(String autoMarkFlag) {
-		this.autoMarkFlag = autoMarkFlag;
-	}
-    
+    public void setAutoMarkFlag(String autoMarkFlag) {
+        this.autoMarkFlag = autoMarkFlag;
+    }
 }

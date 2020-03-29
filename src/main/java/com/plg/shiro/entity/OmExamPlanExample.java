@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class OmExamPlanExample  extends PageExample{
+public class OmExamPlanExample extends PageExample{
     protected String orderByClause;
 
     protected boolean distinct;
@@ -315,76 +315,6 @@ public class OmExamPlanExample  extends PageExample{
             return (Criteria) this;
         }
 
-        public Criteria andStatusIsNull() {
-            addCriterion("status is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andStatusIsNotNull() {
-            addCriterion("status is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andStatusEqualTo(String value) {
-            addCriterion("status =", value, "status");
-            return (Criteria) this;
-        }
-
-        public Criteria andStatusNotEqualTo(String value) {
-            addCriterion("status <>", value, "status");
-            return (Criteria) this;
-        }
-
-        public Criteria andStatusGreaterThan(String value) {
-            addCriterion("status >", value, "status");
-            return (Criteria) this;
-        }
-
-        public Criteria andStatusGreaterThanOrEqualTo(String value) {
-            addCriterion("status >=", value, "status");
-            return (Criteria) this;
-        }
-
-        public Criteria andStatusLessThan(String value) {
-            addCriterion("status <", value, "status");
-            return (Criteria) this;
-        }
-
-        public Criteria andStatusLessThanOrEqualTo(String value) {
-            addCriterion("status <=", value, "status");
-            return (Criteria) this;
-        }
-
-        public Criteria andStatusLike(String value) {
-            addCriterion("status like", value, "status");
-            return (Criteria) this;
-        }
-
-        public Criteria andStatusNotLike(String value) {
-            addCriterion("status not like", value, "status");
-            return (Criteria) this;
-        }
-
-        public Criteria andStatusIn(List<String> values) {
-            addCriterion("status in", values, "status");
-            return (Criteria) this;
-        }
-
-        public Criteria andStatusNotIn(List<String> values) {
-            addCriterion("status not in", values, "status");
-            return (Criteria) this;
-        }
-
-        public Criteria andStatusBetween(String value1, String value2) {
-            addCriterion("status between", value1, value2, "status");
-            return (Criteria) this;
-        }
-
-        public Criteria andStatusNotBetween(String value1, String value2) {
-            addCriterion("status not between", value1, value2, "status");
-            return (Criteria) this;
-        }
-
         public Criteria andPassingScoreIsNull() {
             addCriterion("passing_score is null");
             return (Criteria) this;
@@ -512,76 +442,6 @@ public class OmExamPlanExample  extends PageExample{
 
         public Criteria andPassingTypeNotBetween(String value1, String value2) {
             addCriterion("passing_type not between", value1, value2, "passingType");
-            return (Criteria) this;
-        }
-
-        public Criteria andBeginTimeIsNull() {
-            addCriterion("begin_time is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andBeginTimeIsNotNull() {
-            addCriterion("begin_time is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andBeginTimeEqualTo(String value) {
-            addCriterion("begin_time =", value, "beginTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andBeginTimeNotEqualTo(String value) {
-            addCriterion("begin_time <>", value, "beginTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andBeginTimeGreaterThan(String value) {
-            addCriterion("begin_time >", value, "beginTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andBeginTimeGreaterThanOrEqualTo(String value) {
-            addCriterion("begin_time >=", value, "beginTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andBeginTimeLessThan(String value) {
-            addCriterion("begin_time <", value, "beginTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andBeginTimeLessThanOrEqualTo(String value) {
-            addCriterion("begin_time <=", value, "beginTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andBeginTimeLike(String value) {
-            addCriterion("begin_time like", value, "beginTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andBeginTimeNotLike(String value) {
-            addCriterion("begin_time not like", value, "beginTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andBeginTimeIn(List<String> values) {
-            addCriterion("begin_time in", values, "beginTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andBeginTimeNotIn(List<String> values) {
-            addCriterion("begin_time not in", values, "beginTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andBeginTimeBetween(String value1, String value2) {
-            addCriterion("begin_time between", value1, value2, "beginTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andBeginTimeNotBetween(String value1, String value2) {
-            addCriterion("begin_time not between", value1, value2, "beginTime");
             return (Criteria) this;
         }
 
