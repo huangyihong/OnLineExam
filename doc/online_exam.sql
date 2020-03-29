@@ -2,20 +2,21 @@
 Navicat MySQL Data Transfer
 
 Source Server         : localhost
-Source Server Version : 50645
+Source Server Version : 50718
 Source Host           : localhost:3306
-Source Database       : online_exam
+Source Database       : mydb
 
 Target Server Type    : MYSQL
-Target Server Version : 50645
+Target Server Version : 50718
 File Encoding         : 65001
 
-Date: 2020-01-13 21:46:11
+Date: 2020-03-29 13:41:57
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
 -- ----------------------------
--- Table structure for `om_course`
+-- Table structure for om_course
 -- ----------------------------
 DROP TABLE IF EXISTS `om_course`;
 CREATE TABLE `om_course` (
@@ -33,7 +34,7 @@ INSERT INTO `om_course` VALUES ('e1186091d80b4ad0b21bb59020563ebe', '科目三')
 INSERT INTO `om_course` VALUES ('faf06bcac47b431683bfcb0d39023c01', '科目二');
 
 -- ----------------------------
--- Table structure for `om_exam_answer`
+-- Table structure for om_exam_answer
 -- ----------------------------
 DROP TABLE IF EXISTS `om_exam_answer`;
 CREATE TABLE `om_exam_answer` (
@@ -53,62 +54,175 @@ CREATE TABLE `om_exam_answer` (
 -- ----------------------------
 -- Records of om_exam_answer
 -- ----------------------------
+INSERT INTO `om_exam_answer` VALUES ('01e10a5cb9fe49fea823a1c7d8dc0732', '03a5bfa8a0f64326a3e0c547b4decd1e', '52f818a1e333497db14238ae01e92a15', 'ccceea74a02447c2a3a7c07810893410', 'aa883', 'C', null, null, '2020-01-05 11:55:22', null);
 INSERT INTO `om_exam_answer` VALUES ('0771f6b1dd8b4006829fdd469825e985', '98cfede57e5c41f98130619e816405ef', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', 'aa225', '0', '0', '', '2019-12-13 12:07:42', '2019-12-13 12:41:07');
+INSERT INTO `om_exam_answer` VALUES ('0851fc1e99434603b21aa4597fba64cf', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'aa55', 'D', null, null, '2020-03-29 10:31:32', null);
 INSERT INTO `om_exam_answer` VALUES ('0bcaccb855b34f82a6d93b7db67cb8e4', '5fbeb7f256b44753accbe062c32d0a38', '8f932b70af344668bb35d13750f3393d', '11e325f9646a46049ff2f6252ddfc8ac', 'aa14', 'B', '0', '', '2019-12-13 11:07:09', '2019-12-13 12:40:51');
+INSERT INTO `om_exam_answer` VALUES ('0c92778f61bb4126bc973024bb542145', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', '152', 'A', null, null, '2020-03-29 10:40:17', null);
+INSERT INTO `om_exam_answer` VALUES ('0d247d489747497a9d73c46972834a45', '03a5bfa8a0f64326a3e0c547b4decd1e', '52f818a1e333497db14238ae01e92a15', 'ccceea74a02447c2a3a7c07810893410', 'aa351', 'B', null, null, '2020-01-05 11:55:32', null);
 INSERT INTO `om_exam_answer` VALUES ('0fd25f2b2d2241d8bf216a6ee5645856', '98cfede57e5c41f98130619e816405ef', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', 'aa042d0459-fba0-427d-8ec0-8cb88fc58f42', '1', '2', '', '2019-12-13 12:07:30', '2019-12-13 12:41:07');
+INSERT INTO `om_exam_answer` VALUES ('10368fc50f6e4dddaec42625dc295957', '03a5bfa8a0f64326a3e0c547b4decd1e', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'aa1019', 'D', null, null, '2020-03-29 10:14:14', null);
+INSERT INTO `om_exam_answer` VALUES ('10def8694c1849978a344fd452406add', '03a5bfa8a0f64326a3e0c547b4decd1e', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'aa194', 'A', null, null, '2020-03-29 10:13:47', null);
+INSERT INTO `om_exam_answer` VALUES ('135b2b63d4c74555a8608ec186610d0f', '03a5bfa8a0f64326a3e0c547b4decd1e', '52f818a1e333497db14238ae01e92a15', 'ccceea74a02447c2a3a7c07810893410', 'aa1072', 'D', null, null, '2020-01-05 11:55:24', null);
 INSERT INTO `om_exam_answer` VALUES ('1380f7f7ae4549a6a2fb236a648d4b9d', '98cfede57e5c41f98130619e816405ef', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', 'aa719', '0', '2', '', '2019-12-13 12:07:26', '2019-12-13 12:41:07');
+INSERT INTO `om_exam_answer` VALUES ('149abe2cd65d446894996b35133f5c58', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', '987', 'C', null, null, '2020-03-29 10:41:59', null);
+INSERT INTO `om_exam_answer` VALUES ('1b3b7f34d69548c3b09196419f200e37', '03a5bfa8a0f64326a3e0c547b4decd1e', '52f818a1e333497db14238ae01e92a15', 'ccceea74a02447c2a3a7c07810893410', 'aad65b6f5e-069b-4dbc-bebf-a67d3a003d80', 'C', null, null, '2020-01-05 11:55:16', null);
+INSERT INTO `om_exam_answer` VALUES ('1c9ac1b2230149439689f0af5865a92c', '03a5bfa8a0f64326a3e0c547b4decd1e', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'aa559', 'B', null, null, '2020-03-29 10:14:30', null);
+INSERT INTO `om_exam_answer` VALUES ('1d7de728018b406692e7d4e62b1066e8', '03a5bfa8a0f64326a3e0c547b4decd1e', '8f932b70af344668bb35d13750f3393d', '11e325f9646a46049ff2f6252ddfc8ac', 'aa2', 'A', null, null, '2020-01-14 17:56:53', null);
+INSERT INTO `om_exam_answer` VALUES ('1e991d736ba5489ba43773116bdef351', '03a5bfa8a0f64326a3e0c547b4decd1e', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'aa196', 'C', null, null, '2020-03-29 10:13:31', null);
+INSERT INTO `om_exam_answer` VALUES ('210310d7d65741d5a1b6201a315efd79', '03a5bfa8a0f64326a3e0c547b4decd1e', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'aa1072', 'C', null, null, '2020-03-29 10:14:32', '2020-03-29 10:15:02');
 INSERT INTO `om_exam_answer` VALUES ('2248b3e785ce438e8085c1e6fe75f552', '98cfede57e5c41f98130619e816405ef', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', 'ad06dc02-9ef0-4e2e-a807-c518844cf289', 'B', '2', '', '2019-12-13 12:07:07', '2019-12-13 12:41:07');
+INSERT INTO `om_exam_answer` VALUES ('2672cfdbc43d48a289e9b9e4f830c2f2', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'aa99', 'C', null, null, '2020-03-29 10:37:57', '2020-03-29 10:37:59');
+INSERT INTO `om_exam_answer` VALUES ('2a4e1d973b6d446a98ea770bc4ea3ab2', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'f21fff02-b9e0-4879-8109-5745851789e7', 'B', null, null, '2020-03-29 10:42:10', null);
+INSERT INTO `om_exam_answer` VALUES ('2a6f67b5dd9544699d050c77f1e2c8f2', '03a5bfa8a0f64326a3e0c547b4decd1e', '52f818a1e333497db14238ae01e92a15', 'ccceea74a02447c2a3a7c07810893410', 'e3f086c0-85ef-4d90-a13c-dd88245c3ba6', 'B', null, null, '2020-01-05 11:55:58', null);
+INSERT INTO `om_exam_answer` VALUES ('2bd305bd98174e78972bdaff9cf45dc1', '03a5bfa8a0f64326a3e0c547b4decd1e', '8f932b70af344668bb35d13750f3393d', '11e325f9646a46049ff2f6252ddfc8ac', 'aa28', 'C', null, null, '2020-01-14 17:56:57', '2020-01-14 17:57:00');
+INSERT INTO `om_exam_answer` VALUES ('2c7e29b20c034416aa5d20974437db20', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'aa697', 'A', null, null, '2020-03-29 10:30:58', null);
+INSERT INTO `om_exam_answer` VALUES ('2ee056a5b7e54a8099b29c1d3f5ae412', '03a5bfa8a0f64326a3e0c547b4decd1e', '52f818a1e333497db14238ae01e92a15', 'ccceea74a02447c2a3a7c07810893410', '553', 'B', null, null, '2020-01-05 11:55:44', null);
+INSERT INTO `om_exam_answer` VALUES ('31b5ee3adb8649a7aa7de3dc64327cef', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'aa688', 'C', null, null, '2020-03-29 10:38:15', null);
+INSERT INTO `om_exam_answer` VALUES ('32311923b4654503826d1bccc84c6b54', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'aa68', 'C', null, null, '2020-03-29 10:37:43', null);
+INSERT INTO `om_exam_answer` VALUES ('33b7dd6e33134464a2e82d6a230615cc', '03a5bfa8a0f64326a3e0c547b4decd1e', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'aa523', 'A', null, null, '2020-03-29 10:15:10', null);
 INSERT INTO `om_exam_answer` VALUES ('346fbd46025b4cd594461d7fd60ec36e', '98cfede57e5c41f98130619e816405ef', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', 'aa664', 'C', '0', '', '2019-12-13 11:16:49', '2019-12-13 12:41:07');
+INSERT INTO `om_exam_answer` VALUES ('36c0e9b17709490480d4ae0519b02db5', '03a5bfa8a0f64326a3e0c547b4decd1e', '52f818a1e333497db14238ae01e92a15', 'ccceea74a02447c2a3a7c07810893410', 'aa559', 'B', null, null, '2020-01-05 11:55:21', null);
+INSERT INTO `om_exam_answer` VALUES ('3754ac69e31142f3bcfd0c386e0726eb', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'aa1045', 'D', null, null, '2020-03-29 10:39:07', null);
+INSERT INTO `om_exam_answer` VALUES ('39ae2737b17d41d98dad344d0bb76456', '03a5bfa8a0f64326a3e0c547b4decd1e', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'aa520c7f02-f3e6-4b52-be41-175f87b21059', 'C', null, null, '2020-03-29 10:14:28', null);
 INSERT INTO `om_exam_answer` VALUES ('39af78c33106435fa08a893a48e51b8b', '98cfede57e5c41f98130619e816405ef', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', '581', 'D', '0', '', '2019-12-13 11:17:05', '2019-12-13 12:41:07');
 INSERT INTO `om_exam_answer` VALUES ('39bd8bd935524d5e9ccffdd6f40299f2', '98cfede57e5c41f98130619e816405ef', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', '962', 'C', '0', '', '2019-12-13 11:17:04', '2019-12-13 12:41:07');
+INSERT INTO `om_exam_answer` VALUES ('39c6ae9a84274e7987fb640c42fcb834', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'aa966', 'A', null, null, '2020-03-29 10:38:34', null);
+INSERT INTO `om_exam_answer` VALUES ('3a9482e4427049fb962823fe6544b02d', '03a5bfa8a0f64326a3e0c547b4decd1e', '8f932b70af344668bb35d13750f3393d', '11e325f9646a46049ff2f6252ddfc8ac', 'aa78', '0', null, null, '2020-01-14 17:59:36', null);
 INSERT INTO `om_exam_answer` VALUES ('3c3da0c1d2394ee996fc1930e01aa99d', '5fbeb7f256b44753accbe062c32d0a38', '8f932b70af344668bb35d13750f3393d', '11e325f9646a46049ff2f6252ddfc8ac', 'aa11', 'C', '0', '', '2019-12-13 11:07:06', '2019-12-13 12:40:51');
+INSERT INTO `om_exam_answer` VALUES ('3ccfe49c28904675ac7795bb3bac90c7', '03a5bfa8a0f64326a3e0c547b4decd1e', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', '638', 'D', null, null, '2020-01-14 17:02:50', null);
+INSERT INTO `om_exam_answer` VALUES ('3f47a4310c7d4dd68c6f676cf2293201', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', '5acde460-ac18-4017-a1df-0b59f86ad26f', 'D', null, null, '2020-03-29 10:41:11', null);
+INSERT INTO `om_exam_answer` VALUES ('3f510df7d99e4c77873bc7afa5151c21', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', '7d70f5c1-325e-437a-a99f-275c8b49fd28', 'C', null, null, '2020-03-29 10:43:52', null);
 INSERT INTO `om_exam_answer` VALUES ('449a1d05ae6340d5bf55e44b12f7de46', '5fbeb7f256b44753accbe062c32d0a38', '8f932b70af344668bb35d13750f3393d', '11e325f9646a46049ff2f6252ddfc8ac', 'aa12', 'C', '0', '', '2019-12-13 11:07:08', '2019-12-13 12:40:51');
+INSERT INTO `om_exam_answer` VALUES ('45f03270621e4f31ae83553b7d3ce75d', '03a5bfa8a0f64326a3e0c547b4decd1e', '8f932b70af344668bb35d13750f3393d', '11e325f9646a46049ff2f6252ddfc8ac', 'aa38', 'B', null, null, '2020-01-14 17:57:22', null);
+INSERT INTO `om_exam_answer` VALUES ('468cfce508b44a069428427ef546eeec', '03a5bfa8a0f64326a3e0c547b4decd1e', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', 'aa446', 'B', null, null, '2020-01-14 17:01:57', null);
 INSERT INTO `om_exam_answer` VALUES ('4a14ed1fea4146058ff0959ab82e435b', '98cfede57e5c41f98130619e816405ef', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', '803', 'C', '0', '', '2019-12-13 11:16:53', '2019-12-13 12:41:07');
+INSERT INTO `om_exam_answer` VALUES ('4c59cc98339e4e6d9b81299bf19c7085', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', '974', 'C', null, null, '2020-03-29 10:40:32', null);
+INSERT INTO `om_exam_answer` VALUES ('4c91ea474e4145a6a5b367ff9ed6a96e', '03a5bfa8a0f64326a3e0c547b4decd1e', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', '103', 'C', null, null, '2020-03-29 10:16:03', null);
 INSERT INTO `om_exam_answer` VALUES ('4cc2c845cadb43bc881d1d16a9b5630a', '98cfede57e5c41f98130619e816405ef', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', 'aa132', 'C', '0', '', '2019-12-13 11:16:44', '2019-12-13 12:41:07');
 INSERT INTO `om_exam_answer` VALUES ('4fc7ec378e0045f1a8f0db3819a62aa1', '5fbeb7f256b44753accbe062c32d0a38', '8f932b70af344668bb35d13750f3393d', '11e325f9646a46049ff2f6252ddfc8ac', 'aa30', 'D', '2', '', '2019-12-13 11:08:24', '2019-12-13 12:40:51');
+INSERT INTO `om_exam_answer` VALUES ('50f6ac6370e94db09539b924ba0a7b12', '03a5bfa8a0f64326a3e0c547b4decd1e', '52f818a1e333497db14238ae01e92a15', 'ccceea74a02447c2a3a7c07810893410', 'aa196', 'B', null, null, '2020-01-05 11:55:05', null);
 INSERT INTO `om_exam_answer` VALUES ('51314ac98c0b4f729f0de1b320b37f86', '98cfede57e5c41f98130619e816405ef', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', '696', 'C', '0', '', '2019-12-13 11:17:12', '2019-12-13 12:41:07');
+INSERT INTO `om_exam_answer` VALUES ('53ad173d01f74449bbfdaa9082a89d1a', '03a5bfa8a0f64326a3e0c547b4decd1e', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'aa661', 'C', null, null, '2020-03-29 10:15:07', null);
 INSERT INTO `om_exam_answer` VALUES ('573098a178294b5eaa7e8be84d4f90a3', '5fbeb7f256b44753accbe062c32d0a38', '8f932b70af344668bb35d13750f3393d', '11e325f9646a46049ff2f6252ddfc8ac', 'aa10', 'B', '2', '', '2019-12-13 11:07:05', '2019-12-13 12:40:51');
+INSERT INTO `om_exam_answer` VALUES ('577e31c1d07d4dc49f65b7860f1e55e2', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', '976', 'A', null, null, '2020-03-29 10:43:26', null);
+INSERT INTO `om_exam_answer` VALUES ('588126aba6154c0a812959c17b99c7a4', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', '534', 'C', null, null, '2020-03-29 10:40:58', null);
+INSERT INTO `om_exam_answer` VALUES ('58c3eafc585f4b059bd590bbe7b8cc4c', '03a5bfa8a0f64326a3e0c547b4decd1e', '52f818a1e333497db14238ae01e92a15', 'ccceea74a02447c2a3a7c07810893410', 'aa523', 'C', null, null, '2020-01-05 11:55:28', null);
+INSERT INTO `om_exam_answer` VALUES ('594ce64c2e804778b2a850e8df634bd1', '03a5bfa8a0f64326a3e0c547b4decd1e', '52f818a1e333497db14238ae01e92a15', 'ccceea74a02447c2a3a7c07810893410', '773', 'C', null, null, '2020-01-05 11:55:55', null);
 INSERT INTO `om_exam_answer` VALUES ('59cca033d8994ca687bf70be84803f6f', '98cfede57e5c41f98130619e816405ef', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', 'aab9cd9ebd-bea6-4f79-89b4-cd22d6cc6afc', 'A', '2', '', '2019-12-13 11:20:00', '2019-12-13 12:41:07');
+INSERT INTO `om_exam_answer` VALUES ('5b0e24ab0baf4aa39c4cd21dbb01aeb2', '03a5bfa8a0f64326a3e0c547b4decd1e', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', '2641ce0f-19f5-41b5-b1c5-05d176db1e84', 'A', null, null, '2020-01-14 17:02:25', null);
+INSERT INTO `om_exam_answer` VALUES ('5c2845842b7144faaa8140be157c667a', '03a5bfa8a0f64326a3e0c547b4decd1e', '52f818a1e333497db14238ae01e92a15', 'ccceea74a02447c2a3a7c07810893410', 'aa642', 'C', null, null, '2020-01-05 11:55:36', null);
+INSERT INTO `om_exam_answer` VALUES ('5cd89d391b834e25b075c62c3c2d6663', '03a5bfa8a0f64326a3e0c547b4decd1e', '52f818a1e333497db14238ae01e92a15', 'ccceea74a02447c2a3a7c07810893410', 'aa785', 'B', null, null, '2020-01-05 11:55:09', null);
 INSERT INTO `om_exam_answer` VALUES ('5d3bce6c88a04d3da529709eb47f2b56', '98cfede57e5c41f98130619e816405ef', '8f932b70af344668bb35d13750f3393d', '11e325f9646a46049ff2f6252ddfc8ac', 'aa12', 'A', '0', '', '2019-12-13 11:20:24', '2019-12-13 12:41:02');
+INSERT INTO `om_exam_answer` VALUES ('5e61f7925cc84d2cb6d729043c671f9b', '03a5bfa8a0f64326a3e0c547b4decd1e', '52f818a1e333497db14238ae01e92a15', 'ccceea74a02447c2a3a7c07810893410', 'aa194', 'B', null, null, '2020-01-05 11:55:11', null);
+INSERT INTO `om_exam_answer` VALUES ('5e8ae57de736474facba617323a9b2e9', '03a5bfa8a0f64326a3e0c547b4decd1e', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'aa351', 'B', null, null, '2020-03-29 10:15:14', null);
+INSERT INTO `om_exam_answer` VALUES ('622ac23e0a85480a84329154c186dfe9', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'aa748', 'C', null, null, '2020-03-29 10:31:07', null);
+INSERT INTO `om_exam_answer` VALUES ('634f239fd69746cd87bae526bcaf49c1', '03a5bfa8a0f64326a3e0c547b4decd1e', '52f818a1e333497db14238ae01e92a15', 'ccceea74a02447c2a3a7c07810893410', 'aa484', 'D', null, null, '2020-01-05 11:55:40', null);
+INSERT INTO `om_exam_answer` VALUES ('6368e1476f4e479f9b96539a66bd3ca5', '03a5bfa8a0f64326a3e0c547b4decd1e', '8f932b70af344668bb35d13750f3393d', '11e325f9646a46049ff2f6252ddfc8ac', 'aa29', 'C', null, null, '2020-01-14 17:57:06', null);
+INSERT INTO `om_exam_answer` VALUES ('6513c0c3b11f41baa737ef2bbf59f55c', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'aa291', 'D', null, null, '2020-03-29 10:35:11', null);
+INSERT INTO `om_exam_answer` VALUES ('654673b898ce429bbf828c455df1cbaa', '03a5bfa8a0f64326a3e0c547b4decd1e', '52f818a1e333497db14238ae01e92a15', 'ccceea74a02447c2a3a7c07810893410', 'aa754', 'C', null, null, '2020-01-05 11:55:17', null);
+INSERT INTO `om_exam_answer` VALUES ('676a9ddb65e04f4abfd399bd5dbb2c13', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', '14cc7b35-8497-4465-b946-db5e9c748524', 'C', null, null, '2020-03-29 10:44:18', null);
+INSERT INTO `om_exam_answer` VALUES ('6adf0a89f9ba475e8f84e718365130b3', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', '177', 'A', null, null, '2020-03-29 10:43:20', null);
 INSERT INTO `om_exam_answer` VALUES ('6c01d7168d0942058115346ab256a413', '5fbeb7f256b44753accbe062c32d0a38', '8f932b70af344668bb35d13750f3393d', '11e325f9646a46049ff2f6252ddfc8ac', 'aa2', 'A', '2', '', '2019-12-13 11:07:11', '2019-12-13 12:40:51');
+INSERT INTO `om_exam_answer` VALUES ('6df13e2cb45c41878ce2bc92b65b8511', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'aa61365103-81a8-44ae-8996-00961ec82d95', 'A', null, null, '2020-03-29 10:38:08', null);
+INSERT INTO `om_exam_answer` VALUES ('6f89a0ea2f3f49ab979ca27eb1f35304', '03a5bfa8a0f64326a3e0c547b4decd1e', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'aa642', 'D', null, null, '2020-03-29 10:15:32', null);
+INSERT INTO `om_exam_answer` VALUES ('6faa1d93503e41a2b5fe7a3c3d0a38d9', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', '799', 'D', null, null, '2020-03-29 10:41:48', null);
 INSERT INTO `om_exam_answer` VALUES ('70c57617585043fdb97b7663b8088a16', '5fbeb7f256b44753accbe062c32d0a38', '8f932b70af344668bb35d13750f3393d', '11e325f9646a46049ff2f6252ddfc8ac', 'aa21', 'D', '2', '', '2019-12-13 11:07:18', '2019-12-13 12:40:51');
 INSERT INTO `om_exam_answer` VALUES ('754c6e6a4c2f402a91c94bd1452a0572', '98cfede57e5c41f98130619e816405ef', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', 'aa137', 'B', '0', '', '2019-12-13 11:16:48', '2019-12-13 12:41:07');
+INSERT INTO `om_exam_answer` VALUES ('76c16248dc9d462bab3cb8c3ac921e7b', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'cae4e146-622f-44de-b667-76fb945dc8f2', 'C', null, null, '2020-03-29 10:42:45', null);
+INSERT INTO `om_exam_answer` VALUES ('76c85551972b4138b3a97a4f2ce4e50a', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', '618', 'B', null, null, '2020-03-29 10:43:01', null);
+INSERT INTO `om_exam_answer` VALUES ('78203cb6acef43eaaad692c7c61fe784', '03a5bfa8a0f64326a3e0c547b4decd1e', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', 'aa438', 'A', null, null, '2020-01-14 17:01:56', null);
 INSERT INTO `om_exam_answer` VALUES ('7850578e4060414a806305682850b538', '5fbeb7f256b44753accbe062c32d0a38', '8f932b70af344668bb35d13750f3393d', '11e325f9646a46049ff2f6252ddfc8ac', 'aa1', 'C', '0', '', '2019-12-13 11:07:04', '2019-12-13 12:40:51');
+INSERT INTO `om_exam_answer` VALUES ('795983df668246e9a0c1d23908c1bc17', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'f77997a4-9553-45e0-a476-65a95fa87612', 'A', null, null, '2020-03-29 10:41:28', null);
 INSERT INTO `om_exam_answer` VALUES ('7a2b46e87ae1456f96d61dfc5ca25330', '98cfede57e5c41f98130619e816405ef', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', 'aa948', 'B', '2', '', '2019-12-13 11:16:43', '2019-12-13 12:41:07');
+INSERT INTO `om_exam_answer` VALUES ('7a69c37bfe2642c2940a9eee24a7169d', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', '647', 'B', null, null, '2020-03-29 10:44:01', null);
+INSERT INTO `om_exam_answer` VALUES ('7d13d43ada5c47aa8f362299b2aea497', '03a5bfa8a0f64326a3e0c547b4decd1e', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', 'aa346', 'C', null, null, '2020-01-14 17:02:19', null);
+INSERT INTO `om_exam_answer` VALUES ('8157173c76d447b4b9f91425b2449d1d', '03a5bfa8a0f64326a3e0c547b4decd1e', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'aa754', 'A', null, null, '2020-03-29 10:14:24', null);
+INSERT INTO `om_exam_answer` VALUES ('81f48b6510d2465092017873cc89dca5', '03a5bfa8a0f64326a3e0c547b4decd1e', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', '681', 'B', null, null, '2020-01-14 17:02:41', null);
 INSERT INTO `om_exam_answer` VALUES ('834e3543791b4cb4bb6c72f4145de416', '98cfede57e5c41f98130619e816405ef', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', '829', 'D', '0', '', '2019-12-13 11:17:14', '2019-12-13 12:41:07');
+INSERT INTO `om_exam_answer` VALUES ('83d1b2a1e5424964a5689d70a1127416', '03a5bfa8a0f64326a3e0c547b4decd1e', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', 'aa617', 'B', null, null, '2020-01-14 17:02:01', null);
 INSERT INTO `om_exam_answer` VALUES ('84a8cf91e6d44e0ebb1b17b0fbfbcef0', '98cfede57e5c41f98130619e816405ef', '8f932b70af344668bb35d13750f3393d', '11e325f9646a46049ff2f6252ddfc8ac', 'aa10', 'B', '2', '', '2019-12-13 11:20:19', '2019-12-13 12:41:02');
 INSERT INTO `om_exam_answer` VALUES ('84fea1c680b945b5b96a5322e1590bcb', '98cfede57e5c41f98130619e816405ef', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', '94d1c365-1ef0-49e4-b9c9-905555d69185', 'D', '2', '', '2019-12-13 12:06:54', '2019-12-13 12:41:07');
+INSERT INTO `om_exam_answer` VALUES ('8723b898243641dbae30f59e83a8e2c3', '03a5bfa8a0f64326a3e0c547b4decd1e', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'aa566', 'C', null, null, '2020-03-29 10:15:12', null);
 INSERT INTO `om_exam_answer` VALUES ('8a53353b3c5c4de1b8c4a3823a53e553', '98cfede57e5c41f98130619e816405ef', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', 'aa595', '1', '0', '', '2019-12-13 12:07:24', '2019-12-13 12:41:07');
+INSERT INTO `om_exam_answer` VALUES ('8e5c5d51bc8342d29de8f97c5b07f6f8', '03a5bfa8a0f64326a3e0c547b4decd1e', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'aa428', 'C', null, null, '2020-03-29 10:15:33', null);
+INSERT INTO `om_exam_answer` VALUES ('8ec49658907644c6b65689d4a2767edd', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'aa938', 'B', null, null, '2020-03-29 10:35:48', null);
+INSERT INTO `om_exam_answer` VALUES ('8f150e1fd8bc4de799040a753808cf55', '03a5bfa8a0f64326a3e0c547b4decd1e', '52f818a1e333497db14238ae01e92a15', 'ccceea74a02447c2a3a7c07810893410', 'aa520c7f02-f3e6-4b52-be41-175f87b21059', 'B', null, null, '2020-01-05 11:55:19', null);
 INSERT INTO `om_exam_answer` VALUES ('8f1ed6396d4540de8507d6219ea8849e', '98cfede57e5c41f98130619e816405ef', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', 'aab6711697-ca64-48f7-8f17-30d539738697', 'C', '0', '', '2019-12-13 11:19:46', '2019-12-13 12:41:07');
+INSERT INTO `om_exam_answer` VALUES ('90ba66faa7c24295aa8e801a0b79ca1e', '03a5bfa8a0f64326a3e0c547b4decd1e', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', '758', 'A', null, null, '2020-03-29 10:15:50', null);
+INSERT INTO `om_exam_answer` VALUES ('9263c16e24ae46b8814242cccb635d67', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'e4e7e283-86f4-4611-84bc-821ea95d69d6', 'A', null, null, '2020-03-29 10:42:33', null);
 INSERT INTO `om_exam_answer` VALUES ('94b4beea958c46f9ac48f315af812193', '98cfede57e5c41f98130619e816405ef', '8f932b70af344668bb35d13750f3393d', '11e325f9646a46049ff2f6252ddfc8ac', 'aa11', 'D', '0', '', '2019-12-13 11:20:21', '2019-12-13 12:41:02');
+INSERT INTO `om_exam_answer` VALUES ('95eebb9e9e654b7d848b0ed826ead21d', '03a5bfa8a0f64326a3e0c547b4decd1e', '52f818a1e333497db14238ae01e92a15', 'ccceea74a02447c2a3a7c07810893410', '130', 'A', null, null, '2020-01-05 11:55:47', null);
 INSERT INTO `om_exam_answer` VALUES ('966e2f52f1324c34a69d4196c7610ea3', '98cfede57e5c41f98130619e816405ef', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', 'aa1048', '0', '2', '', '2019-12-13 12:07:37', '2019-12-13 12:41:07');
+INSERT INTO `om_exam_answer` VALUES ('96f2ec2c1fb84a718c475a3f6c53d387', '03a5bfa8a0f64326a3e0c547b4decd1e', '8f932b70af344668bb35d13750f3393d', '11e325f9646a46049ff2f6252ddfc8ac', 'aa31', 'A', null, null, '2020-01-14 17:57:12', null);
 INSERT INTO `om_exam_answer` VALUES ('98bdb0b9da4741e1a6056f8ab84ce379', '98cfede57e5c41f98130619e816405ef', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', 'aa908', '0', '2', '', '2019-12-13 12:07:57', '2019-12-13 12:41:07');
+INSERT INTO `om_exam_answer` VALUES ('9c65d0d860234e97a559336e179c887a', '03a5bfa8a0f64326a3e0c547b4decd1e', '8f932b70af344668bb35d13750f3393d', '11e325f9646a46049ff2f6252ddfc8ac', 'aa60', '0', null, null, '2020-01-14 17:59:26', null);
+INSERT INTO `om_exam_answer` VALUES ('9ddc13a4ffd444179fe85c713466146a', '03a5bfa8a0f64326a3e0c547b4decd1e', '52f818a1e333497db14238ae01e92a15', 'ccceea74a02447c2a3a7c07810893410', 'aa566', 'B', null, null, '2020-01-05 11:55:30', null);
 INSERT INTO `om_exam_answer` VALUES ('9fac73f1573c460f9bc893e22c0c6e10', '98cfede57e5c41f98130619e816405ef', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', '993', 'C', '2', '', '2019-12-13 12:07:17', '2019-12-13 12:41:07');
+INSERT INTO `om_exam_answer` VALUES ('a0f8ecb5499345798cd2e797f2d0ee2c', '03a5bfa8a0f64326a3e0c547b4decd1e', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', '9de70ad1-9bf0-46d8-8aea-495aa2dfd850', 'B', null, null, '2020-01-14 17:03:07', null);
 INSERT INTO `om_exam_answer` VALUES ('a110a126ad74451199d8f61165c98572', '98cfede57e5c41f98130619e816405ef', '8f932b70af344668bb35d13750f3393d', '11e325f9646a46049ff2f6252ddfc8ac', 'aa2', 'A', '2', '', '2019-12-13 11:20:31', '2019-12-13 12:41:02');
+INSERT INTO `om_exam_answer` VALUES ('a133a3154a57415c88bd34dafce0643a', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', '80', 'A', null, null, '2020-03-29 10:39:18', null);
+INSERT INTO `om_exam_answer` VALUES ('a234ba956f894ef4ad6bcc056de36f41', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'aa1008', 'B', null, null, '2020-03-29 10:36:40', null);
 INSERT INTO `om_exam_answer` VALUES ('a65cd0dc69994131b88e7d0128f3b9d6', '98cfede57e5c41f98130619e816405ef', '8f932b70af344668bb35d13750f3393d', '11e325f9646a46049ff2f6252ddfc8ac', 'aa1', 'B', '2', '', '2019-12-13 11:20:16', '2019-12-13 12:41:02');
+INSERT INTO `om_exam_answer` VALUES ('a6983558abee40b49dd1a4c3d0704bb4', '03a5bfa8a0f64326a3e0c547b4decd1e', '8f932b70af344668bb35d13750f3393d', '11e325f9646a46049ff2f6252ddfc8ac', 'aa32', 'C', null, null, '2020-01-14 17:57:17', null);
+INSERT INTO `om_exam_answer` VALUES ('a6ac91346e6b4e52b4187afe9582bf6e', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', '5c351c08-4304-4b5d-afe3-eb86920d25a1', 'A', null, null, '2020-03-29 10:42:19', null);
+INSERT INTO `om_exam_answer` VALUES ('a842f445e0d242158d980428681a1ebf', '03a5bfa8a0f64326a3e0c547b4decd1e', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'aa883', 'B', null, null, '2020-03-29 10:14:31', null);
+INSERT INTO `om_exam_answer` VALUES ('af6d1de8545d4266b7e044e5c8c59d5d', '03a5bfa8a0f64326a3e0c547b4decd1e', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', 'aa479', 'B', null, null, '2020-01-14 17:01:58', null);
 INSERT INTO `om_exam_answer` VALUES ('afac048b4e5240e788396a2830de6c47', '98cfede57e5c41f98130619e816405ef', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', 'aa1019', 'C', '0', '', '2019-12-13 11:16:46', '2019-12-13 12:41:07');
 INSERT INTO `om_exam_answer` VALUES ('b3a7ce1134804bef86a10e2e2c36741f', '98cfede57e5c41f98130619e816405ef', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', '954', 'C', '0', '', '2019-12-13 11:16:55', '2019-12-13 12:41:07');
+INSERT INTO `om_exam_answer` VALUES ('b4fcbb1f59d444bc976bfa7bc446a21c', '03a5bfa8a0f64326a3e0c547b4decd1e', '52f818a1e333497db14238ae01e92a15', 'ccceea74a02447c2a3a7c07810893410', 'aab7dd6196-a3ce-46da-88d6-6563d06229f7', 'D', null, null, '2020-01-05 11:55:38', null);
+INSERT INTO `om_exam_answer` VALUES ('b5cc9a12cc594ff8bca7f3b19c9d2b7a', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'aa154', 'A', null, null, '2020-03-29 10:35:26', null);
+INSERT INTO `om_exam_answer` VALUES ('bb23658a664944048908b67b9000e9f2', '03a5bfa8a0f64326a3e0c547b4decd1e', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'aaf3a1bb6f-b25f-4408-91a5-fa2b21c9ad95', 'D', null, null, '2020-03-29 10:15:15', '2020-03-29 10:15:30');
+INSERT INTO `om_exam_answer` VALUES ('bcc31cafb95f4008a7bdf727882909f1', '03a5bfa8a0f64326a3e0c547b4decd1e', '52f818a1e333497db14238ae01e92a15', 'ccceea74a02447c2a3a7c07810893410', 'aa632', 'B', null, null, '2020-01-05 11:55:12', null);
+INSERT INTO `om_exam_answer` VALUES ('bccdd0e4a0b444ceaa1986b35103a7ac', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'aa960', 'D', null, null, '2020-03-29 10:37:03', null);
+INSERT INTO `om_exam_answer` VALUES ('be20ad6692d64e7987f86e40d94bbc53', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'aa746', 'A', null, null, '2020-03-29 10:34:59', null);
+INSERT INTO `om_exam_answer` VALUES ('bfba6f94c32f4708ba40d1372e42088c', '03a5bfa8a0f64326a3e0c547b4decd1e', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', '14cc7b35-8497-4465-b946-db5e9c748524', 'B', null, null, '2020-03-29 10:15:53', null);
+INSERT INTO `om_exam_answer` VALUES ('c15319fae7274384a060d1ae18edd1cc', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'aa23', 'C', null, null, '2020-03-29 10:34:31', null);
 INSERT INTO `om_exam_answer` VALUES ('c17d0e8d5e644107a0c9245d43f6c4ff', '5fbeb7f256b44753accbe062c32d0a38', '8f932b70af344668bb35d13750f3393d', '11e325f9646a46049ff2f6252ddfc8ac', 'aa31', 'A', '2', '', '2019-12-13 11:08:16', '2019-12-13 12:40:51');
+INSERT INTO `om_exam_answer` VALUES ('c271724ffd5c417aaac876fc4ccf7594', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'daca2954-a31a-44c7-8c2b-332ede18b475', 'D', null, null, '2020-03-29 10:39:54', null);
 INSERT INTO `om_exam_answer` VALUES ('c47b17884cf54174bd3cb9707b855a68', '98cfede57e5c41f98130619e816405ef', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', '18', 'A', '0', '', '2019-12-13 11:16:56', '2019-12-13 12:41:07');
+INSERT INTO `om_exam_answer` VALUES ('c7d0b4634020429883791073df96fa1f', '03a5bfa8a0f64326a3e0c547b4decd1e', '8f932b70af344668bb35d13750f3393d', '11e325f9646a46049ff2f6252ddfc8ac', 'aa22', 'C', null, null, '2020-01-14 17:56:56', null);
+INSERT INTO `om_exam_answer` VALUES ('c9c7ce8b5903470e8ffa4a704a663fc9', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', '686', 'A', null, null, '2020-03-29 10:40:01', '2020-03-29 10:40:08');
+INSERT INTO `om_exam_answer` VALUES ('cb12f5be0e1742179828b37c6fdf4e5e', '03a5bfa8a0f64326a3e0c547b4decd1e', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'aa785', 'D', null, null, '2020-03-29 10:13:37', null);
+INSERT INTO `om_exam_answer` VALUES ('ccac7bae31b04ba58a6e7fe5e8211def', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'a1a15d5e-764d-4cf1-a0ac-171f38178a3e', 'B', null, null, '2020-03-29 10:39:45', null);
+INSERT INTO `om_exam_answer` VALUES ('ced0db108262453ca056bb65c1f2c8dd', '03a5bfa8a0f64326a3e0c547b4decd1e', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', 'aa854', 'C', null, null, '2020-01-14 17:02:11', null);
+INSERT INTO `om_exam_answer` VALUES ('d00e1ea9d3514b4dbb2343e123d62d0a', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', '485ab3de-5d96-4dfb-af03-f99876bfce53', 'A', null, null, '2020-03-29 10:41:21', null);
+INSERT INTO `om_exam_answer` VALUES ('d3a784a4ad7546f2964deb369768a522', '03a5bfa8a0f64326a3e0c547b4decd1e', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', 'aa1033', 'B', null, null, '2020-01-14 17:02:14', null);
+INSERT INTO `om_exam_answer` VALUES ('dbb483d1c7324acabba7ab5c64170e3d', '03a5bfa8a0f64326a3e0c547b4decd1e', '8f932b70af344668bb35d13750f3393d', '11e325f9646a46049ff2f6252ddfc8ac', 'aa21', 'A', null, null, '2020-01-14 17:56:54', null);
 INSERT INTO `om_exam_answer` VALUES ('dc2a7d8f7bcc469cab57f0b2b0e7238b', '98cfede57e5c41f98130619e816405ef', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', 'aa10', 'B', '2', '', '2019-12-13 11:16:46', '2019-12-13 12:41:07');
 INSERT INTO `om_exam_answer` VALUES ('dd274a1da6a74a73913ffb2f21f3f165', '98cfede57e5c41f98130619e816405ef', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', 'aa23', 'C', '2', '', '2019-12-13 11:16:52', '2019-12-13 12:41:07');
+INSERT INTO `om_exam_answer` VALUES ('ded4b4bb66934558aa61f5510de3b359', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'aa443', 'A', null, null, '2020-03-29 10:31:22', null);
+INSERT INTO `om_exam_answer` VALUES ('e09432c63bb44e938ea35e008ddbd4af', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'aaf0d4cf35-6a40-46e4-ac83-398a55f552c3', 'A', null, null, '2020-03-29 10:34:49', null);
 INSERT INTO `om_exam_answer` VALUES ('e1304bec37de4d589b13e6dc8b9dee91', '98cfede57e5c41f98130619e816405ef', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', '643', 'C', '2', '', '2019-12-13 11:17:02', '2019-12-13 12:41:07');
+INSERT INTO `om_exam_answer` VALUES ('e1da259cedd341aeb6440ab91801c9f8', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'aa554', 'A', null, null, '2020-03-29 10:37:27', null);
+INSERT INTO `om_exam_answer` VALUES ('e1dfab39a2114e20bf00994848624146', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'aaff488d91-171e-47ca-ab9e-7dd5c02c1999', 'B', null, null, '2020-03-29 10:36:11', null);
+INSERT INTO `om_exam_answer` VALUES ('e8ef86cedf594355a11790aa522cca99', '03a5bfa8a0f64326a3e0c547b4decd1e', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'aab7dd6196-a3ce-46da-88d6-6563d06229f7', 'B', null, null, '2020-03-29 10:15:39', '2020-03-29 10:15:45');
+INSERT INTO `om_exam_answer` VALUES ('e968316c49464ce680197c6cea1d99db', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'aa742', 'B', null, null, '2020-03-29 10:38:20', null);
+INSERT INTO `om_exam_answer` VALUES ('eb639fc648af4d4d8e5169ed9e99a698', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'aa744', 'B', null, null, '2020-03-29 10:36:30', null);
+INSERT INTO `om_exam_answer` VALUES ('eb915c8220d7476181f788236fc2b5a7', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'aa6f6fe209-8397-4875-abda-2bb6c2e38799', 'A', null, null, '2020-03-29 10:38:55', null);
+INSERT INTO `om_exam_answer` VALUES ('edd43ac9b29d4c24a2edb626d876d04f', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'aa214', 'B', null, null, '2020-03-29 10:37:50', null);
 INSERT INTO `om_exam_answer` VALUES ('ee66c9f7d3234f989c6aed6cbc8017f3', '5fbeb7f256b44753accbe062c32d0a38', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', 'aa531', 'C', '0', '', '2019-12-13 11:11:40', '2019-12-13 12:40:56');
 INSERT INTO `om_exam_answer` VALUES ('eefd7911a46f444a8a59546ba49ebf60', '5fbeb7f256b44753accbe062c32d0a38', '8f932b70af344668bb35d13750f3393d', '11e325f9646a46049ff2f6252ddfc8ac', 'aa22', 'C', '0', '', '2019-12-13 11:07:20', '2019-12-13 12:40:51');
+INSERT INTO `om_exam_answer` VALUES ('ef382f64474f45bbadaa056a776aa82e', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', '628', 'D', null, null, '2020-03-29 10:40:45', null);
+INSERT INTO `om_exam_answer` VALUES ('ef99c01d1ee44a8b9a933de85938cd6f', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', 'aa487', 'A', null, null, '2020-03-29 10:37:20', null);
+INSERT INTO `om_exam_answer` VALUES ('f396eb9c170a42799119b4df6c94590d', '03a5bfa8a0f64326a3e0c547b4decd1e', '52f818a1e333497db14238ae01e92a15', 'ccceea74a02447c2a3a7c07810893410', 'aa661', 'C', null, null, '2020-01-05 11:55:26', null);
+INSERT INTO `om_exam_answer` VALUES ('f3be8c4fca70470d90d00f995435d7d8', '03a5bfa8a0f64326a3e0c547b4decd1e', '52f818a1e333497db14238ae01e92a15', 'ccceea74a02447c2a3a7c07810893410', 'aa1019', 'C', null, null, '2020-01-05 11:55:14', null);
+INSERT INTO `om_exam_answer` VALUES ('f52714df4b8d43cbaa067c4cffc834e2', '5fbeb7f256b44753accbe062c32d0a38', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', '677', 'D', null, null, '2020-03-29 10:42:25', null);
+INSERT INTO `om_exam_answer` VALUES ('f6576aa20f844246aa75da4e2b484605', '03a5bfa8a0f64326a3e0c547b4decd1e', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', '38', 'B', null, null, '2020-03-29 10:15:51', null);
+INSERT INTO `om_exam_answer` VALUES ('f69a7cb7e4e349e6bd62bd768a23c5ed', '03a5bfa8a0f64326a3e0c547b4decd1e', '8f932b70af344668bb35d13750f3393d', '11e325f9646a46049ff2f6252ddfc8ac', 'aa61', '0', null, null, '2020-01-14 17:59:28', '2020-01-14 17:59:30');
 INSERT INTO `om_exam_answer` VALUES ('f834935eb7bb4a5d99c4be85e965e1c5', '98cfede57e5c41f98130619e816405ef', '8f932b70af344668bb35d13750f3393d', '11e325f9646a46049ff2f6252ddfc8ac', 'aa13', 'C', '2', '', '2019-12-13 11:20:26', '2019-12-13 12:41:02');
+INSERT INTO `om_exam_answer` VALUES ('f9b1d3a0096e41a9a6b17e968f80d941', '03a5bfa8a0f64326a3e0c547b4decd1e', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', 'aa182', 'B', null, null, '2020-01-14 17:02:00', null);
 
 -- ----------------------------
--- Table structure for `om_exam_plan`
+-- Table structure for om_exam_plan
 -- ----------------------------
 DROP TABLE IF EXISTS `om_exam_plan`;
 CREATE TABLE `om_exam_plan` (
   `plan_id` varchar(32) NOT NULL COMMENT '考试安排id',
   `plan_name` varchar(500) DEFAULT NULL COMMENT '考试安排名称',
   `paper_id` varchar(32) DEFAULT NULL COMMENT '试卷id',
-  `status` varchar(10) DEFAULT '1' COMMENT '考试状态(0 失效  1待开考 2正在进行 3已结束)',
   `passing_score` int(11) DEFAULT NULL COMMENT '及格分',
   `passing_type` varchar(10) DEFAULT NULL COMMENT '及格分类别(1分数 2百分比)',
-  `begin_time` varchar(50) DEFAULT NULL COMMENT '开考时间',
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   `deleted` varchar(10) DEFAULT '0' COMMENT '删除状态 0未删除 1删除',
@@ -119,19 +233,19 @@ CREATE TABLE `om_exam_plan` (
 -- ----------------------------
 -- Records of om_exam_plan
 -- ----------------------------
-INSERT INTO `om_exam_plan` VALUES ('8f932b70af344668bb35d13750f3393d', '20191213科目一考试', '11e325f9646a46049ff2f6252ddfc8ac', '3', '60', '1', '2019-12-13 11:00:00', '2019-12-13 11:05:33', '2019-12-13 12:42:23', '0', '0');
-INSERT INTO `om_exam_plan` VALUES ('abf7097f1738490d806f4e20b348a33c', '20191213随机考试', '0d28691a21d940b1afff76d695d3ebeb', '3', '60', '1', '2019-12-13 11:00:00', '2019-12-13 11:09:29', '2019-12-13 12:42:55', '0', '0');
+INSERT INTO `om_exam_plan` VALUES ('4e35989b614448be8e312b00ef235ef1', 'test20200329', 'ccceea74a02447c2a3a7c07810893410', '60', '1', '2020-03-29 10:12:12', null, '0', '1');
+INSERT INTO `om_exam_plan` VALUES ('52f818a1e333497db14238ae01e92a15', 'test考试20200105', 'ccceea74a02447c2a3a7c07810893410', '60', '1', '2020-01-05 11:53:22', '2020-01-05 12:04:20', '0', '1');
+INSERT INTO `om_exam_plan` VALUES ('8f932b70af344668bb35d13750f3393d', '20191213科目一考试', '11e325f9646a46049ff2f6252ddfc8ac', '60', '1', '2019-12-13 11:05:33', '2020-01-14 17:01:39', '0', '1');
+INSERT INTO `om_exam_plan` VALUES ('abf7097f1738490d806f4e20b348a33c', '20191213随机考试', '0d28691a21d940b1afff76d695d3ebeb', '60', '1', '2019-12-13 11:09:29', '2020-01-14 17:01:34', '0', '1');
 
 -- ----------------------------
--- Table structure for `om_exam_plan_vo`
+-- Table structure for om_exam_plan_vo
 -- ----------------------------
 DROP TABLE IF EXISTS `om_exam_plan_vo`;
 CREATE TABLE `om_exam_plan_vo` (
   `plan_id` varchar(32) NOT NULL COMMENT '考试安排id',
   `plan_name` varchar(500) DEFAULT NULL COMMENT '考试安排名称',
   `paper_id` varchar(32) DEFAULT NULL COMMENT '试卷id',
-  `status` varchar(10) DEFAULT '1' COMMENT '考试状态(0 失效  1待开考 2正在进行 3已结束)',
-  `begin_time` varchar(50) DEFAULT NULL COMMENT '开考时间',
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   `paper_name` varchar(500) DEFAULT NULL COMMENT '试卷名称',
@@ -156,7 +270,7 @@ CREATE TABLE `om_exam_plan_vo` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `om_exam_submit`
+-- Table structure for om_exam_submit
 -- ----------------------------
 DROP TABLE IF EXISTS `om_exam_submit`;
 CREATE TABLE `om_exam_submit` (
@@ -180,13 +294,18 @@ CREATE TABLE `om_exam_submit` (
 -- ----------------------------
 -- Records of om_exam_submit
 -- ----------------------------
+INSERT INTO `om_exam_submit` VALUES ('03049402534645f6b6c9ac4a24c6be99', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', '5fbeb7f256b44753accbe062c32d0a38', '4', '2020-03-29 10:30:46', '2020-03-29 10:44:25', '2020-03-29 10:44:25', '2020-03-29 10:44:25', '76', null, '系统自动阅卷', '2020-03-29 10:30:46', '2020-03-29 10:44:25');
+INSERT INTO `om_exam_submit` VALUES ('034f6f934c404f50b30076651cf8156b', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', '03a5bfa8a0f64326a3e0c547b4decd1e', '4', '2020-03-29 10:12:52', '2020-03-29 10:16:05', '2020-03-29 10:16:05', '2020-03-29 10:16:05', '16', null, '系统自动阅卷', '2020-03-29 10:12:52', '2020-03-29 10:16:05');
 INSERT INTO `om_exam_submit` VALUES ('244927e9167a44cf82ae690fa09e0845', '8f932b70af344668bb35d13750f3393d', '11e325f9646a46049ff2f6252ddfc8ac', '5fbeb7f256b44753accbe062c32d0a38', '4', '2019-12-13 11:07:00', '2019-12-13 12:40:00', '2019-12-13 12:40:51', '2019-12-13 12:40:51', '10', '03a5bfa8a0f64326a3e0c547b4decd1e', 'admin', '2019-12-13 11:07:00', '2019-12-13 12:40:51');
 INSERT INTO `om_exam_submit` VALUES ('49a37d7fa94f4925b262eef72be4e903', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', '5fbeb7f256b44753accbe062c32d0a38', '4', '2019-12-13 11:11:20', '2019-12-13 12:40:00', '2019-12-13 12:40:56', '2019-12-13 12:40:56', '0', '03a5bfa8a0f64326a3e0c547b4decd1e', 'admin', '2019-12-13 11:11:20', '2019-12-13 12:40:56');
 INSERT INTO `om_exam_submit` VALUES ('50659ca485b14f00a08048740f288e5d', '8f932b70af344668bb35d13750f3393d', '11e325f9646a46049ff2f6252ddfc8ac', '98cfede57e5c41f98130619e816405ef', '4', '2019-12-13 11:20:13', '2019-12-13 12:40:00', '2019-12-13 12:41:02', '2019-12-13 12:41:02', '8', '03a5bfa8a0f64326a3e0c547b4decd1e', 'admin', '2019-12-13 11:20:13', '2019-12-13 12:41:02');
 INSERT INTO `om_exam_submit` VALUES ('7511aaf4154e4637b0a7ab1972704484', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', '98cfede57e5c41f98130619e816405ef', '4', '2019-12-13 11:16:31', '2019-12-13 12:40:00', '2019-12-13 12:41:07', '2019-12-13 12:41:07', '24', '03a5bfa8a0f64326a3e0c547b4decd1e', 'admin', '2019-12-13 11:16:31', '2019-12-13 12:41:07');
+INSERT INTO `om_exam_submit` VALUES ('875050acd5f341a8a79c3c50f9dfff93', '8f932b70af344668bb35d13750f3393d', '11e325f9646a46049ff2f6252ddfc8ac', '03a5bfa8a0f64326a3e0c547b4decd1e', '4', '2020-01-14 16:19:37', '2020-01-14 17:59:37', '2020-01-14 17:59:37', '2020-01-14 17:59:37', '16', null, '系统自动阅卷', '2020-01-14 16:19:37', '2020-01-14 17:59:37');
+INSERT INTO `om_exam_submit` VALUES ('8cff94979b4e4f76a829f78d5445ca88', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', '03a5bfa8a0f64326a3e0c547b4decd1e', '4', '2020-01-14 16:16:17', '2020-01-14 17:57:49', '2020-01-14 17:57:49', '2020-01-14 17:57:49', '16', null, '系统自动阅卷', '2020-01-14 16:16:17', '2020-01-14 17:57:49');
+INSERT INTO `om_exam_submit` VALUES ('bc0079a6a8174fb1bbcacd064c458e1a', '52f818a1e333497db14238ae01e92a15', 'ccceea74a02447c2a3a7c07810893410', '03a5bfa8a0f64326a3e0c547b4decd1e', '4', '2020-01-05 11:55:03', '2020-01-05 12:05:00', '2020-01-05 12:05:00', '2020-01-05 12:05:00', '10', null, '系统自动阅卷', '2020-01-05 11:55:03', '2020-01-05 12:05:00');
 
 -- ----------------------------
--- Table structure for `om_exam_submit_vo`
+-- Table structure for om_exam_submit_vo
 -- ----------------------------
 DROP TABLE IF EXISTS `om_exam_submit_vo`;
 CREATE TABLE `om_exam_submit_vo` (
@@ -215,7 +334,7 @@ CREATE TABLE `om_exam_submit_vo` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `om_exam_user`
+-- Table structure for om_exam_user
 -- ----------------------------
 DROP TABLE IF EXISTS `om_exam_user`;
 CREATE TABLE `om_exam_user` (
@@ -233,19 +352,23 @@ CREATE TABLE `om_exam_user` (
 -- ----------------------------
 -- Records of om_exam_user
 -- ----------------------------
+INSERT INTO `om_exam_user` VALUES ('35855737396b4c2cbca32bdea22d4f27', '8f932b70af344668bb35d13750f3393d', '11e325f9646a46049ff2f6252ddfc8ac', '', '4f9070687bb54b42aad689184ea0dd74', '1', '2020-01-05 11:54:01', '2020-01-05 11:54:01');
 INSERT INTO `om_exam_user` VALUES ('64601842c0954d5ebea0790524530945', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', '', '4f9070687bb54b42aad689184ea0dd74', '1', '2019-12-13 11:09:42', '2019-12-13 11:09:42');
 INSERT INTO `om_exam_user` VALUES ('6ab2de2f74e64b5197726d240a211238', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', '', 'f51523ccb21b476eb06f68eff661a653', '1', '2019-12-13 11:09:42', '2019-12-13 11:09:42');
+INSERT INTO `om_exam_user` VALUES ('6dd2ea671c2b486db02391f6d7ea0dea', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', '03a5bfa8a0f64326a3e0c547b4decd1e', '', '1', '2020-03-29 10:30:31', '2020-03-29 10:30:31');
 INSERT INTO `om_exam_user` VALUES ('6f113ec05a7b47e0979f4f9038aa0762', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', '03a5bfa8a0f64326a3e0c547b4decd1e', '', '2', '2019-12-13 11:09:57', '2019-12-13 11:09:57');
-INSERT INTO `om_exam_user` VALUES ('7f04048f369a4a3a9e990a7d75dc5297', '8f932b70af344668bb35d13750f3393d', '11e325f9646a46049ff2f6252ddfc8ac', '', 'c3e70978c97f434ba3b908390c97f03c', '1', '2019-12-13 11:06:14', '2019-12-13 11:06:14');
-INSERT INTO `om_exam_user` VALUES ('94e53b9a10274e0a9b41fb04b4779c2d', '8f932b70af344668bb35d13750f3393d', '11e325f9646a46049ff2f6252ddfc8ac', '', 'f51523ccb21b476eb06f68eff661a653', '1', '2019-12-13 11:06:14', '2019-12-13 11:06:14');
-INSERT INTO `om_exam_user` VALUES ('9c0ae7bbfda34e04b772835438323fbf', '8f932b70af344668bb35d13750f3393d', '11e325f9646a46049ff2f6252ddfc8ac', '', '27cd707cdde441a2bdc7ab84f7412b4b', '1', '2019-12-13 11:06:14', '2019-12-13 11:06:14');
+INSERT INTO `om_exam_user` VALUES ('7778d1be4d3d48ba85a4e0034896ce92', '8f932b70af344668bb35d13750f3393d', '11e325f9646a46049ff2f6252ddfc8ac', '', 'c3e70978c97f434ba3b908390c97f03c', '1', '2020-01-05 11:54:01', '2020-01-05 11:54:01');
+INSERT INTO `om_exam_user` VALUES ('a73d97e2a09b438a82ee87a062ef1f85', '8f932b70af344668bb35d13750f3393d', '11e325f9646a46049ff2f6252ddfc8ac', '', '27cd707cdde441a2bdc7ab84f7412b4b', '1', '2020-01-05 11:54:01', '2020-01-05 11:54:01');
 INSERT INTO `om_exam_user` VALUES ('bb508b1d8cea40eb9f3dd8fdca87f704', '8f932b70af344668bb35d13750f3393d', '11e325f9646a46049ff2f6252ddfc8ac', '03a5bfa8a0f64326a3e0c547b4decd1e', '', '2', '2019-12-13 11:06:27', '2019-12-13 11:06:27');
+INSERT INTO `om_exam_user` VALUES ('c2b3b77b6d8743718127ac734d9e799c', '8f932b70af344668bb35d13750f3393d', '11e325f9646a46049ff2f6252ddfc8ac', '03a5bfa8a0f64326a3e0c547b4decd1e', '', '1', '2020-01-05 11:54:01', '2020-01-05 11:54:01');
+INSERT INTO `om_exam_user` VALUES ('dd6bff03d6c546c5b28739f865cec4ea', '8f932b70af344668bb35d13750f3393d', '11e325f9646a46049ff2f6252ddfc8ac', '', 'f51523ccb21b476eb06f68eff661a653', '1', '2020-01-05 11:54:01', '2020-01-05 11:54:01');
 INSERT INTO `om_exam_user` VALUES ('e212fd85bec743f48235ee1e70d98ffb', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', '', '27cd707cdde441a2bdc7ab84f7412b4b', '1', '2019-12-13 11:09:42', '2019-12-13 11:09:42');
-INSERT INTO `om_exam_user` VALUES ('e99ba40fb68f4628ab74e7b6363cbc10', '8f932b70af344668bb35d13750f3393d', '11e325f9646a46049ff2f6252ddfc8ac', '', '4f9070687bb54b42aad689184ea0dd74', '1', '2019-12-13 11:06:14', '2019-12-13 11:06:14');
+INSERT INTO `om_exam_user` VALUES ('e9c9211d2eba46e4bb4f1aa27b0782a9', '4e35989b614448be8e312b00ef235ef1', 'ccceea74a02447c2a3a7c07810893410', '5fbeb7f256b44753accbe062c32d0a38', '', '1', '2020-03-29 10:30:31', '2020-03-29 10:30:31');
 INSERT INTO `om_exam_user` VALUES ('ec16d0380b6145de853a7dd3ad344df3', 'abf7097f1738490d806f4e20b348a33c', '0d28691a21d940b1afff76d695d3ebeb', '', 'c3e70978c97f434ba3b908390c97f03c', '1', '2019-12-13 11:09:42', '2019-12-13 11:09:42');
+INSERT INTO `om_exam_user` VALUES ('f8d906fbb33e43d9b877d87806d062d1', '52f818a1e333497db14238ae01e92a15', 'ccceea74a02447c2a3a7c07810893410', '03a5bfa8a0f64326a3e0c547b4decd1e', '', '1', '2020-01-05 11:54:41', '2020-01-05 11:54:41');
 
 -- ----------------------------
--- Table structure for `om_menu`
+-- Table structure for om_menu
 -- ----------------------------
 DROP TABLE IF EXISTS `om_menu`;
 CREATE TABLE `om_menu` (
@@ -288,7 +411,7 @@ INSERT INTO `om_menu` VALUES ('dfe25b44a55d41d3877f31c23072929d', '0', 'omExamSu
 INSERT INTO `om_menu` VALUES ('e7272da647e94468a697b0bd224f21d2', '865176d17ceb4005a1790b7a2b5a64f7', 'gradeList', '成绩发布', '/admin/exam/omExamSubmit/gradeList', '1', '3', '', '2019-09-24 14:24:41', null);
 
 -- ----------------------------
--- Table structure for `om_paper`
+-- Table structure for om_paper
 -- ----------------------------
 DROP TABLE IF EXISTS `om_paper`;
 CREATE TABLE `om_paper` (
@@ -315,9 +438,10 @@ CREATE TABLE `om_paper` (
 -- ----------------------------
 INSERT INTO `om_paper` VALUES ('0d28691a21d940b1afff76d695d3ebeb', '20191213随机试卷', '100', '100', '0', '20', '10', '15', '0', '0', '23b83a9fe40845a48de110d090ad1a72', null, '2019-12-13 10:51:14', '2019-12-13 10:54:46', '0');
 INSERT INTO `om_paper` VALUES ('11e325f9646a46049ff2f6252ddfc8ac', '20191213科目一试卷', '100', '100', '1', '20', '0', '20', '5', '2', '626debde10144b409189a8246e73f7b6', '科目一', '2019-12-13 10:54:12', '2019-12-13 11:04:30', '0');
+INSERT INTO `om_paper` VALUES ('ccceea74a02447c2a3a7c07810893410', '20200105随机试卷', '100', '90', '0', '50', '0', '0', '0', '0', '23b83a9fe40845a48de110d090ad1a72', null, '2020-01-05 11:48:10', null, '0');
 
 -- ----------------------------
--- Table structure for `om_paper_detail`
+-- Table structure for om_paper_detail
 -- ----------------------------
 DROP TABLE IF EXISTS `om_paper_detail`;
 CREATE TABLE `om_paper_detail` (
@@ -335,14 +459,16 @@ CREATE TABLE `om_paper_detail` (
 -- ----------------------------
 -- Records of om_paper_detail
 -- ----------------------------
+INSERT INTO `om_paper_detail` VALUES ('325d9a1f8cef4c4ebba99cd0d2525205', 'ccceea74a02447c2a3a7c07810893410', '23b83a9fe40845a48de110d090ad1a72', '科目四', '1', '25', '2', '1');
 INSERT INTO `om_paper_detail` VALUES ('3e8d34e31e8549aa99c4b005b4c477b1', '0d28691a21d940b1afff76d695d3ebeb', '23b83a9fe40845a48de110d090ad1a72', '科目四', '2', '10', '3', '2');
 INSERT INTO `om_paper_detail` VALUES ('8834fe05e31944d4bcd3cfe672b10aa7', '0d28691a21d940b1afff76d695d3ebeb', '23b83a9fe40845a48de110d090ad1a72', '科目四', '1', '10', '2', '1');
 INSERT INTO `om_paper_detail` VALUES ('88d6d7cadbdf44c5b1052bc090a1525f', '0d28691a21d940b1afff76d695d3ebeb', '23b83a9fe40845a48de110d090ad1a72', '科目四', '3', '5', '2', '4');
+INSERT INTO `om_paper_detail` VALUES ('8919e14922e4479b9571adb652549795', 'ccceea74a02447c2a3a7c07810893410', '626debde10144b409189a8246e73f7b6', '科目一', '1', '25', '2', '0');
 INSERT INTO `om_paper_detail` VALUES ('8cbdc5d7dad2450e87ce75fad0c652f5', '0d28691a21d940b1afff76d695d3ebeb', '626debde10144b409189a8246e73f7b6', '科目一', '3', '10', '2', '3');
 INSERT INTO `om_paper_detail` VALUES ('f108f8de57474bf89028a457a451bf26', '0d28691a21d940b1afff76d695d3ebeb', '626debde10144b409189a8246e73f7b6', '科目一', '1', '10', '2', '0');
 
 -- ----------------------------
--- Table structure for `om_paper_question`
+-- Table structure for om_paper_question
 -- ----------------------------
 DROP TABLE IF EXISTS `om_paper_question`;
 CREATE TABLE `om_paper_question` (
@@ -362,122 +488,267 @@ INSERT INTO `om_paper_question` VALUES ('0296194bd2b84f2ca2b7d0cec54b4d5f', '0d2
 INSERT INTO `om_paper_question` VALUES ('0354328aba2840f1834a4114c70c4d34', '0d28691a21d940b1afff76d695d3ebeb', '166', '12', '5fbeb7f256b44753accbe062c32d0a38', '2');
 INSERT INTO `om_paper_question` VALUES ('03abf54d267a4f11bddd448e61090ca7', '0d28691a21d940b1afff76d695d3ebeb', 'dd5faf2a-264f-402d-a3b9-02a337f386d8', '22', '98cfede57e5c41f98130619e816405ef', '3');
 INSERT INTO `om_paper_question` VALUES ('03ef6a756ebb47849e81bd789983182a', '11e325f9646a46049ff2f6252ddfc8ac', 'aa23', '17', null, null);
+INSERT INTO `om_paper_question` VALUES ('048e2fd9eb3949179ab35f600100c865', '0d28691a21d940b1afff76d695d3ebeb', 'aae6012abb-51a8-4918-b975-17d0afbe97ad', '36', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
 INSERT INTO `om_paper_question` VALUES ('06fd41eda14e4d20be3ae423dd7a11e4', '0d28691a21d940b1afff76d695d3ebeb', '483', '25', '98cfede57e5c41f98130619e816405ef', '3');
+INSERT INTO `om_paper_question` VALUES ('0b8de57ba87945f29a906a0ee7544721', 'ccceea74a02447c2a3a7c07810893410', 'aa23', '5', '5fbeb7f256b44753accbe062c32d0a38', '2');
+INSERT INTO `om_paper_question` VALUES ('0bb4aec3eb964b3380dc88ef60185f14', 'ccceea74a02447c2a3a7c07810893410', 'aa1019', '5', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
 INSERT INTO `om_paper_question` VALUES ('0d071490645e4d479271530406bf634d', '0d28691a21d940b1afff76d695d3ebeb', 'aa551', '6', '5fbeb7f256b44753accbe062c32d0a38', '2');
 INSERT INTO `om_paper_question` VALUES ('0d5e01087a49484bb99412270b89d129', '0d28691a21d940b1afff76d695d3ebeb', 'aa23', '10', '98cfede57e5c41f98130619e816405ef', '2');
 INSERT INTO `om_paper_question` VALUES ('0e17f980f0684cac8b23fb0ff80be9c8', '0d28691a21d940b1afff76d695d3ebeb', 'aa132', '4', '98cfede57e5c41f98130619e816405ef', '2');
 INSERT INTO `om_paper_question` VALUES ('0e65d9d69aed43b6bb7b1b8265f1f614', '0d28691a21d940b1afff76d695d3ebeb', '829', '21', '98cfede57e5c41f98130619e816405ef', '3');
+INSERT INTO `om_paper_question` VALUES ('0f55fd36e2d1478084db7ec28b9fcb23', '0d28691a21d940b1afff76d695d3ebeb', 'aa957', '10', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('0fab773fbd5e48069b4dfef2d5a64ea9', '0d28691a21d940b1afff76d695d3ebeb', '450', '17', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('11a5cc2fff674d0bbe1b3bd8584fcaa8', 'ccceea74a02447c2a3a7c07810893410', 'aa1045', '25', '5fbeb7f256b44753accbe062c32d0a38', '2');
+INSERT INTO `om_paper_question` VALUES ('11af8d47cbf746b7977da64e6b53dbc8', '0d28691a21d940b1afff76d695d3ebeb', 'aa95c0d24c-491a-4bf5-bd7b-823aa75bd1b1', '31', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('13a15730d2964a7d86bfa781fe853903', 'ccceea74a02447c2a3a7c07810893410', 'aa754', '7', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('152dcc8fa04b4f229185088c9179d435', 'ccceea74a02447c2a3a7c07810893410', '5c351c08-4304-4b5d-afe3-eb86920d25a1', '47', '5fbeb7f256b44753accbe062c32d0a38', '2');
 INSERT INTO `om_paper_question` VALUES ('17a24905704e424db6f66a1b3ce66e3e', '0d28691a21d940b1afff76d695d3ebeb', '18', '13', '98cfede57e5c41f98130619e816405ef', '2');
+INSERT INTO `om_paper_question` VALUES ('18f7501166a947f6ace45c918c1ddc41', 'ccceea74a02447c2a3a7c07810893410', 'aab848ca7f-2a6f-4728-82cb-6d2a9fab237e', '22', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
 INSERT INTO `om_paper_question` VALUES ('1af435f370a3486db015d01f9eba6870', '11e325f9646a46049ff2f6252ddfc8ac', 'aa36', '28', null, null);
 INSERT INTO `om_paper_question` VALUES ('1c8ff359b1d44e71936bf91539392a45', '0d28691a21d940b1afff76d695d3ebeb', 'aa664', '8', '98cfede57e5c41f98130619e816405ef', '2');
 INSERT INTO `om_paper_question` VALUES ('1cd6feb2f8f2440c8dbd4adfa872a374', '11e325f9646a46049ff2f6252ddfc8ac', 'aa74', '43', null, null);
 INSERT INTO `om_paper_question` VALUES ('1f1d455eb38d43a38c305747e980e6b7', '0d28691a21d940b1afff76d695d3ebeb', '84230444-1253-4c32-824a-2922cffd3080', '23', '98cfede57e5c41f98130619e816405ef', '3');
 INSERT INTO `om_paper_question` VALUES ('1fbca7f5c64840529f342c94ee214c0b', '0d28691a21d940b1afff76d695d3ebeb', 'aa618', '3', '5fbeb7f256b44753accbe062c32d0a38', '2');
 INSERT INTO `om_paper_question` VALUES ('200944c72e6b448f87b27a89b07fbb4b', '11e325f9646a46049ff2f6252ddfc8ac', '7bdefc028b1a43679b6e6ac17a9e1abd', '3', null, null);
+INSERT INTO `om_paper_question` VALUES ('2333135b958049f9ac8e1e9af6933d43', 'ccceea74a02447c2a3a7c07810893410', 'aa291', '8', '5fbeb7f256b44753accbe062c32d0a38', '2');
+INSERT INTO `om_paper_question` VALUES ('24cda120bdf447c8aea2251c125cdaa3', 'ccceea74a02447c2a3a7c07810893410', '534', '34', '5fbeb7f256b44753accbe062c32d0a38', '2');
 INSERT INTO `om_paper_question` VALUES ('24d35863b8b94498b57dce05744616cd', '11e325f9646a46049ff2f6252ddfc8ac', 'aa32', '25', null, null);
+INSERT INTO `om_paper_question` VALUES ('255a1d64acd746e589317d8884688aaa', 'ccceea74a02447c2a3a7c07810893410', 'aa68', '17', '5fbeb7f256b44753accbe062c32d0a38', '2');
 INSERT INTO `om_paper_question` VALUES ('25c384fb49c346cb98bf2cf90f075b83', '0d28691a21d940b1afff76d695d3ebeb', '245', '11', '5fbeb7f256b44753accbe062c32d0a38', '2');
+INSERT INTO `om_paper_question` VALUES ('26e6d6f295114e9b993b659c0dcbec0e', 'ccceea74a02447c2a3a7c07810893410', '551', '48', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('27cac43f68c242e8b0aeb6ad9d535b88', 'ccceea74a02447c2a3a7c07810893410', '628', '33', '5fbeb7f256b44753accbe062c32d0a38', '2');
 INSERT INTO `om_paper_question` VALUES ('2855d265302345e4aceb2f86d9ec08bd', '0d28691a21d940b1afff76d695d3ebeb', 'cea13bc6-df56-4821-a473-44a63f311675', '44', '98cfede57e5c41f98130619e816405ef', '2');
 INSERT INTO `om_paper_question` VALUES ('29bc19fa41f541a3a2d7a6133b089f04', '11e325f9646a46049ff2f6252ddfc8ac', 'aa14', '11', null, null);
+INSERT INTO `om_paper_question` VALUES ('2acdcbfb3cd245fbb2826fca2c50e9b4', 'ccceea74a02447c2a3a7c07810893410', '130', '34', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('2b566aa709554dbf98183240e3737218', 'ccceea74a02447c2a3a7c07810893410', 'aa415', '24', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('2d59d368d55b479b94e80068ad0cfc7f', '0d28691a21d940b1afff76d695d3ebeb', '0dabcb10-9729-4bea-b077-4a6ce812aeb0', '44', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('2e5eb4255ba0405fba2203df5dcd5370', '0d28691a21d940b1afff76d695d3ebeb', '867', '29', '03a5bfa8a0f64326a3e0c547b4decd1e', '3');
 INSERT INTO `om_paper_question` VALUES ('2eb582e1ecc542eda58009519c90556b', '0d28691a21d940b1afff76d695d3ebeb', '3', '16', '5fbeb7f256b44753accbe062c32d0a38', '2');
+INSERT INTO `om_paper_question` VALUES ('2fddca35e6004c4eb1906011c212cef4', 'ccceea74a02447c2a3a7c07810893410', '80', '26', '5fbeb7f256b44753accbe062c32d0a38', '2');
+INSERT INTO `om_paper_question` VALUES ('305d1c4d1f9148688ecf226b31274022', '0d28691a21d940b1afff76d695d3ebeb', 'aa346', '8', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
 INSERT INTO `om_paper_question` VALUES ('30af4367399e474b94c94a39c2c0f199', '0d28691a21d940b1afff76d695d3ebeb', 'aa20', '5', '5fbeb7f256b44753accbe062c32d0a38', '2');
+INSERT INTO `om_paper_question` VALUES ('32be063f971d42c29f701d255257f19c', 'ccceea74a02447c2a3a7c07810893410', 'cae4e146-622f-44de-b667-76fb945dc8f2', '44', '5fbeb7f256b44753accbe062c32d0a38', '2');
 INSERT INTO `om_paper_question` VALUES ('32d251300b7f4c329932a8df82f575ef', '11e325f9646a46049ff2f6252ddfc8ac', 'aa41', '33', null, null);
+INSERT INTO `om_paper_question` VALUES ('33791248486f4217aaee645126bba02a', 'ccceea74a02447c2a3a7c07810893410', '103', '50', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('34859e065e104135a92ae8b3f5fcc405', '0d28691a21d940b1afff76d695d3ebeb', 'aa187', '39', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
 INSERT INTO `om_paper_question` VALUES ('352db6c9570c4d13a8a8675f69321a75', '0d28691a21d940b1afff76d695d3ebeb', 'aa908', '39', '98cfede57e5c41f98130619e816405ef', '2');
+INSERT INTO `om_paper_question` VALUES ('37a88e0710a340fd8eb4697453ae8fdd', 'ccceea74a02447c2a3a7c07810893410', '23db848e-e101-4abf-a164-b2d23a6a0c13', '33', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('3863bbbd038043cf864befa4a368b65d', 'ccceea74a02447c2a3a7c07810893410', '799', '50', '5fbeb7f256b44753accbe062c32d0a38', '2');
 INSERT INTO `om_paper_question` VALUES ('3970123c169c4b0e8f375aa4ced78e10', '0d28691a21d940b1afff76d695d3ebeb', '949', '19', '5fbeb7f256b44753accbe062c32d0a38', '2');
 INSERT INTO `om_paper_question` VALUES ('3a45fcde3d0642178376537d169866c3', '0d28691a21d940b1afff76d695d3ebeb', 'aa477', '10', '5fbeb7f256b44753accbe062c32d0a38', '2');
+INSERT INTO `om_paper_question` VALUES ('3a8cb01fec9541daab7c32f540cc403c', 'ccceea74a02447c2a3a7c07810893410', 'f77997a4-9553-45e0-a476-65a95fa87612', '37', '5fbeb7f256b44753accbe062c32d0a38', '2');
 INSERT INTO `om_paper_question` VALUES ('3bf5d95b7749404cbf8beaa377f7ccef', '0d28691a21d940b1afff76d695d3ebeb', '3b24c396-5bda-4c78-877e-d7267fb9bffd', '24', '98cfede57e5c41f98130619e816405ef', '3');
 INSERT INTO `om_paper_question` VALUES ('3d00392a1f5c4862bcd2957a68ebd14b', '0d28691a21d940b1afff76d695d3ebeb', '965', '18', '5fbeb7f256b44753accbe062c32d0a38', '2');
+INSERT INTO `om_paper_question` VALUES ('3f8e4c1cbcd24384b6a0440ae56f8bf9', 'ccceea74a02447c2a3a7c07810893410', 'aa661', '12', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('4009319331cd46c79504342b84b952f8', 'ccceea74a02447c2a3a7c07810893410', '527', '31', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
 INSERT INTO `om_paper_question` VALUES ('4147ba826a534776beca944c3f574944', '0d28691a21d940b1afff76d695d3ebeb', '2875bd88-01cb-4924-b9dd-227139ec6d57', '42', '98cfede57e5c41f98130619e816405ef', '2');
 INSERT INTO `om_paper_question` VALUES ('41641cfe6e5a4108b1bac8d69eb784b3', '0d28691a21d940b1afff76d695d3ebeb', '495', '13', '5fbeb7f256b44753accbe062c32d0a38', '2');
+INSERT INTO `om_paper_question` VALUES ('41d8ef7dfbe64c8e931a063c005f863a', '0d28691a21d940b1afff76d695d3ebeb', '90', '16', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
 INSERT INTO `om_paper_question` VALUES ('46db76edc6da40e99c02d2bb157abacb', '0d28691a21d940b1afff76d695d3ebeb', 'aa595', '31', '98cfede57e5c41f98130619e816405ef', '2');
+INSERT INTO `om_paper_question` VALUES ('46f440efc8b14a84a330793873d7c133', '0d28691a21d940b1afff76d695d3ebeb', '883', '30', '03a5bfa8a0f64326a3e0c547b4decd1e', '3');
+INSERT INTO `om_paper_question` VALUES ('48802a8c939b4160b19ffe245380da00', 'ccceea74a02447c2a3a7c07810893410', 'aa748', '2', '5fbeb7f256b44753accbe062c32d0a38', '2');
+INSERT INTO `om_paper_question` VALUES ('4a049bdbf1514d269cdba888ec92f9f3', 'ccceea74a02447c2a3a7c07810893410', 'aa554', '14', '5fbeb7f256b44753accbe062c32d0a38', '2');
+INSERT INTO `om_paper_question` VALUES ('4b89c3c142994c43b32cff49a1160b55', 'ccceea74a02447c2a3a7c07810893410', 'e4e7e283-86f4-4611-84bc-821ea95d69d6', '45', '5fbeb7f256b44753accbe062c32d0a38', '2');
 INSERT INTO `om_paper_question` VALUES ('4cb41fac51564676926ee2c994532da2', '0d28691a21d940b1afff76d695d3ebeb', '643', '14', '98cfede57e5c41f98130619e816405ef', '2');
+INSERT INTO `om_paper_question` VALUES ('4dbc38f0064a498eba461e6799a28f6a', 'ccceea74a02447c2a3a7c07810893410', 'aa55', '4', '5fbeb7f256b44753accbe062c32d0a38', '2');
+INSERT INTO `om_paper_question` VALUES ('4df51828b0ee4c7bb319b63ad3121d7b', 'ccceea74a02447c2a3a7c07810893410', 'aa428', '19', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
 INSERT INTO `om_paper_question` VALUES ('5065ed0141bf4b04a0baf03f6053a2b8', '0d28691a21d940b1afff76d695d3ebeb', '72', '24', '5fbeb7f256b44753accbe062c32d0a38', '3');
+INSERT INTO `om_paper_question` VALUES ('51c3b55fe17943259d78a3b493610da6', 'ccceea74a02447c2a3a7c07810893410', '5acde460-ac18-4017-a1df-0b59f86ad26f', '35', '5fbeb7f256b44753accbe062c32d0a38', '2');
 INSERT INTO `om_paper_question` VALUES ('5296028c5c1446a7ad88af4d5d09ab88', '0d28691a21d940b1afff76d695d3ebeb', 'aa042d0459-fba0-427d-8ec0-8cb88fc58f42', '33', '98cfede57e5c41f98130619e816405ef', '2');
 INSERT INTO `om_paper_question` VALUES ('52dde8bfed84451eb5513457db80aaae', '0d28691a21d940b1afff76d695d3ebeb', '850', '21', '5fbeb7f256b44753accbe062c32d0a38', '3');
 INSERT INTO `om_paper_question` VALUES ('531ab11c3d244daf82aa6700e846ef2d', '0d28691a21d940b1afff76d695d3ebeb', 'aa137', '7', '98cfede57e5c41f98130619e816405ef', '2');
+INSERT INTO `om_paper_question` VALUES ('5337c0e08c824f2d8f553f5f73f4bb01', '0d28691a21d940b1afff76d695d3ebeb', 'aa929', '37', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('54f6c2fe6ed947a6814e988ab9cf82c6', '0d28691a21d940b1afff76d695d3ebeb', 'e567fb1d-c4e0-4230-919a-0fbf26c762d9', '27', '03a5bfa8a0f64326a3e0c547b4decd1e', '3');
 INSERT INTO `om_paper_question` VALUES ('5603b4e2968745ee828c6d852057d721', '11e325f9646a46049ff2f6252ddfc8ac', 'aa28', '20', null, null);
 INSERT INTO `om_paper_question` VALUES ('585a482a600445abb31c6b714c7224dc', '11e325f9646a46049ff2f6252ddfc8ac', 'aa35', '27', null, null);
+INSERT INTO `om_paper_question` VALUES ('58b05bc51c594595a5cae749f86a9efb', '0d28691a21d940b1afff76d695d3ebeb', '5fa1f0f3-a43a-44e1-b4a1-0b7725199589', '43', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
 INSERT INTO `om_paper_question` VALUES ('59accd9ec02f470d9f78a2a062511a8a', '0d28691a21d940b1afff76d695d3ebeb', '803', '11', '98cfede57e5c41f98130619e816405ef', '2');
 INSERT INTO `om_paper_question` VALUES ('5a57fc6215654b6ba9baf7c9423f7375', '0d28691a21d940b1afff76d695d3ebeb', '87', '22', '5fbeb7f256b44753accbe062c32d0a38', '3');
+INSERT INTO `om_paper_question` VALUES ('5a919f5ad02c42ceb888df887bc57463', 'ccceea74a02447c2a3a7c07810893410', 'f21fff02-b9e0-4879-8109-5745851789e7', '46', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('5c8c54bdd52a4f649cbcd69462aceb0b', 'ccceea74a02447c2a3a7c07810893410', '553', '32', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
 INSERT INTO `om_paper_question` VALUES ('5d83e838bf234dedbe8de06f09560986', '11e325f9646a46049ff2f6252ddfc8ac', 'aa12', '9', null, null);
 INSERT INTO `om_paper_question` VALUES ('5e429d0777ea4d6faa02383e42dc8133', '0d28691a21d940b1afff76d695d3ebeb', 'aa225', '35', '98cfede57e5c41f98130619e816405ef', '2');
 INSERT INTO `om_paper_question` VALUES ('5eb86cd4ad834130898ebc5f7ebbb7fb', '0d28691a21d940b1afff76d695d3ebeb', 'aa827', '40', '98cfede57e5c41f98130619e816405ef', '2');
+INSERT INTO `om_paper_question` VALUES ('6219c21354a342a6bb22737b9ea833c5', 'ccceea74a02447c2a3a7c07810893410', '177', '42', '5fbeb7f256b44753accbe062c32d0a38', '2');
+INSERT INTO `om_paper_question` VALUES ('62a523dc85f74ffa94778f442d4d9ac5', '0d28691a21d940b1afff76d695d3ebeb', 'aa82', '38', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
 INSERT INTO `om_paper_question` VALUES ('63d806bb48d9431a8d820ef2f7c531cc', '0d28691a21d940b1afff76d695d3ebeb', '208', '25', '5fbeb7f256b44753accbe062c32d0a38', '3');
+INSERT INTO `om_paper_question` VALUES ('6436ceaabad94813b5770e7cb56ab6f7', 'ccceea74a02447c2a3a7c07810893410', '58', '30', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('64a697ae484443e5a7b1a8f7cee57d8d', 'ccceea74a02447c2a3a7c07810893410', '974', '31', '5fbeb7f256b44753accbe062c32d0a38', '2');
 INSERT INTO `om_paper_question` VALUES ('64b785220371479ca3f5fe1457ffeebd', '0d28691a21d940b1afff76d695d3ebeb', '94d1c365-1ef0-49e4-b9c9-905555d69185', '17', '98cfede57e5c41f98130619e816405ef', '2');
+INSERT INTO `om_paper_question` VALUES ('64dcbf33dda54217bec7a632d17f0932', '0d28691a21d940b1afff76d695d3ebeb', '131', '26', '03a5bfa8a0f64326a3e0c547b4decd1e', '3');
 INSERT INTO `om_paper_question` VALUES ('64f1a125999040ad85c82676aa34bd20', '0d28691a21d940b1afff76d695d3ebeb', 'aad755cce1-bba9-4c23-bc36-6d060c5e9f36', '36', '98cfede57e5c41f98130619e816405ef', '2');
+INSERT INTO `om_paper_question` VALUES ('651610668d024930acd449c92eadc4d4', '0d28691a21d940b1afff76d695d3ebeb', '719', '45', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('65b71fa964fb4d82b6b58a4a17f19d33', '0d28691a21d940b1afff76d695d3ebeb', 'aa1033', '7', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('65cd44f00d0042feae5e7e97af09b6f1', 'ccceea74a02447c2a3a7c07810893410', '122', '37', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
 INSERT INTO `om_paper_question` VALUES ('66238e408ef74316a0f8b5df4135a3c7', '11e325f9646a46049ff2f6252ddfc8ac', 'aa50', '35', null, null);
 INSERT INTO `om_paper_question` VALUES ('6738e87ea96e435e99218eb5e882ce91', '11e325f9646a46049ff2f6252ddfc8ac', 'aa16', '12', null, null);
 INSERT INTO `om_paper_question` VALUES ('67689f00329c4145adef007196dae298', '11e325f9646a46049ff2f6252ddfc8ac', 'aa3', '22', null, null);
+INSERT INTO `om_paper_question` VALUES ('67965d2fa42944ff88c488982d323e49', 'ccceea74a02447c2a3a7c07810893410', '773', '35', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('67bfa4312dd1406c8b4172d868bad9de', '0d28691a21d940b1afff76d695d3ebeb', '158', '25', '03a5bfa8a0f64326a3e0c547b4decd1e', '3');
 INSERT INTO `om_paper_question` VALUES ('6e020035187946ba83caf750de466d20', '11e325f9646a46049ff2f6252ddfc8ac', 'aa34', '26', null, null);
+INSERT INTO `om_paper_question` VALUES ('6e4c4d86ba0b44ceb9fd35f9f8439459', '0d28691a21d940b1afff76d695d3ebeb', 'aa446', '2', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('707c23af62554ab3b625b462b64666a7', 'ccceea74a02447c2a3a7c07810893410', '496', '29', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
 INSERT INTO `om_paper_question` VALUES ('708ff2598f514958b4ae9d5f872e2f8b', '0d28691a21d940b1afff76d695d3ebeb', '962', '15', '98cfede57e5c41f98130619e816405ef', '2');
 INSERT INTO `om_paper_question` VALUES ('709d9b02f6db4bbf802df17ec6792502', '0d28691a21d940b1afff76d695d3ebeb', '581', '16', '98cfede57e5c41f98130619e816405ef', '2');
 INSERT INTO `om_paper_question` VALUES ('714bce0492bb406d8d0f731045807b33', '11e325f9646a46049ff2f6252ddfc8ac', '9f6c6b3f7e1044819a0b2abe65106880', '5', null, null);
+INSERT INTO `om_paper_question` VALUES ('72506f9560bc47a896565f253a7f9fb9', 'ccceea74a02447c2a3a7c07810893410', '958', '38', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
 INSERT INTO `om_paper_question` VALUES ('73ed5da638ae45f784fdd781cf9ddca2', '11e325f9646a46049ff2f6252ddfc8ac', 'aa1', '6', null, null);
 INSERT INTO `om_paper_question` VALUES ('747654701d4a4be1ad7fbc0ac33c02fa', '11e325f9646a46049ff2f6252ddfc8ac', 'aa7', '42', null, null);
 INSERT INTO `om_paper_question` VALUES ('7497720be08a4304bd8e49aae588aefd', '11e325f9646a46049ff2f6252ddfc8ac', 'aa11', '8', null, null);
+INSERT INTO `om_paper_question` VALUES ('7585068863954b0cba1f28588b02d1ff', 'ccceea74a02447c2a3a7c07810893410', '485ab3de-5d96-4dfb-af03-f99876bfce53', '36', '5fbeb7f256b44753accbe062c32d0a38', '2');
+INSERT INTO `om_paper_question` VALUES ('769cf6d3069a4bec8d4d88ff981ca1c7', '0d28691a21d940b1afff76d695d3ebeb', '306', '41', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('77bf0dbddf9840dcaee1a298316d932f', 'ccceea74a02447c2a3a7c07810893410', 'aa966', '23', '5fbeb7f256b44753accbe062c32d0a38', '2');
 INSERT INTO `om_paper_question` VALUES ('77fffeea03804e6fb60de270e20a0674', '0d28691a21d940b1afff76d695d3ebeb', 'aa1048', '34', '98cfede57e5c41f98130619e816405ef', '2');
+INSERT INTO `om_paper_question` VALUES ('7818aac1d32045eeb1832941c62ba46e', 'ccceea74a02447c2a3a7c07810893410', 'aa1008', '13', '5fbeb7f256b44753accbe062c32d0a38', '2');
+INSERT INTO `om_paper_question` VALUES ('78cd2599a5fc408cac859c99222dd6bf', 'ccceea74a02447c2a3a7c07810893410', '618', '43', '5fbeb7f256b44753accbe062c32d0a38', '2');
 INSERT INTO `om_paper_question` VALUES ('78e2357786b1461895b355725d262996', '0d28691a21d940b1afff76d695d3ebeb', 'aa1042', '38', '98cfede57e5c41f98130619e816405ef', '2');
+INSERT INTO `om_paper_question` VALUES ('7b09a6aa3c9a4ffbbfb33ab36cf35d31', '0d28691a21d940b1afff76d695d3ebeb', 'aa617', '5', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('7e01128e71e74b9c8a90c440b6a993b1', 'ccceea74a02447c2a3a7c07810893410', 'aaf0d4cf35-6a40-46e4-ac83-398a55f552c3', '6', '5fbeb7f256b44753accbe062c32d0a38', '2');
+INSERT INTO `om_paper_question` VALUES ('80ca3cca7c594dd4ac42f69bb820a333', '0d28691a21d940b1afff76d695d3ebeb', 'aa371', '33', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
 INSERT INTO `om_paper_question` VALUES ('80d20041b2df464e8f326d617f6cc8ff', '0d28691a21d940b1afff76d695d3ebeb', '850', '30', '98cfede57e5c41f98130619e816405ef', '3');
+INSERT INTO `om_paper_question` VALUES ('81de17953c02461994da993bcac44497', 'ccceea74a02447c2a3a7c07810893410', 'aa99', '19', '5fbeb7f256b44753accbe062c32d0a38', '2');
+INSERT INTO `om_paper_question` VALUES ('86c6a4f2c30641e5aa5118b7fffd6324', '0d28691a21d940b1afff76d695d3ebeb', '638', '18', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('871d87ba1aed48bcae98ed1b19c32dad', 'ccceea74a02447c2a3a7c07810893410', 'aa154', '9', '5fbeb7f256b44753accbe062c32d0a38', '2');
+INSERT INTO `om_paper_question` VALUES ('880ec5d6e2ab4359a2e526cf40563c1c', 'ccceea74a02447c2a3a7c07810893410', 'aa632', '4', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('88e3d6d6944b4573b3600d1c09c22486', '0d28691a21d940b1afff76d695d3ebeb', 'aad3c955ef-9f5d-402a-8a00-b0f089186725', '32', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('88fce2f5593140ea9fb430252c8db4f5', 'ccceea74a02447c2a3a7c07810893410', 'aa443', '3', '5fbeb7f256b44753accbe062c32d0a38', '2');
+INSERT INTO `om_paper_question` VALUES ('897f8c15d0f14724a9e3b97ca55be9dc', '0d28691a21d940b1afff76d695d3ebeb', '850', '21', '03a5bfa8a0f64326a3e0c547b4decd1e', '3');
 INSERT INTO `om_paper_question` VALUES ('8ab73495b183460b9b92173ba21f7d4b', '0d28691a21d940b1afff76d695d3ebeb', 'aa982', '9', '5fbeb7f256b44753accbe062c32d0a38', '2');
 INSERT INTO `om_paper_question` VALUES ('8b5e69e57fb54b178de9a2a3bed9dc00', '0d28691a21d940b1afff76d695d3ebeb', '03789be9-d41e-4d60-99a6-20afeb4fe421', '45', '98cfede57e5c41f98130619e816405ef', '2');
+INSERT INTO `om_paper_question` VALUES ('8be5bb8b7a0649219adbd1de620de1e7', '0d28691a21d940b1afff76d695d3ebeb', 'aa203', '35', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
 INSERT INTO `om_paper_question` VALUES ('8d406b4a55ba46cb92904a814dfcb987', '0d28691a21d940b1afff76d695d3ebeb', 'ad06dc02-9ef0-4e2e-a807-c518844cf289', '18', '98cfede57e5c41f98130619e816405ef', '2');
+INSERT INTO `om_paper_question` VALUES ('8e90139e891d40018a72a4613b8cc295', 'ccceea74a02447c2a3a7c07810893410', '686', '29', '5fbeb7f256b44753accbe062c32d0a38', '2');
 INSERT INTO `om_paper_question` VALUES ('912962786f0d486787128eaf3e335608', '0d28691a21d940b1afff76d695d3ebeb', '261', '43', '98cfede57e5c41f98130619e816405ef', '2');
+INSERT INTO `om_paper_question` VALUES ('92f86024fc564b41ac7b7d07f372c5a3', 'ccceea74a02447c2a3a7c07810893410', '2da7092d-ff99-48a8-8dc1-bbd37587c49d', '41', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('93169137a2654ed89b73be9197ea3930', 'ccceea74a02447c2a3a7c07810893410', 'aa61365103-81a8-44ae-8996-00961ec82d95', '20', '5fbeb7f256b44753accbe062c32d0a38', '2');
 INSERT INTO `om_paper_question` VALUES ('94435e4686b045babbf6714e8f9fb8dd', '11e325f9646a46049ff2f6252ddfc8ac', 'aa27', '19', null, null);
+INSERT INTO `om_paper_question` VALUES ('94c68b7cfe794a1f99553151d5d986d1', 'ccceea74a02447c2a3a7c07810893410', '635', '43', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
 INSERT INTO `om_paper_question` VALUES ('951b67dca8df4bb496f04a1f5dc25466', '11e325f9646a46049ff2f6252ddfc8ac', 'aa2', '13', null, null);
+INSERT INTO `om_paper_question` VALUES ('9558f22703724106819857e9a2a0f11f', 'ccceea74a02447c2a3a7c07810893410', 'e3f086c0-85ef-4d90-a13c-dd88245c3ba6', '39', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('96068d8cf4f847899f123ffa630f0ff7', '0d28691a21d940b1afff76d695d3ebeb', '898', '23', '03a5bfa8a0f64326a3e0c547b4decd1e', '3');
 INSERT INTO `om_paper_question` VALUES ('96a478c430f1416587ef6b4468a4b76e', '0d28691a21d940b1afff76d695d3ebeb', '866', '29', '98cfede57e5c41f98130619e816405ef', '3');
+INSERT INTO `om_paper_question` VALUES ('972b7600f4e242609ef82f904570e657', 'ccceea74a02447c2a3a7c07810893410', 'aa194', '3', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
 INSERT INTO `om_paper_question` VALUES ('99676249bebf4c3db61a41f241e5012b', '0d28691a21d940b1afff76d695d3ebeb', '88', '28', '98cfede57e5c41f98130619e816405ef', '3');
 INSERT INTO `om_paper_question` VALUES ('99c4228f2a8840a9926ff3ff43b9e263', '0d28691a21d940b1afff76d695d3ebeb', 'aa378', '8', '5fbeb7f256b44753accbe062c32d0a38', '2');
+INSERT INTO `om_paper_question` VALUES ('9b2e43496b494fa1b0c394e7574a4a06', 'ccceea74a02447c2a3a7c07810893410', 'aa559', '9', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('9be095c6f8bf4f76b7f735d50e7b357f', 'ccceea74a02447c2a3a7c07810893410', 'aa1072', '11', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
 INSERT INTO `om_paper_question` VALUES ('9d5b510cd02d4ce4ba9c1c9c5015c45d', '11e325f9646a46049ff2f6252ddfc8ac', '0c22e4bc849f4060b8cdacddf111be9a', '1', null, null);
 INSERT INTO `om_paper_question` VALUES ('9fe6060011924105a43650c524f0efed', '11e325f9646a46049ff2f6252ddfc8ac', 'aa26', '18', null, null);
 INSERT INTO `om_paper_question` VALUES ('a2d661bbc36141b482fec306cddcda74', '11e325f9646a46049ff2f6252ddfc8ac', 'aa39', '31', null, null);
 INSERT INTO `om_paper_question` VALUES ('a443fd36736142b6b4b138c61e2b0789', '11e325f9646a46049ff2f6252ddfc8ac', 'aa42', '34', null, null);
+INSERT INTO `om_paper_question` VALUES ('a58648ee13374833ac249e2ae48efdd0', '0d28691a21d940b1afff76d695d3ebeb', 'aa850', '40', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
 INSERT INTO `om_paper_question` VALUES ('a5ae967827b142efa7fbcac39a322a71', '0d28691a21d940b1afff76d695d3ebeb', '488', '14', '5fbeb7f256b44753accbe062c32d0a38', '2');
+INSERT INTO `om_paper_question` VALUES ('a72df1a6016d49afa0b940a0beba9d06', 'ccceea74a02447c2a3a7c07810893410', '966', '44', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('ab07e7e748ca49708ec02391b3ce54d4', '0d28691a21d940b1afff76d695d3ebeb', 'aa438', '1', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
 INSERT INTO `om_paper_question` VALUES ('ab0decd3798149e5ad59dec1ecf3bb37', '11e325f9646a46049ff2f6252ddfc8ac', 'aa61', '37', null, null);
+INSERT INTO `om_paper_question` VALUES ('ac6927c1e5f24a028b96d7a7f794acda', '0d28691a21d940b1afff76d695d3ebeb', '182', '12', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
 INSERT INTO `om_paper_question` VALUES ('ac8d9ea0c6654db791b528af526b4e63', '11e325f9646a46049ff2f6252ddfc8ac', 'aa31', '24', null, null);
+INSERT INTO `om_paper_question` VALUES ('ae07bfff4fee4a0c9cc7e5858bbb8094', '0d28691a21d940b1afff76d695d3ebeb', '186', '42', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
 INSERT INTO `om_paper_question` VALUES ('ae6524aeecfc41e5af1d1efd91cb749a', '11e325f9646a46049ff2f6252ddfc8ac', 'aa65', '40', null, null);
 INSERT INTO `om_paper_question` VALUES ('b00750bbdafb44519966e16a4649cae4', '0d28691a21d940b1afff76d695d3ebeb', 'aab9cd9ebd-bea6-4f79-89b4-cd22d6cc6afc', '2', '98cfede57e5c41f98130619e816405ef', '2');
+INSERT INTO `om_paper_question` VALUES ('b2bd17abdfa0458ab18c41969b67a6b9', '0d28691a21d940b1afff76d695d3ebeb', 'aa182', '4', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
 INSERT INTO `om_paper_question` VALUES ('b3cbece271314e41b3d0ea78140700c1', '11e325f9646a46049ff2f6252ddfc8ac', 'aa29', '21', null, null);
+INSERT INTO `om_paper_question` VALUES ('b418e91c842d4bd3bd097b5f056035dc', '0d28691a21d940b1afff76d695d3ebeb', 'aa666', '9', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
 INSERT INTO `om_paper_question` VALUES ('b4be191ecb3c4516902410cfb2e10441', '0d28691a21d940b1afff76d695d3ebeb', '67', '17', '5fbeb7f256b44753accbe062c32d0a38', '2');
+INSERT INTO `om_paper_question` VALUES ('b4c2d20493d947efb2b1b1951cbe1f02', 'ccceea74a02447c2a3a7c07810893410', 'aaf3a1bb6f-b25f-4408-91a5-fa2b21c9ad95', '17', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
 INSERT INTO `om_paper_question` VALUES ('b59d7d9bf8a94978957c2a74b2a17138', '11e325f9646a46049ff2f6252ddfc8ac', 'aa20', '14', null, null);
+INSERT INTO `om_paper_question` VALUES ('b5af15e51e424b05aad32ade129f2e38', 'ccceea74a02447c2a3a7c07810893410', '152', '30', '5fbeb7f256b44753accbe062c32d0a38', '2');
 INSERT INTO `om_paper_question` VALUES ('b639e3876f054c6db2300d04dba7f25c', '11e325f9646a46049ff2f6252ddfc8ac', 'aa38', '30', null, null);
+INSERT INTO `om_paper_question` VALUES ('b6db6c70d2564887a4a318bde50d9e27', 'ccceea74a02447c2a3a7c07810893410', '641', '26', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
 INSERT INTO `om_paper_question` VALUES ('b6ea94c8d7514b8fa3fcfca577d0d3b1', '11e325f9646a46049ff2f6252ddfc8ac', '94430c7363b0499ca60810959e0dd16a', '4', null, null);
 INSERT INTO `om_paper_question` VALUES ('b901b51a969d4ff4a8f5c9a98dc85376', '0d28691a21d940b1afff76d695d3ebeb', '993', '20', '98cfede57e5c41f98130619e816405ef', '2');
+INSERT INTO `om_paper_question` VALUES ('ba1b656c09174b0f923e36c86445da61', 'ccceea74a02447c2a3a7c07810893410', 'aa196', '1', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
 INSERT INTO `om_paper_question` VALUES ('ba4e92db437d4339b9f3790bc42d23a2', '0d28691a21d940b1afff76d695d3ebeb', 'aa398', '4', '5fbeb7f256b44753accbe062c32d0a38', '2');
 INSERT INTO `om_paper_question` VALUES ('bc27e59b639e42819cb56be0274d8faf', '11e325f9646a46049ff2f6252ddfc8ac', '1df4742b038b4f3a91298ce80fadd4c3', '2', null, null);
 INSERT INTO `om_paper_question` VALUES ('bcd4aa8a8059481e84b23a7e2c9a1d7a', '11e325f9646a46049ff2f6252ddfc8ac', 'aa30', '23', null, null);
+INSERT INTO `om_paper_question` VALUES ('bd4a3e3f352e40198b23c1f83429cdca', 'ccceea74a02447c2a3a7c07810893410', 'aa351', '15', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('bd8abe14096a4bf08c513d42af753e51', '0d28691a21d940b1afff76d695d3ebeb', '2b9586ac-a5cc-4e71-b275-87f6b5d83c7e', '14', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('be02e3fcc4f1468e849ec542e38213d5', 'ccceea74a02447c2a3a7c07810893410', '647', '39', '5fbeb7f256b44753accbe062c32d0a38', '2');
+INSERT INTO `om_paper_question` VALUES ('bf2fd4e26023491b93f8eadb5da59c00', 'ccceea74a02447c2a3a7c07810893410', '742', '36', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('bff392b516b34fe0ad9fa5bc55e6ef3d', '0d28691a21d940b1afff76d695d3ebeb', '9de70ad1-9bf0-46d8-8aea-495aa2dfd850', '19', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('c0059b6ec4dc4a879f3fedf3cf8bf437', 'ccceea74a02447c2a3a7c07810893410', 'aad7a9046e-4948-428b-a890-0910cda3bce5', '21', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('c0324b9d8f5644ee9f723add0df6db4d', 'ccceea74a02447c2a3a7c07810893410', '758', '45', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('c0df1dcf101d43e9989301865f27427d', '0d28691a21d940b1afff76d695d3ebeb', 'aa854', '6', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('c0f564f296bd4f2f9fb7fb9697bc3202', 'ccceea74a02447c2a3a7c07810893410', 'aa744', '11', '5fbeb7f256b44753accbe062c32d0a38', '2');
 INSERT INTO `om_paper_question` VALUES ('c11920123a5c48ad9536144ad655607c', '11e325f9646a46049ff2f6252ddfc8ac', 'aa13', '10', null, null);
+INSERT INTO `om_paper_question` VALUES ('c1c1c6b4cef748df9e8a8a5f4ac26398', 'ccceea74a02447c2a3a7c07810893410', 'daca2954-a31a-44c7-8c2b-332ede18b475', '28', '5fbeb7f256b44753accbe062c32d0a38', '2');
+INSERT INTO `om_paper_question` VALUES ('c1fb764d35154e9f84426389fc0b88ca', 'ccceea74a02447c2a3a7c07810893410', '14cc7b35-8497-4465-b946-db5e9c748524', '49', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
 INSERT INTO `om_paper_question` VALUES ('c26c65d66b40479793276c5c6f6c91a0', '11e325f9646a46049ff2f6252ddfc8ac', 'aa4', '32', null, null);
+INSERT INTO `om_paper_question` VALUES ('c36a8a3bffbc413dacf5d406d35ebdee', 'ccceea74a02447c2a3a7c07810893410', 'aa484', '23', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('c5442d5a24024c9a9cade14584ee87d1', '0d28691a21d940b1afff76d695d3ebeb', '175', '24', '03a5bfa8a0f64326a3e0c547b4decd1e', '3');
 INSERT INTO `om_paper_question` VALUES ('c57711383e174cc7a7651f9357f17701', '0d28691a21d940b1afff76d695d3ebeb', 'aa527', '7', '5fbeb7f256b44753accbe062c32d0a38', '2');
+INSERT INTO `om_paper_question` VALUES ('c6a39edc06804833808cb568e9647372', 'ccceea74a02447c2a3a7c07810893410', 'aaff488d91-171e-47ca-ab9e-7dd5c02c1999', '12', '5fbeb7f256b44753accbe062c32d0a38', '2');
+INSERT INTO `om_paper_question` VALUES ('ca093ef12290462781c06afb819f965a', 'ccceea74a02447c2a3a7c07810893410', '38', '47', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
 INSERT INTO `om_paper_question` VALUES ('cac674044c29431b885b34557c11c89b', '11e325f9646a46049ff2f6252ddfc8ac', 'aa10', '7', null, null);
+INSERT INTO `om_paper_question` VALUES ('caf7d34b48bb4976895f3e25f050ef38', 'ccceea74a02447c2a3a7c07810893410', 'aa214', '18', '5fbeb7f256b44753accbe062c32d0a38', '2');
 INSERT INTO `om_paper_question` VALUES ('cb6c8d06cad04a0b9eeacab9cf444b66', '11e325f9646a46049ff2f6252ddfc8ac', 'aa77', '44', null, null);
+INSERT INTO `om_paper_question` VALUES ('cbe11253c03445aeb651ae05c018a1ad', '0d28691a21d940b1afff76d695d3ebeb', 'aa719', '34', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('cd45aacabf794cc1a28d31069f568812', 'ccceea74a02447c2a3a7c07810893410', 'a1a15d5e-764d-4cf1-a0ac-171f38178a3e', '27', '5fbeb7f256b44753accbe062c32d0a38', '2');
 INSERT INTO `om_paper_question` VALUES ('cda9f24a17824e018f7ef87f71bb6376', '0d28691a21d940b1afff76d695d3ebeb', 'aa10', '6', '98cfede57e5c41f98130619e816405ef', '2');
 INSERT INTO `om_paper_question` VALUES ('cea7cc7ad15742e481e9246f75b7fac8', '0d28691a21d940b1afff76d695d3ebeb', '888', '23', '5fbeb7f256b44753accbe062c32d0a38', '3');
+INSERT INTO `om_paper_question` VALUES ('cf77392ce74d4b5dbed7262168c0e201', 'ccceea74a02447c2a3a7c07810893410', 'aad8f05949-b1ce-4925-8413-9609f81bdaa5', '16', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('d17dee048a2941c5bda7b0bd2ae66c6e', 'ccceea74a02447c2a3a7c07810893410', 'aad65b6f5e-069b-4dbc-bebf-a67d3a003d80', '6', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('d1a1acabcb354d668ebfb6fe40c86ba7', 'ccceea74a02447c2a3a7c07810893410', 'aa938', '10', '5fbeb7f256b44753accbe062c32d0a38', '2');
+INSERT INTO `om_paper_question` VALUES ('d1accbe7dc0542b68d3080ecf809c6a5', 'ccceea74a02447c2a3a7c07810893410', '7d70f5c1-325e-437a-a99f-275c8b49fd28', '40', '5fbeb7f256b44753accbe062c32d0a38', '2');
 INSERT INTO `om_paper_question` VALUES ('d1d78f83d5fc4299a37af70893e5fbc0', '11e325f9646a46049ff2f6252ddfc8ac', 'bd9ef08ba4fb4dec94b8922e10bfa01b', '46', null, null);
 INSERT INTO `om_paper_question` VALUES ('d32e582583f54a608fe678bb060f7596', '11e325f9646a46049ff2f6252ddfc8ac', 'aa78', '45', null, null);
+INSERT INTO `om_paper_question` VALUES ('d6a12c230cba4ae3b029346695ac994e', 'ccceea74a02447c2a3a7c07810893410', '679', '40', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
 INSERT INTO `om_paper_question` VALUES ('d7d5f88301104fd59141700241bcf775', '0d28691a21d940b1afff76d695d3ebeb', 'aa531', '1', '5fbeb7f256b44753accbe062c32d0a38', '2');
+INSERT INTO `om_paper_question` VALUES ('d7feb09279c247e29823cdb0e0accacc', 'ccceea74a02447c2a3a7c07810893410', '677', '46', '5fbeb7f256b44753accbe062c32d0a38', '2');
+INSERT INTO `om_paper_question` VALUES ('da98cccb8150457da4357a83c8dc2a68', '0d28691a21d940b1afff76d695d3ebeb', '681', '15', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('dbd05c87ea45401d9e3f40694bbc6efb', 'ccceea74a02447c2a3a7c07810893410', '987', '49', '5fbeb7f256b44753accbe062c32d0a38', '2');
+INSERT INTO `om_paper_question` VALUES ('dc00eef1b9774e8e95a52d9b0153f8ef', 'ccceea74a02447c2a3a7c07810893410', 'aa6f6fe209-8397-4875-abda-2bb6c2e38799', '24', '5fbeb7f256b44753accbe062c32d0a38', '2');
+INSERT INTO `om_paper_question` VALUES ('dc32b5614a3e41f29ea671d6aae75c26', 'ccceea74a02447c2a3a7c07810893410', 'aa785', '2', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
 INSERT INTO `om_paper_question` VALUES ('dc78dee1215c4b42a44c91e260c8dec9', '0d28691a21d940b1afff76d695d3ebeb', '614', '26', '98cfede57e5c41f98130619e816405ef', '3');
+INSERT INTO `om_paper_question` VALUES ('dc87529f2ab7432fa5569a6ccb64dc71', 'ccceea74a02447c2a3a7c07810893410', 'aa746', '7', '5fbeb7f256b44753accbe062c32d0a38', '2');
 INSERT INTO `om_paper_question` VALUES ('dc995b7a45f940aeb3faa47370d855ac', '11e325f9646a46049ff2f6252ddfc8ac', 'aa37', '29', null, null);
 INSERT INTO `om_paper_question` VALUES ('dce2792e28ad48ddbc4d2ddd826f8a59', '0d28691a21d940b1afff76d695d3ebeb', 'aa994', '2', '5fbeb7f256b44753accbe062c32d0a38', '2');
 INSERT INTO `om_paper_question` VALUES ('dd69f2e73f98458cbe86e9bccb8670a6', '0d28691a21d940b1afff76d695d3ebeb', '542', '41', '98cfede57e5c41f98130619e816405ef', '2');
+INSERT INTO `om_paper_question` VALUES ('de1ab5fb8af94d0eb5b27c07f79afa17', 'ccceea74a02447c2a3a7c07810893410', '976', '41', '5fbeb7f256b44753accbe062c32d0a38', '2');
+INSERT INTO `om_paper_question` VALUES ('e2f3f91baa6f487abb6d06dbe22f1784', '0d28691a21d940b1afff76d695d3ebeb', '871', '28', '03a5bfa8a0f64326a3e0c547b4decd1e', '3');
 INSERT INTO `om_paper_question` VALUES ('e309dcb32eec479bb5ec66ebdb72d759', '0d28691a21d940b1afff76d695d3ebeb', '241', '20', '5fbeb7f256b44753accbe062c32d0a38', '2');
 INSERT INTO `om_paper_question` VALUES ('e3dc9113754441d3acc086a094e1005a', '0d28691a21d940b1afff76d695d3ebeb', '696', '19', '98cfede57e5c41f98130619e816405ef', '2');
 INSERT INTO `om_paper_question` VALUES ('e6487b14db054811a2011b36bfc24b92', '0d28691a21d940b1afff76d695d3ebeb', 'aa948', '3', '98cfede57e5c41f98130619e816405ef', '2');
+INSERT INTO `om_paper_question` VALUES ('e6dc8240d264432a95209c1c2d38816a', 'ccceea74a02447c2a3a7c07810893410', '485ab3de-5d96-4dfb-af03-f99876bfce53', '27', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('e7e0dcb8a0cc45a780658e18e579e842', 'ccceea74a02447c2a3a7c07810893410', 'aa642', '18', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('e81ef67493d345429f8532d7b18bbc14', 'ccceea74a02447c2a3a7c07810893410', 'aa742', '22', '5fbeb7f256b44753accbe062c32d0a38', '2');
 INSERT INTO `om_paper_question` VALUES ('e92adc73deaf428ca913dc0e2c3d0692', '0d28691a21d940b1afff76d695d3ebeb', 'aa719', '32', '98cfede57e5c41f98130619e816405ef', '2');
 INSERT INTO `om_paper_question` VALUES ('e971e07c3f124e90a5e2358486eae026', '0d28691a21d940b1afff76d695d3ebeb', '123', '15', '5fbeb7f256b44753accbe062c32d0a38', '2');
 INSERT INTO `om_paper_question` VALUES ('e9f708487d2347759f69d66abd7e3071', '0d28691a21d940b1afff76d695d3ebeb', 'aa1019', '5', '98cfede57e5c41f98130619e816405ef', '2');
+INSERT INTO `om_paper_question` VALUES ('ea54382ded0a45889e735a930c288f5a', '0d28691a21d940b1afff76d695d3ebeb', 'bc753181-5923-4fdf-b6d5-9da4c86731c0', '13', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('eb961922bc5d4a299e4b237179d9bd67', 'ccceea74a02447c2a3a7c07810893410', 'aa697', '1', '5fbeb7f256b44753accbe062c32d0a38', '2');
+INSERT INTO `om_paper_question` VALUES ('ebebfb08c21e4b91ab1d03707c0f1cd6', 'ccceea74a02447c2a3a7c07810893410', 'aa487', '15', '5fbeb7f256b44753accbe062c32d0a38', '2');
 INSERT INTO `om_paper_question` VALUES ('ec45e81612934a268f0e39ce2ab33517', '11e325f9646a46049ff2f6252ddfc8ac', 'd95666975143401a805d51a4bc1a4dae', '47', null, null);
 INSERT INTO `om_paper_question` VALUES ('ed63d13811fd4901af0736d309b4b615', '0d28691a21d940b1afff76d695d3ebeb', '954', '12', '98cfede57e5c41f98130619e816405ef', '2');
+INSERT INTO `om_paper_question` VALUES ('ed8025dd3d3c4c81ad852feae14265dd', 'ccceea74a02447c2a3a7c07810893410', 'aab7dd6196-a3ce-46da-88d6-6563d06229f7', '20', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('eec4abb166bd4d5c97b480834f063681', '0d28691a21d940b1afff76d695d3ebeb', '834', '22', '03a5bfa8a0f64326a3e0c547b4decd1e', '3');
 INSERT INTO `om_paper_question` VALUES ('eec9ac15c42a4e35b9224dc8e7da8155', '11e325f9646a46049ff2f6252ddfc8ac', 'aa62', '38', null, null);
 INSERT INTO `om_paper_question` VALUES ('ef1e1495077341e9b0df58eb156c3dcd', '11e325f9646a46049ff2f6252ddfc8ac', 'aa22', '16', null, null);
+INSERT INTO `om_paper_question` VALUES ('efa01baea26f401f8621295c008b2ff1', '0d28691a21d940b1afff76d695d3ebeb', 'aa479', '3', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
 INSERT INTO `om_paper_question` VALUES ('efa775a427784e5e943ba9d9d5cf9a59', '11e325f9646a46049ff2f6252ddfc8ac', 'aa60', '36', null, null);
+INSERT INTO `om_paper_question` VALUES ('f1a4d578db8f4f9c988d60cb6f09d450', '0d28691a21d940b1afff76d695d3ebeb', '738', '20', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('f30d1c5125ab4c8e8deaed1df252cf40', 'ccceea74a02447c2a3a7c07810893410', 'aa545', '25', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
 INSERT INTO `om_paper_question` VALUES ('f31cc28d6a4d4482aedf358d5d6ea8f2', '0d28691a21d940b1afff76d695d3ebeb', 'aab6711697-ca64-48f7-8f17-30d539738697', '1', '98cfede57e5c41f98130619e816405ef', '2');
+INSERT INTO `om_paper_question` VALUES ('f47cd17301c045f5a2dd7e6956ad3b83', 'ccceea74a02447c2a3a7c07810893410', '14cc7b35-8497-4465-b946-db5e9c748524', '38', '5fbeb7f256b44753accbe062c32d0a38', '2');
+INSERT INTO `om_paper_question` VALUES ('f741b5e163194fb1a44cbcb4d3830dd8', 'ccceea74a02447c2a3a7c07810893410', 'aa523', '13', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
 INSERT INTO `om_paper_question` VALUES ('f7c4ea3f3a334dca94f5d9806b3a19f5', '0d28691a21d940b1afff76d695d3ebeb', 'aa3c226303-4b49-4741-926d-d90052ff8b96', '37', '98cfede57e5c41f98130619e816405ef', '2');
+INSERT INTO `om_paper_question` VALUES ('f7ceaa6e8be945288bef621aa46a11ad', 'ccceea74a02447c2a3a7c07810893410', '24', '32', '5fbeb7f256b44753accbe062c32d0a38', '2');
 INSERT INTO `om_paper_question` VALUES ('f837f7265be841c89d5da2958143b8f2', '11e325f9646a46049ff2f6252ddfc8ac', 'aa63', '39', null, null);
 INSERT INTO `om_paper_question` VALUES ('f896078e8aa44ad0a38a14903d36c8a4', '11e325f9646a46049ff2f6252ddfc8ac', 'aa66', '41', null, null);
 INSERT INTO `om_paper_question` VALUES ('f9d024863e624a2095cf14cfde448880', '11e325f9646a46049ff2f6252ddfc8ac', 'aa21', '15', null, null);
+INSERT INTO `om_paper_question` VALUES ('f9e5ac1dfbc94a52a3872d30bd3983bc', 'ccceea74a02447c2a3a7c07810893410', '168', '28', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('fa4325bdd4a742d99a7bd371a691994c', 'ccceea74a02447c2a3a7c07810893410', 'aa688', '21', '5fbeb7f256b44753accbe062c32d0a38', '2');
+INSERT INTO `om_paper_question` VALUES ('fa6d30a7b90340aeb2c0a17ae14a3178', 'ccceea74a02447c2a3a7c07810893410', 'aa883', '10', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('faa6ab499256450e8570c153d8b25255', '0d28691a21d940b1afff76d695d3ebeb', '2641ce0f-19f5-41b5-b1c5-05d176db1e84', '11', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
 INSERT INTO `om_paper_question` VALUES ('fbeabb59122343e48f0ea191e77fa9fc', '0d28691a21d940b1afff76d695d3ebeb', 'aa8126a15f-d22b-4b7d-ac7c-3316a1e19e57', '9', '98cfede57e5c41f98130619e816405ef', '2');
+INSERT INTO `om_paper_question` VALUES ('fcfc696d193f4b1db985d84df1442b3d', 'ccceea74a02447c2a3a7c07810893410', '672', '42', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('fd3fd2bcbf574a01b70ae7d7492b6e78', 'ccceea74a02447c2a3a7c07810893410', 'aa566', '14', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
+INSERT INTO `om_paper_question` VALUES ('fe5ef370bdcb43b493aad09832df41ea', 'ccceea74a02447c2a3a7c07810893410', 'aa960', '16', '5fbeb7f256b44753accbe062c32d0a38', '2');
+INSERT INTO `om_paper_question` VALUES ('fe921a797b70498aafccc7b28de7d95c', 'ccceea74a02447c2a3a7c07810893410', 'f21fff02-b9e0-4879-8109-5745851789e7', '48', '5fbeb7f256b44753accbe062c32d0a38', '2');
+INSERT INTO `om_paper_question` VALUES ('ff1ee7e5b0e7400e85a6515202514d3f', 'ccceea74a02447c2a3a7c07810893410', 'aa520c7f02-f3e6-4b52-be41-175f87b21059', '8', '03a5bfa8a0f64326a3e0c547b4decd1e', '2');
 
 -- ----------------------------
--- Table structure for `om_permis`
+-- Table structure for om_permis
 -- ----------------------------
 DROP TABLE IF EXISTS `om_permis`;
 CREATE TABLE `om_permis` (
@@ -505,7 +776,7 @@ INSERT INTO `om_permis` VALUES ('5', '0', '测试部', '1', 'test_department', '
 INSERT INTO `om_permis` VALUES ('6', '0', '市场部', '1', 'marketing_department', '', '6', '2019-09-05 16:00:54', '2019-09-05 16:00:54');
 
 -- ----------------------------
--- Table structure for `om_question`
+-- Table structure for om_question
 -- ----------------------------
 DROP TABLE IF EXISTS `om_question`;
 CREATE TABLE `om_question` (
@@ -3218,7 +3489,7 @@ INSERT INTO `om_question` VALUES ('ff3e3fc4-ca1c-41a4-8937-f4d572cd7281', '如�
 INSERT INTO `om_question` VALUES ('ffe7a9fe-477a-42da-8cb6-81fb022825b5', '如图所示，驾驶机动车在乡间道路上行驶，以下做法正确的是什么？', '在成人和儿童之间快速通过', '连续鸣喇叭提示后通过', '从成人身后绕行', '减速鸣喇叭提示，做好随时停车准备', 'D', '2', '1', '23b83a9fe40845a48de110d090ad1a72', '科目四', null, null, '2019-12-11 10:59:33', '2019-12-11 11:01:51', '0', null, null, null, null, '1029', '在乡道上行驶，快速行车易发生交通事故；持续鸣笛很不礼貌，只需简单鸣笛提示即可，同时做好随时停车准备。\r\n');
 
 -- ----------------------------
--- Table structure for `om_question_img`
+-- Table structure for om_question_img
 -- ----------------------------
 DROP TABLE IF EXISTS `om_question_img`;
 CREATE TABLE `om_question_img` (
@@ -4487,7 +4758,7 @@ INSERT INTO `om_question_img` VALUES ('ff3e3fc4-ca1c-41a4-8937-f4d572cd7281', 'f
 INSERT INTO `om_question_img` VALUES ('ffe7a9fe-477a-42da-8cb6-81fb022825b5', 'ffe7a9fe-477a-42da-8cb6-81fb022825b5', '/upfile/picfour/2015/ffe7a9fe-477a-42da-8cb6-81fb022825b5.jpg', '0');
 
 -- ----------------------------
--- Table structure for `om_role`
+-- Table structure for om_role
 -- ----------------------------
 DROP TABLE IF EXISTS `om_role`;
 CREATE TABLE `om_role` (
@@ -4512,7 +4783,7 @@ INSERT INTO `om_role` VALUES ('6d091ac8e53d49cab5715cde3689add1', 'admin', 'admi
 INSERT INTO `om_role` VALUES ('92912d64ce584e9580a5a319578aade3', 'student_role', '学员角色', '学员角色', '2', '2019-09-18 22:37:48', null);
 
 -- ----------------------------
--- Table structure for `om_user`
+-- Table structure for om_user
 -- ----------------------------
 DROP TABLE IF EXISTS `om_user`;
 CREATE TABLE `om_user` (
@@ -4562,7 +4833,7 @@ INSERT INTO `om_user` VALUES ('d4c43f17775a44359895314576c6c542', '20190513005',
 INSERT INTO `om_user` VALUES ('da9521ccd84e4309b3802cb6668850d4', 'teacher_008', 'e10adc3949ba59abbe56e057f20f883e', '何老师', '27cd707cdde441a2bdc7ab84f7412b4b', '学兵4营13连1排4班', '学兵4营13连1排4班', '2', null, '2', '1', null, '2019-09-23 16:20:19', null);
 
 -- ----------------------------
--- Table structure for `om_user_group`
+-- Table structure for om_user_group
 -- ----------------------------
 DROP TABLE IF EXISTS `om_user_group`;
 CREATE TABLE `om_user_group` (
@@ -4580,7 +4851,7 @@ INSERT INTO `om_user_group` VALUES ('c3e70978c97f434ba3b908390c97f03c', '学兵4
 INSERT INTO `om_user_group` VALUES ('f51523ccb21b476eb06f68eff661a653', '学兵4营13连1排3班');
 
 -- ----------------------------
--- Table structure for `role_menu`
+-- Table structure for role_menu
 -- ----------------------------
 DROP TABLE IF EXISTS `role_menu`;
 CREATE TABLE `role_menu` (
@@ -4657,7 +4928,7 @@ INSERT INTO `role_menu` VALUES ('df670b0a57e34b04bdd4edca4a36e1ed', '4052fbf3080
 INSERT INTO `role_menu` VALUES ('ee4f500c73824b258f7f7e291d46ba5c', '4052fbf308014a94b6c6a298fea3c851', '9ccd572edad548d0a0eee9d5184dd6ff', '2019-09-25 16:09:24', '2019-09-25 16:09:24');
 
 -- ----------------------------
--- Table structure for `user_role`
+-- Table structure for user_role
 -- ----------------------------
 DROP TABLE IF EXISTS `user_role`;
 CREATE TABLE `user_role` (
