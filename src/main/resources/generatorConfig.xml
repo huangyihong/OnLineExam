@@ -15,7 +15,7 @@
     <sqlMapGenerator targetPackage="mapper" targetProject="onlineExam/src/main/resources" />
     <javaClientGenerator targetPackage="com.plg.shiro.dao" targetProject="onlineExam/src/main/java" type="XMLMAPPER" />
     
-    <table tableName="om_exam_plan"></table>
+    <table tableName="om_exam_plan_vo"></table>
     <!-- <table tableName="om_men" schema="" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="fasle" /> -->
     <!-- <table tableName="omuser" schema="" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="fasle" ></table> -->
     <!-- <table tableName="om_role" schema="" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="fasle" ></table> -->
