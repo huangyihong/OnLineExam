@@ -1,9 +1,9 @@
 package com.plg.shiro.controller.exam;
 
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -14,8 +14,7 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -26,11 +25,15 @@ import com.plg.shiro.entity.OmExamPlanVo;
 import com.plg.shiro.entity.OmExamSubmit;
 import com.plg.shiro.entity.OmPaper;
 import com.plg.shiro.entity.OmUser;
+import com.plg.shiro.entity.OmUserGroup;
+import com.plg.shiro.entity.Vo.OmExamSubmitExportVo;
 import com.plg.shiro.entity.Vo.OmExamSubmitVo;
 import com.plg.shiro.service.IExamAnswerService;
 import com.plg.shiro.service.IExamPlanService;
 import com.plg.shiro.service.IExamSubmitService;
 import com.plg.shiro.service.IPaperService;
+import com.plg.shiro.service.IUserGroupService;
+import com.plg.shiro.service.IUserService;
 import com.plg.shiro.util.AjaxUtil;
 import com.plg.shiro.util.DateUtil;
 import com.plg.shiro.util.ExcelUtils;
@@ -65,6 +68,12 @@ public class ExamSubmitController {
 	
 	@Resource
 	private IPaperService paperService;
+	
+	@Resource
+	private IUserService userService;
+	
+	@Resource
+	private IUserGroupService groupService;
 	
 	private static final String EXAMSUBMIT_PATH = "admin/exam/omExamSubmit/";
 	
@@ -295,12 +304,22 @@ public class ExamSubmitController {
 				wwb.close();
 				return;
 			}
-				String[] titles= new String[]{"考试名称","试卷名称","考试人员","得分","阅卷人"};
-				String[] mappingFields= new String[]{"planName","paperName","realName","totalScore","markUser"};
+				String[] titles= new String[]{"考试名称","试卷名称","考试人员(真实姓名)","考试人员(用户名)","考试人员(所属分组)","得分","阅卷人"};
+				String[] mappingFields= new String[]{"planName","paperName","realName","userName","groupName","totalScore","markUser"};
+				List<OmExamSubmitExportVo> exportList = new ArrayList<OmExamSubmitExportVo>();
 				for(int i=0;i<list.size();i++){
 					OmExamSubmitVo bean = list.get(i);
+					OmExamSubmitExportVo dataBean = new OmExamSubmitExportVo();
+					BeanUtils.copyProperties(bean,dataBean);
+					//获取考试人员所属分组和用户名
+					OmUser user = userService.selectByPrimaryKey(bean.getUserId());
+					if(user!=null) {
+						dataBean.setUserName(user.getUserName());
+						dataBean.setGroupName(user.getGroupName());
+					}
+					exportList.add(dataBean);
 				}
-				ExcelUtils.writeOneSheet(list, titles, mappingFields, "结果信息",response.getOutputStream()); 
+				ExcelUtils.writeOneSheet(exportList, titles, mappingFields, "结果信息",response.getOutputStream()); 
 			} catch (Exception e) {
 				error = e.getMessage();
 				throw e;

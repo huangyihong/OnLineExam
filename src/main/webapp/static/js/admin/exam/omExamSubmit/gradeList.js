@@ -152,20 +152,48 @@ function gradeExamFun(ids,status){
 
 //导出成绩
 function exportGrade(){
-	layer.confirm('确定根据搜索的查询内容，导出全部记录？', {
-		  btn: ['确定','取消'] //按钮
-		}, function(){
-			var url =exportGradeUrl+"?1=1";
-			var data = $('#formQuery').serializeArray();
-			$.each(data, function() {
-				var value = $.trim(this.value);
-				url +='&'+this.name+'='+value;
-			});
-			window.open(url);
-			layer.closeAll();
-		}, function(){
-			
-		});
+	var keyFiled = 'submitId';
+	var checkStatus = table.checkStatus('layuiTable')
+    ,data = checkStatus.data;
+    if(data.length=='0'){
+    	layer.confirm('确定根据搜索的查询内容，导出全部记录？', {
+  		  btn: ['确定','取消'] //按钮
+  		}, function(){
+  			var url =exportGradeUrl+"?1=1";
+  			var data = $('#formQuery').serializeArray();
+  			$.each(data, function() {
+  				var value = $.trim(this.value);
+  				url +='&'+this.name+'='+value;
+  			});
+  			window.open(url);
+  			layer.closeAll();
+  		}, function(){
+  			
+  		});
+    }else{
+    	 var ids="";
+    	 for(var i=0;i<data.length;i++){
+    	 	ids += data[i][keyFiled]+",";
+    	 }
+    	 layer.confirm('确定导出选中记录？', {
+     		  btn: ['确定','取消'] //按钮
+     		}, function(){
+     			var url =exportGradeUrl+"?1=1";
+     			var data = $('#formQuery').serializeArray();
+     			$.each(data, function() {
+     				var value = $.trim(this.value);
+     				url +='&'+this.name+'='+value;
+     			});
+     			url +='&'+keyFiled+'='+ids;
+     			window.open(url);
+     			layer.closeAll();
+     		}, function(){
+     			
+     		});
+    }
+   
+    
+	
 }
 
 

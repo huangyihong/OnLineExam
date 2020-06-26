@@ -74,6 +74,11 @@ public class LoginController {
 
 	@RequestMapping(method = { org.springframework.web.bind.annotation.RequestMethod.POST })
 	public String fail(@RequestParam("username") String username, HttpServletRequest request, Model model) {
+		Subject currentUser = SecurityUtils.getSubject();
+		OmUser omUser = (OmUser) SecurityUtils.getSubject().getSession().getAttribute("om_user");
+		if(omUser!=null&&currentUser!= null&&currentUser.isAuthenticated()){
+			return "redirect:/admin/index";
+		}
 		String msg = parseException(request);
 		model.addAttribute("msg", msg);
 		model.addAttribute("loginName", username);

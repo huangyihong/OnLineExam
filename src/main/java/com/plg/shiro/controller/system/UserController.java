@@ -22,10 +22,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.plg.shiro.entity.OmRole;
 import com.plg.shiro.entity.OmUser;
 import com.plg.shiro.entity.OmUserGroup;
-import com.plg.shiro.entity.RoleMenu;
+import com.plg.shiro.service.IRoleService;
 import com.plg.shiro.service.IUserGroupService;
+import com.plg.shiro.service.IUserRoleService;
 import com.plg.shiro.service.IUserService;
 import com.plg.shiro.util.DateUtil;
 import com.plg.shiro.util.DownloadUtils;
@@ -50,6 +52,12 @@ public class UserController {
 	
 	@Resource
 	private IUserGroupService groupService;
+	
+	@Resource
+	private IRoleService roleService;
+	
+	@Resource
+	private IUserRoleService userRoleService;
 	
 	private static final String USER_PATH = "admin/system/omUser/";
 	
@@ -321,6 +329,27 @@ public class UserController {
 			bean.setCreateTime(DateUtil.dateParse(new Date(),""));
 			addList.add(bean);
 			service.insert(bean);
+			
+			//分配角色
+			String roleCode = "admin";
+			if("1".equals(userType)) {//管理员
+				roleCode = "admin";
+			}else if("2".equals(userType)) {//教官 老师
+				roleCode = "teacher_role";
+			}else if("3".equals(userType)) {//学员
+				roleCode = "student_role";
+			}
+			//根据角色编码获取角色id
+			OmRole roleBean = roleService.selectByRoleCode(roleCode);
+			if(roleBean==null) {
+				List<OmRole> roleList = roleService.selectAll();
+				if(roleList.size()>0) {
+					roleBean = roleList.get(0);
+				}
+			}
+			if(roleBean!=null) {
+				userRoleService.saveUserRole(bean.getUserId(),roleBean.getRoleId());
+			}
 		}
 		result.setMessage("成功导入：" +addList.size()+"条数据。<br>" +message);
 	}

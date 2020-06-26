@@ -108,6 +108,7 @@ function save(){
 		userIdArr.push(data.value);
 	}); 
 	var roleId = $("#roleId").val();
+	var index = layer.load(0, {shade: [0.3,'#fff']});
 	$.ajax({
 		type:"POST", 
 		async:true, 
@@ -123,6 +124,7 @@ function save(){
             $("#btnSave").removeClass('layui-btn-disabled');// 启用
         },
 		success:function (data) {
+			layer.close(index);
 			if (data.code == "200") {
 				layer.msg('保存成功', {icon: 1});
 				parent.layer.closeAll()

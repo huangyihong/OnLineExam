@@ -203,29 +203,7 @@ public class ExamSubmitService implements IExamSubmitService {
 	public List<OmExamSubmitVo> findUserPageList(HttpServletRequest request, LayuiPage page, String status) {
 		OmExamSubmitVoExample example = new OmExamSubmitVoExample();
 		OmExamSubmitVoExample.Criteria criteria = example.createCriteria();
-		if(StringUtils.isNotBlank(status)){
-			criteria.andStatusIn(Arrays.asList(status.split(",")));
-		}
-		String planId = request.getParameter("planId");
-		if(StringUtils.isNotBlank(planId)){
-			criteria.andPlanIdEqualTo(planId);
-		}
-		String planName = request.getParameter("planName");
-		if(StringUtils.isNotBlank(planName)){
-			criteria.andPlanNameLike("%"+planName+"%");
-		}
-		String paperName = request.getParameter("paperName");
-		if(StringUtils.isNotBlank(paperName)){
-			criteria.andPaperNameLike("%"+paperName+"%");
-		}
-		String realName = request.getParameter("realName");
-		if(StringUtils.isNotBlank(realName)){
-			criteria.andRealNameLike("%"+realName+"%");
-		}
-//		String planStatus = request.getParameter("plan_status");
-//		if(StringUtils.isNotBlank(planStatus)){
-//			criteria.andPlanStatusIn(Arrays.asList(planStatus.split(",")));
-//		}
+		queryCommon(request, status, criteria);
 		example.setLimitPageSize(page.getLimit());
 		example.setLimitStart(page.limitStart());
 		page.setTotalCount(omExamSubmitVoMapper.countByExample(example));
@@ -258,6 +236,27 @@ public class ExamSubmitService implements IExamSubmitService {
 	public List<OmExamSubmitVo> getList(HttpServletRequest request,String status) {
 		OmExamSubmitVoExample example = new OmExamSubmitVoExample();
 		OmExamSubmitVoExample.Criteria criteria = example.createCriteria();
+		queryCommon(request, status, criteria);
+		example.setOrderByClause("START_TIME desc");
+		if("3,4".equals(status)){//发布成绩页面
+			example.setOrderByClause("status,START_TIME desc");
+		}
+		return omExamSubmitVoMapper.selectByExample(example);
+	}
+
+	private void queryCommon(HttpServletRequest request, String status, OmExamSubmitVoExample.Criteria criteria) {
+		String submitId = request.getParameter("submitId");
+		if(StringUtils.isNotBlank(submitId)){
+			criteria.andSubmitIdIn(Arrays.asList(submitId.split(",")));
+		}
+		String paperId = request.getParameter("paperId");
+		if(StringUtils.isNotBlank(paperId)){
+			criteria.andPaperIdEqualTo(paperId);
+		}
+		String planId = request.getParameter("planId");
+		if(StringUtils.isNotBlank(planId)){
+			criteria.andPlanIdEqualTo(planId);
+		}
 		String planName = request.getParameter("planName");
 		if(StringUtils.isNotBlank(planName)){
 			criteria.andPlanNameLike("%"+planName+"%");
@@ -273,11 +272,6 @@ public class ExamSubmitService implements IExamSubmitService {
 		if(StringUtils.isNotBlank(status)){
 			criteria.andStatusIn(Arrays.asList(status.split(",")));
 		}
-		example.setOrderByClause("START_TIME desc");
-		if("3,4".equals(status)){//发布成绩页面
-			example.setOrderByClause("status,START_TIME desc");
-		}
-		return omExamSubmitVoMapper.selectByExample(example);
 	}
 	
 	@Override
