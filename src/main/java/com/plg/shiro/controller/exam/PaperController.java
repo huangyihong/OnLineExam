@@ -308,8 +308,8 @@ public class PaperController {
   			request.setAttribute("plan", plan);
   			//及格分
   			OmExamPlanVo planVo= planService.selectVoByPrimaryKey(planId);
-  			int paperScore = planVo.getPaperScore();//总分数
   			int passingScore = planVo.getPassingScore();//及格分数
+  			int paperScore = planVo.getPaperScore();//总分数
   			String passingType = planVo.getPassingType();
   			if("2".equals(passingType)){//百分比
   				 passingScore =Math.round((paperScore*passingScore)/100);

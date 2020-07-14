@@ -17,9 +17,11 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
+import com.plg.shiro.dao.OmExamAnswerMapper;
 import com.plg.shiro.dao.OmExamSubmitMapper;
 import com.plg.shiro.dao.OmExamSubmitVoMapper;
 import com.plg.shiro.entity.OmExamAnswer;
+import com.plg.shiro.entity.OmExamAnswerExample;
 import com.plg.shiro.entity.OmExamPlan;
 import com.plg.shiro.entity.OmExamSubmit;
 import com.plg.shiro.entity.OmExamSubmitExample;
@@ -31,9 +33,11 @@ import com.plg.shiro.entity.Vo.OmExamSubmitVo;
 import com.plg.shiro.entity.Vo.OmExamSubmitVoExample;
 import com.plg.shiro.entity.Vo.OmQuestionVo;
 import com.plg.shiro.service.IExamAnswerService;
+import com.plg.shiro.service.IExamPlanService;
 import com.plg.shiro.service.IExamSubmitService;
 import com.plg.shiro.service.IExamUserService;
 import com.plg.shiro.service.IQuestionService;
+import com.plg.shiro.service.IUserService;
 import com.plg.shiro.util.DateUtil;
 import com.plg.shiro.util.dwz.LayuiPage;
 
@@ -55,6 +59,15 @@ public class ExamSubmitService implements IExamSubmitService {
 	
 	@Resource
 	private IQuestionService questionService;
+	
+	@Resource
+	private IExamPlanService planService;
+	
+	@Resource
+	private OmExamAnswerMapper omExamAnswerMapper;
+	
+	@Resource
+	private IUserService omUserService;
 
 	@Resource
 	private JdbcTemplate jdbcTemplate;
@@ -120,7 +133,12 @@ public class ExamSubmitService implements IExamSubmitService {
 		example.setLimitStart(page.limitStart());
 		example.setOrderByClause("START_TIME desc");
 		page.setTotalCount(omExamSubmitVoMapper.countByExample(example));
-		return omExamSubmitVoMapper.selectByExample(example);
+		List<OmExamSubmitVo> list =  omExamSubmitVoMapper.selectByExample(example);
+		for(OmExamSubmitVo bean:list) {
+			setBeanValue(bean);
+		}
+		return list;
+		//return omExamSubmitVoMapper.selectByExample(example);
 	}
 	
 	@Override
@@ -130,7 +148,10 @@ public class ExamSubmitService implements IExamSubmitService {
 		criteria.andPlanIdEqualTo(planId);
 		criteria.andPaperIdEqualTo(paperId);
 		criteria.andUserIdEqualTo(userId);
-		List<OmExamSubmitVo> list = omExamSubmitVoMapper.selectByExample(example);
+		List<OmExamSubmitVo> list =  omExamSubmitVoMapper.selectByExample(example);
+		for(OmExamSubmitVo bean:list) {
+			setBeanValue(bean);
+		}
 		if(list.size()>0){
 			return list.get(0);
 		}
@@ -175,11 +196,38 @@ public class ExamSubmitService implements IExamSubmitService {
 			example.setLimitStart(page.limitStart());
 			example.setOrderByClause("START_TIME desc");
 			page.setTotalCount(omExamSubmitVoMapper.countByExample(example));
-			return omExamSubmitVoMapper.selectByExample(example);
+			
+			List<OmExamSubmitVo> list =  omExamSubmitVoMapper.selectByExample(example);
+			for(OmExamSubmitVo bean:list) {
+				setBeanValue(bean);
+			}
+			return list;
 		}else{
 			return null;
 		}
 		
+	}
+
+	private void setBeanValue(OmExamSubmitVo bean) {
+		//查询plan_name
+		OmExamPlan planBean = planService.selectByPrimaryKey(bean.getPlanId());
+		if(planBean!=null) {
+			bean.setPlanName(planBean.getPlanName());;
+		}
+		//查询real_name
+		OmUser userBean = omUserService.selectByPrimaryKey(bean.getUserId());
+		if(userBean!=null) {
+			bean.setRealName(userBean.getRealName());
+		}
+		//查询user_answer_count
+		OmExamAnswerExample exampleAnswer = new OmExamAnswerExample();
+		OmExamAnswerExample.Criteria criteria1 = exampleAnswer.createCriteria();
+		criteria1.andUserIdEqualTo(bean.getUserId());
+		criteria1.andPlanIdEqualTo(bean.getPlanId());
+		criteria1.andPaperIdEqualTo(bean.getPaperId());
+		criteria1.andAnswerResultIsNotNull();
+		List<OmExamAnswer> listAnswer = omExamAnswerMapper.selectByExample(exampleAnswer);
+		bean.setUserAnswerCount(listAnswer.size());
 	}
 
 	@Override
@@ -213,7 +261,12 @@ public class ExamSubmitService implements IExamSubmitService {
 		if("1,2".equals(status)){//监控页面
 			example.setOrderByClause("user_answer_count desc,START_TIME desc");
 		}
-		return omExamSubmitVoMapper.selectByExample(example);
+		List<OmExamSubmitVo> list =  omExamSubmitVoMapper.selectByExample(example);
+		for(OmExamSubmitVo bean:list) {
+			setBeanValue(bean);
+		}
+		return list;
+		//return omExamSubmitVoMapper.selectByExample(example);
 		
 	}
 
@@ -241,7 +294,12 @@ public class ExamSubmitService implements IExamSubmitService {
 		if("3,4".equals(status)){//发布成绩页面
 			example.setOrderByClause("status,START_TIME desc");
 		}
-		return omExamSubmitVoMapper.selectByExample(example);
+		List<OmExamSubmitVo> list =  omExamSubmitVoMapper.selectByExample(example);
+		for(OmExamSubmitVo bean:list) {
+			setBeanValue(bean);
+		}
+		return list;
+		//return omExamSubmitVoMapper.selectByExample(example);
 	}
 
 	private void queryCommon(HttpServletRequest request, String status, OmExamSubmitVoExample.Criteria criteria) {
@@ -301,7 +359,12 @@ public class ExamSubmitService implements IExamSubmitService {
 		if("3,4".equals(status)){//发布成绩页面
 			example.setOrderByClause("status,START_TIME desc");
 		}
-		return omExamSubmitVoMapper.selectByExample(example);
+		List<OmExamSubmitVo> list =  omExamSubmitVoMapper.selectByExample(example);
+		for(OmExamSubmitVo bean:list) {
+			setBeanValue(bean);
+		}
+		return list;
+		//return omExamSubmitVoMapper.selectByExample(example);
 	}
 	
 	@Override

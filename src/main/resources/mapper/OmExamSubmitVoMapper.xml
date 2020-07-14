@@ -64,10 +64,10 @@
     <include refid="Base_Column_List" />
     from (
 	    select t.*
-		,(select t1.plan_name from om_exam_plan t1 where t1.plan_id=t.plan_id) as plan_name 
-		,(select t1.paper_name from om_paper t1 where t1.paper_id=t.paper_id) as paper_name 
-		,(select t1.real_name from om_user t1 where t1.user_id=t.user_id) as real_name 
-		,(select count(1) from om_exam_answer t1 where t1.user_id = t.user_id and t1.plan_id=t.plan_id and t1.paper_id=t.paper_id and t1.answer_result is not null) as user_answer_count
+		,'' as plan_name 
+		, paper_name 
+		,'' as real_name 
+		,0 as user_answer_count
 		,(select t1.single_count+t1.multi_count+t1.judge_count+t1.blank_count+t1.answer_count from om_paper t1 where t1.paper_id=t.paper_id) as paper_count 
 		from om_exam_submit t, om_paper t1 where t.paper_id=t1.paper_id and  t1.deleted='0'
 	 ) as t
@@ -86,10 +86,10 @@
     <include refid="Base_Column_List" />
     from (
 	    select t.*
-		,(select t1.plan_name from om_exam_plan t1 where t1.plan_id=t.plan_id) as plan_name 
-		,(select t1.paper_name from om_paper t1 where t1.paper_id=t.paper_id) as paper_name 
-		,(select t1.real_name from om_user t1 where t1.user_id=t.user_id) as real_name 
-		,(select count(1) from om_exam_answer t1 where t1.user_id = t.user_id and t1.plan_id=t.plan_id and t1.paper_id=t.paper_id and t1.answer_result is not null) as user_answer_count
+		,'' as plan_name 
+		, paper_name 
+		,'' as real_name 
+		,0 as user_answer_count
 		,(select t1.single_count+t1.multi_count+t1.judge_count+t1.blank_count+t1.answer_count from om_paper t1 where t1.paper_id=t.paper_id) as paper_count
 		from om_exam_submit t, om_paper t1 where t.paper_id=t1.paper_id and  t1.deleted='0'
 	 ) as t
@@ -98,11 +98,6 @@
   <select id="countByExample" parameterType="com.plg.shiro.entity.Vo.OmExamSubmitVoExample" resultType="java.lang.Long">
     select count(*) from (
 	    select t.*
-		,(select t1.plan_name from om_exam_plan t1 where t1.plan_id=t.plan_id) as plan_name 
-		,(select t1.paper_name from om_paper t1 where t1.paper_id=t.paper_id) as paper_name 
-		,(select t1.real_name from om_user t1 where t1.user_id=t.user_id) as real_name 
-		,(select count(1) from om_exam_answer t1 where t1.user_id = t.user_id and t1.plan_id=t.plan_id and t1.paper_id=t.paper_id and t1.answer_result is not null) as user_answer_count
-		,(select t1.single_count+t1.multi_count+t1.judge_count+t1.blank_count+t1.answer_count from om_paper t1 where t1.paper_id=t.paper_id) as paper_count
 		from om_exam_submit t, om_paper t1 where t.paper_id=t1.paper_id and  t1.deleted='0'
 	 ) as t
     <if test="_parameter != null">
